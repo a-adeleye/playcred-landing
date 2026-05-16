@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Play Sports for Free | PlayCred for Players</title>
+  <meta name="description"
+    content="Watch short ads to earn credits and book football pitches, basketball courts, padel, and tennis venues for free. Join the PlayCred community today.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&family=Inter:wght@400;500;700&display=swap"
+    rel="stylesheet">
+  <script>
+    (function () {
+      var storageKey = 'playcred-theme';
+      var darkTheme = 'dark';
+      var lightTheme = 'light';
+      var root = document.documentElement;
+      var theme = null;
+
+      try {
+        var storedTheme = window.localStorage.getItem(storageKey);
+        if (storedTheme === darkTheme || storedTheme === lightTheme) {
+          theme = storedTheme;
+        }
+      } catch (error) { }
+
+      if (!theme) {
+        theme = darkTheme;
+      }
+
+      root.dataset.theme = theme;
+      root.style.colorScheme = theme;
+    }());
+  </script>
+
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .step-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3rem;
+      margin-top: 4rem;
+    }
+
+    .step-card {
+      text-align: center;
+    }
+
+    .step-number {
+      width: 60px;
+      height: 60px;
+      background: var(--pc-primary);
+      color: #020604;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin: 0 auto 2rem;
+    }
+
+    .step-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .step-card p {
+      color: var(--pc-text-muted);
+      line-height: 1.6;
+    }
+
+    @media (max-width: 768px) {
+      .step-grid {
+        grid-template-columns: 1fr;
+        gap: 4rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="header">
+    <div class="container header-content">
+      <a href="../" class="brand">
+        <img src="https://cdn.playcred.ae/playcred-logo.webp" alt="PlayCred Logo">
+        <span>PlayCred</span>
+      </a>
+      <nav class="nav">
+        <a href="../players/" class="nav-link">For Players</a>
+        <a href="../advertisers/" class="nav-link">For Advertisers</a>
+        <a href="../about/" class="nav-link">About</a>
+        <a href="../pricing/" class="nav-link">Pricing</a>
+        <a href="https://playcred-player.web.app/app" class="btn btn--primary" style="margin-top: 1rem; width: 100%;">Launch App</a>
+      </nav>
+      <div class="header-actions">
+        <a href="https://playcred-player.web.app/app" class="btn btn--primary">Launch App</a>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Toggle theme">
+          <span class="theme-toggle__icons" aria-hidden="true">
+            <svg class="theme-toggle__icon theme-toggle__icon--sun" xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <circle cx="12" cy="12" r="4"></circle>
+              <path d="M12 2v2"></path>
+              <path d="M12 20v2"></path>
+              <path d="m4.93 4.93 1.41 1.41"></path>
+              <path d="m17.66 17.66 1.41 1.41"></path>
+              <path d="M2 12h2"></path>
+              <path d="M20 12h2"></path>
+              <path d="m6.34 17.66-1.41 1.41"></path>
+              <path d="m19.07 4.93-1.41 1.41"></path>
+            </svg>
+            <svg class="theme-toggle__icon theme-toggle__icon--moon" xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M12 3a9 9 0 1 0 9 9c0-.4 0-.79-.06-1.18A7 7 0 0 1 12 3z"></path>
+            </svg>
+          </span>
+        </button>
+      </div>
+      <button class="menu-toggle" aria-label="Toggle Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="player-hero reveal">
+      <div class="container player-hero__layout">
+        <div class="player-hero__copy">
+          <span class="hero-pill">
+            <span class="hero-pill__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+                class="lucide header-credits-icon">
+                <path
+                  d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"
+                  key="1xq2db"></path>
+              </svg>
+            </span>
+            <span>WATCH &bull; EARN &bull; PLAY</span>
+          </span>
+          <h1>Turn attention into <span class="text-primary">rewards.</span></h1>
+          <p class="player-hero__lede">
+            Watch ads, earn credits, and book real games instantly.
+          </p>
+          <div class="player-hero__actions">
+            <a href="https://playcred-player.web.app/app" class="btn btn--primary btn--xl">Start Earning <span aria-hidden="true">&rarr;</span></a>
+            <a href="#how-it-works" class="btn btn--ghost btn--xl">How it works <span
+                aria-hidden="true">&rarr;</span></a>
+          </div>
+
+          <div class="hero-features" aria-label="Platform benefits">
+            <article class="hero-feature">
+              <div class="hero-feature__icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  aria-hidden="true">
+                  <polygon points="5 3 19 12 5 21 5 3" />
+                </svg>
+              </div>
+              <h3>Watch Ads</h3>
+              <p>Watch short ads and earn credits</p>
+            </article>
+            <article class="hero-feature">
+              <div class="hero-feature__icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  aria-hidden="true">
+                  <ellipse cx="12" cy="5" rx="9" ry="3" />
+                  <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" />
+                  <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
+                </svg>
+              </div>
+              <h3>Earn Credits</h3>
+              <p>Collect credits for every ad</p>
+            </article>
+            <article class="hero-feature">
+              <div class="hero-feature__icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  aria-hidden="true">
+                  <line x1="6" y1="12" x2="10" y2="12" />
+                  <line x1="8" y1="10" x2="8" y2="14" />
+                  <line x1="15" y1="13" x2="15.01" y2="13" />
+                  <line x1="18" y1="11" x2="18.01" y2="11" />
+                  <rect x="2" y="6" width="20" height="12" rx="2" />
+                </svg>
+              </div>
+              <h3>Book Games</h3>
+              <p>Use credits to book real games</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="how-it-works" class="player-steps">
+      <div class="container">
+        <div style="text-align: center; max-width: 600px; margin: 0 auto 4rem;" class="reveal">
+          <span class="section-label">The Process</span>
+          <h2>3 Steps to the field.</h2>
+          <p style="color: var(--pc-text-muted); margin-top: 1rem;">We've simplified the journey from app to stadium. No
+            wallets required.</p>
+        </div>
+
+        <div class="step-grid">
+          <article class="step-card reveal" style="transition-delay: 0.1s;">
+            <div class="step-number">1</div>
+            <h3>Earn Credits</h3>
+            <p>Watch short, relevant sponsor messages whenever you have 30 seconds to spare. Each view adds a credit to
+              your balance.</p>
+          </article>
+
+          <article class="step-card reveal" style="transition-delay: 0.2s;">
+            <div class="step-number">2</div>
+            <h3>Select Venue</h3>
+            <p>Browse top-rated sports venues across Dubai and the UAE. Pick a sport, a date, and a time that fits your
+              team's schedule.</p>
+          </article>
+
+          <article class="step-card reveal" style="transition-delay: 0.3s;">
+            <div class="step-number">3</div>
+            <h3>Instant Booking</h3>
+            <p>Redeem your credits for the slot. Get your booking code instantly and show it at the field. It's time to
+              play!</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="container" style="text-align: center;">
+      <div class="reveal" style="padding: 3rem;">
+        <span class="section-label">Get the app</span>
+        <h2 style="font-size: 3rem; margin: 1rem 0;">Level up your game today.</h2>
+        <p style="color: var(--pc-text-muted); max-width: 500px; margin: 0 auto 3rem;">Download PlayCred and start
+          earning your next match right now.</p>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+          <a href="https://playcred-player.web.app/app" class="btn btn--primary btn--xl">Open Web App</a>
+          <a href="#" class="btn btn--secondary">iOS (Coming Soon)</a>
+          <a href="#" class="btn btn--secondary">Android (Coming Soon)</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="../" class="brand" style="margin-bottom: 1.5rem;">
+            <img src="https://cdn.playcred.ae/playcred-logo.webp" alt="PlayCred Logo">
+          </a>
+          <p style="color: var(--pc-text-muted); max-width: 300px;">The sports venue booking platform that rewards
+            players and empowers brands.</p>
+        </div>
+        <div>
+          <h4 style="margin-bottom: 1.5rem;">Platform</h4>
+          <ul
+            style="list-style: none; display: flex; flex-direction: column; gap: 0.75rem; color: var(--pc-text-muted);">
+            <li><a href="../players/">For Players</a></li>
+            <li><a href="../advertisers/">For Advertisers</a></li>
+            <li><a href="../pricing/">Pricing</a></li>
+            <li><a href="https://playcred-player.web.app/app">Launch App</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 style="margin-bottom: 1.5rem;">Company</h4>
+          <ul
+            style="list-style: none; display: flex; flex-direction: column; gap: 0.75rem; color: var(--pc-text-muted);">
+            <li><a href="../about/">About Us</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Legal</a></li>
+            <li><a href="#">Privacy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 PlayCred. All rights reserved.</span>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/play_cred" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+            </svg>
+          </a>
+          <a href="https://www.linkedin.com/company/playcred-sport-fze/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+              <rect x="2" y="9" width="4" height="12"></rect>
+              <circle cx="4" cy="4" r="2"></circle>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+
+</html>

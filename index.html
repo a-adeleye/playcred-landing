@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PlayCred | Play Sports for Free - Earn & Advertise</title>
+  <meta name="description"
+    content="PlayCred is the ultimate bridge between sports and brands. Earn credits by watching ads to book your favorite sports venues for free, or advertise your brand to a focused athletic audience.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Matter:wght@400;600;800&family=Inter:wght@400;500;700&display=swap"
+    rel="stylesheet">
+  <script>
+    (function () {
+      var storageKey = 'playcred-theme';
+      var darkTheme = 'dark';
+      var lightTheme = 'light';
+      var root = document.documentElement;
+      var theme = null;
+
+      try {
+        var storedTheme = window.localStorage.getItem(storageKey);
+        if (storedTheme === darkTheme || storedTheme === lightTheme) {
+          theme = storedTheme;
+        }
+      } catch (error) { }
+
+      if (!theme) {
+        theme = darkTheme;
+      }
+
+      root.dataset.theme = theme;
+      root.style.colorScheme = theme;
+    }());
+  </script>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="./css/style.css">
+  <style>
+    .hero {
+      padding-top: 10rem;
+      padding-bottom: 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-glow {
+      position: absolute;
+      top: -10%;
+      right: -10%;
+      width: 50%;
+      height: 50%;
+      background: radial-gradient(circle, rgba(34, 197, 94, 0.15) 0%, transparent 70%);
+      filter: blur(80px);
+      z-index: -1;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: clamp(3rem, 8vw, 5.5rem);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      color: var(--pc-text-muted);
+      max-width: 600px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.6;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    /* Choice Section */
+    .choice-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 4rem;
+    }
+
+    .choice-card {
+      background: var(--pc-bg-card);
+      border: 1px solid var(--pc-border-light);
+      border-radius: var(--pc-radius-lg);
+      padding: 3rem;
+      text-align: left;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .choice-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(34, 197, 94, 0.3);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+    }
+
+    .choice-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at top right, rgba(34, 197, 94, 0.1), transparent 50%);
+      pointer-events: none;
+    }
+
+    .choice-icon {
+      width: 56px;
+      height: 56px;
+      background: rgba(34, 197, 94, 0.1);
+      border-radius: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--pc-primary);
+      margin-bottom: 2rem;
+    }
+
+    .choice-card h2 {
+      font-size: 2.25rem;
+      margin-bottom: 1rem;
+    }
+
+    .choice-card p {
+      color: var(--pc-text-muted);
+      margin-bottom: 2.5rem;
+      font-size: 1.1rem;
+    }
+
+    /* Trusted By */
+    .trusted-by {
+      padding: 4rem 0;
+      border-top: 1px solid var(--pc-border-light);
+      border-bottom: 1px solid var(--pc-border-light);
+      text-align: center;
+    }
+
+    .trusted-by p {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--pc-text-muted);
+      margin-bottom: 2rem;
+    }
+
+    .logos {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4rem;
+      opacity: 0.5;
+      filter: grayscale(1);
+    }
+
+    .logos h3 {
+      font-weight: 600;
+      letter-spacing: 0.1em;
+    }
+
+    .logos img {
+      height: 30px;
+    }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+      .choice-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: clamp(2.5rem, 10vw, 4rem);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero-actions {
+        flex-direction: column;
+      }
+
+      .hero-actions .btn {
+        width: 100%;
+      }
+
+      .choice-card {
+        padding: 2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="header">
+    <div class="container header-content">
+      <a href="/" class="brand">
+        <img src="https://cdn.playcred.ae/playcred-logo.webp" alt="PlayCred Logo">
+        <span>PlayCred</span>
+      </a>
+      <nav class="nav">
+        <a href="./players/" class="nav-link">For Players</a>
+        <a href="./advertisers/" class="nav-link">For Advertisers</a>
+        <a href="./about/" class="nav-link">About</a>
+        <a href="./pricing/" class="nav-link">Pricing</a>
+        <a href="/app" class="btn btn--primary" style="margin-top: 1rem; width: 100%;">Launch App</a>
+      </nav>
+      <div class="header-actions">
+        <a href="/app" class="btn btn--primary">Launch App</a>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Toggle theme">
+          <span class="theme-toggle__icons" aria-hidden="true">
+            <svg class="theme-toggle__icon theme-toggle__icon--sun" xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <circle cx="12" cy="12" r="4"></circle>
+              <path d="M12 2v2"></path>
+              <path d="M12 20v2"></path>
+              <path d="m4.93 4.93 1.41 1.41"></path>
+              <path d="m17.66 17.66 1.41 1.41"></path>
+              <path d="M2 12h2"></path>
+              <path d="M20 12h2"></path>
+              <path d="m6.34 17.66-1.41 1.41"></path>
+              <path d="m19.07 4.93-1.41 1.41"></path>
+            </svg>
+            <svg class="theme-toggle__icon theme-toggle__icon--moon" xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M12 3a9 9 0 1 0 9 9c0-.4 0-.79-.06-1.18A7 7 0 0 1 12 3z"></path>
+            </svg>
+          </span>
+        </button>
+      </div>
+      <button class="menu-toggle" aria-label="Toggle Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-glow"></div>
+      <div class="container">
+        <div class="hero-content reveal">
+          <span class="section-label">Play. Earn. Grow.</span>
+          <h1>The Arena where Brands <span class="text-primary">Meet Players.</span></h1>
+          <p>The sports venue booking platform that rewards you. Earn credits, book games for free, and connect with
+            brands in the most athletic environment ever built.</p>
+          <div class="hero-actions">
+            <a href="#discover" class="btn btn--primary">Get Started</a>
+            <a href="/about" class="btn btn--secondary">How it works</a>
+          </div>
+        </div>
+
+        <div id="discover" class="choice-grid reveal" style="transition-delay: 0.2s;">
+          <!-- Player Path -->
+          <article class="choice-card">
+            <div class="choice-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m21 16-4 4-4-4" />
+                <path d="M17 20V4" />
+                <path d="m3 8 4-4 4 4" />
+                <path d="M7 4v16" />
+              </svg>
+            </div>
+            <h2>I'm a Player</h2>
+            <p>Ready to hit the field? Watch quick ads to earn credits and book football, basketball, padel, or tennis
+              courts for free.</p>
+            <ul style="list-style: none; margin-bottom: 2rem; color: var(--pc-text-muted);">
+              <li style="margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                  stroke="var(--pc-primary)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                Book top-tier venues for free
+              </li>
+              <li style="margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                  stroke="var(--pc-primary)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                Earn credits on your schedule
+              </li>
+              <li style="margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                  stroke="var(--pc-primary)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                Real-time booking confirmations
+              </li>
+            </ul>
+            <a href="/players" class="btn btn--outline" style="width: 100%;">Explore Player Options</a>
+          </article>
+
+          <!-- Advertiser Path -->
+          <article class="choice-card">
+            <div class="choice-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" />
+                <path
+                  d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z" />
+                <path d="M9 12H4s.55-3.03 2-4.5c1.62-1.63 5-4.5 5-4.5" />
+                <path d="M12 15v5s3.03-.55 4.5-2c1.63-1.62 4.5-5 4.5-5" />
+              </svg>
+            </div>
+            <h2>I'm an Advertiser</h2>
+            <p>Looking for your audience? Reach players at their peak engagement through rewarded placements and branded
+              experiences.</p>
+            <ul style="list-style: none; margin-bottom: 2rem; color: var(--pc-text-muted);">
+              <li style="margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                  stroke="var(--pc-primary)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                100% video completion rates
+              </li>
+              <li style="margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                  stroke="var(--pc-primary)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                Focused sports environment
+              </li>
+              <li style="margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                  stroke="var(--pc-primary)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                Measurable performance dashboard
+              </li>
+            </ul>
+            <a href="/advertisers" class="btn btn--outline" style="width: 100%;">Build Campaign</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <div class="trusted-by">
+      <div class="container">
+        <p>Fueling the local sports ecosystem</p>
+        <div class="logos">
+          <!-- Placeholder logos -->
+          <h3 style="opacity: 0.6;">NIKE</h3>
+          <h3 style="opacity: 0.6;">ADIDAS</h3>
+          <h3 style="opacity: 0.6;">PUMA</h3>
+          <h3 style="opacity: 0.6;">WILSON</h3>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="/" class="brand" style="margin-bottom: 1.5rem;">
+            <img src="https://cdn.playcred.ae/playcred-logo.webp" alt="PlayCred Logo">
+            <span>PlayCred</span>
+          </a>
+          <p style="color: var(--pc-text-muted); max-width: 300px;">The sports venue booking platform that rewards
+            players and empowers brands.</p>
+        </div>
+        <div>
+          <h4 style="margin-bottom: 1.5rem;">Platform</h4>
+          <ul
+            style="list-style: none; display: flex; flex-direction: column; gap: 0.75rem; color: var(--pc-text-muted);">
+            <li><a href="/players">For Players</a></li>
+            <li><a href="/advertisers">For Advertisers</a></li>
+            <li><a href="/pricing">Pricing</a></li>
+            <li><a href="/app/player">Launch App</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 style="margin-bottom: 1.5rem;">Company</h4>
+          <ul
+            style="list-style: none; display: flex; flex-direction: column; gap: 0.75rem; color: var(--pc-text-muted);">
+            <li><a href="/about">About Us</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Legal</a></li>
+            <li><a href="#">Privacy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 PlayCred. All rights reserved.</span>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/play_cred" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+            </svg>
+          </a>
+          <a href="https://www.linkedin.com/company/playcred-sport-fze/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+              <rect x="2" y="9" width="4" height="12"></rect>
+              <circle cx="4" cy="4" r="2"></circle>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./js/main.js"></script>
+</body>
+
+</html>

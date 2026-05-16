@@ -1,0 +1,8 @@
+{
+  "name": "playcred-landing",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "node scripts/configure-app-links.cjs production"
+  }
+}
