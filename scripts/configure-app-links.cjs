@@ -22,9 +22,10 @@ const knownAdvertiserBaseUrls = Object.values(environments).map(
 );
 
 const publicPages = [
+  'index.html',
+  'about/index.html',
   'players/index.html',
   'advertisers/index.html',
-  'pricing/index.html',
 ];
 
 const requestedEnvironment = process.argv[2];
