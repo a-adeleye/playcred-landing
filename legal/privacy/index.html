@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy | PlayCred</title>
+  <meta name="description" content="PlayCred privacy policy covering data collection, use, sharing, retention, and rights.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&family=Inter:wght@400;500;700&display=swap"
+    rel="stylesheet">
+  <script>
+    (function () {
+      var storageKey = 'playcred-theme';
+      var darkTheme = 'dark';
+      var lightTheme = 'light';
+      var root = document.documentElement;
+      var theme = null;
+
+      try {
+        var storedTheme = window.localStorage.getItem(storageKey);
+        if (storedTheme === darkTheme || storedTheme === lightTheme) {
+          theme = storedTheme;
+        }
+      } catch (error) { }
+
+      if (!theme) {
+        theme = darkTheme;
+      }
+
+      root.dataset.theme = theme;
+      root.style.colorScheme = theme;
+    }());
+  </script>
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body class="legal-page">
+  <header class="header">
+    <div class="container header-content">
+      <a href="../../" class="brand">
+        <img src="https://cdn.playcred.ae/playcred-logo.webp" alt="PlayCred Logo">
+        <span>PlayCred</span>
+      </a>
+      <nav class="nav">
+        <a href="../../players/" class="nav-link">For Players</a>
+        <a href="../../advertisers/" class="nav-link">For Advertisers</a>
+        <a href="../../about/" class="nav-link">About</a>
+        <a href="https://playcred-player.web.app/app" class="btn btn--primary" style="margin-top: 1rem; width: 100%;">Launch App</a>
+      </nav>
+      <div class="header-actions">
+        <a href="https://playcred-player.web.app/app" class="btn btn--primary">Launch App</a>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Toggle theme">
+          <span class="theme-toggle__icons" aria-hidden="true">
+            <svg class="theme-toggle__icon theme-toggle__icon--sun" xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <circle cx="12" cy="12" r="4"></circle>
+              <path d="M12 2v2"></path>
+              <path d="M12 20v2"></path>
+              <path d="m4.93 4.93 1.41 1.41"></path>
+              <path d="m17.66 17.66 1.41 1.41"></path>
+              <path d="M2 12h2"></path>
+              <path d="M20 12h2"></path>
+              <path d="m6.34 17.66-1.41 1.41"></path>
+              <path d="m19.07 4.93-1.41 1.41"></path>
+            </svg>
+            <svg class="theme-toggle__icon theme-toggle__icon--moon" xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M12 3a9 9 0 1 0 9 9c0-.4 0-.79-.06-1.18A7 7 0 0 1 12 3z"></path>
+            </svg>
+          </span>
+        </button>
+      </div>
+      <button class="menu-toggle" aria-label="Toggle Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="legal-hero">
+      <div class="container legal-hero__inner reveal">
+        <span class="section-label">Privacy Policy</span>
+        <h1>How PlayCred uses and protects personal data.</h1>
+        <p class="legal-hero__lede">
+          This policy explains what personal data PlayCred may collect, how it uses that information, when it shares
+          it, how long it keeps it, and what rights users may have.
+        </p>
+        <div class="legal-meta">
+          <span class="legal-chip">Last updated 19 May 2026</span>
+          <span class="legal-chip">Users must be 18+</span>
+          <span class="legal-chip">Privacy email: info@playcred.ae</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="container legal-layout" id="top">
+      <aside class="legal-nav">
+        <h2>On this page</h2>
+        <ul>
+          <li><a href="#collect">What we collect</a></li>
+          <li><a href="#use">How we use it</a></li>
+          <li><a href="#share">Sharing and transfers</a></li>
+          <li><a href="#rights">Your rights</a></li>
+          <li><a href="#security">Security and retention</a></li>
+          <li><a href="#contact">Contact and changes</a></li>
+        </ul>
+      </aside>
+
+      <div class="legal-content">
+        <section class="legal-section reveal" id="collect">
+          <h2>1. What PlayCred collects</h2>
+          <p>Depending on how you use the platform, PlayCred may collect account details, booking data, credit history,
+            device and technical data, advertisement interaction data, user-submitted content, and payment-related
+            information if paid features are enabled in the future.</p>
+          <p>Examples include your name, email address, phone number, booked games, reward completion history, device
+            type, IP address, crash data, and information about ads you watch or click.</p>
+        </section>
+
+        <section class="legal-section reveal" id="use">
+          <h2>2. How PlayCred uses it</h2>
+          <p>PlayCred may use personal data to create and manage accounts, manage bookings and cancellations, issue and
+            track credits, display and measure advertising, prevent fraud, send operational notices, provide support,
+            improve the product, and comply with legal obligations.</p>
+          <p>For rewarded ads, PlayCred may use interaction data to confirm completion, prevent fake views, and provide
+            advertisers with reporting such as impressions, completed views, clicks, and campaign status.</p>
+        </section>
+
+        <section class="legal-section reveal" id="share">
+          <h2>3. Sharing, transfers, and retention</h2>
+          <p>PlayCred may share data with service providers, venues, sports partners, advertisers, and legal or
+            regulatory authorities when needed to operate the platform or comply with law.</p>
+          <p>Data may be transferred outside the UAE when service providers are located there, and PlayCred says it will
+            use reasonable safeguards for those transfers.</p>
+          <p>Personal data is retained only as long as needed for operational, legal, fraud-prevention, audit, dispute
+            resolution, and security purposes.</p>
+        </section>
+
+        <section class="legal-section reveal" id="rights">
+          <h2>4. Your rights</h2>
+          <p>Subject to applicable law, you may have rights to access, correct, delete, restrict, or object to certain
+            processing of your personal data, and to withdraw consent where processing is based on consent.</p>
+          <p>You can also request account deletion. PlayCred says it may keep limited information after deletion where
+            it needs to comply with law, prevent fraud, or resolve disputes.</p>
+          <p>To exercise privacy rights, contact <a href="mailto:info@playcred.ae" style="color: var(--pc-primary);">info@playcred.ae</a>.</p>
+        </section>
+
+        <section class="legal-section reveal" id="security">
+          <h2>5. Security, marketing, cookies, and automated systems</h2>
+          <p>PlayCred uses reasonable security measures such as access controls, authentication, monitoring, and
+            secure hosting, but no digital platform can promise perfect security.</p>
+          <p>The policy also covers marketing messages, cookies and similar technologies, third-party links, and
+            automated systems used to detect fraud, abuse, duplicate accounts, and suspicious activity.</p>
+        </section>
+
+        <section class="legal-section reveal" id="contact">
+          <h2>6. Changes and contact</h2>
+          <p>PlayCred may update this policy from time to time. If changes are material, it may notify users through the
+            app, email, or another reasonable method.</p>
+          <p>For privacy questions, account deletion requests, data access requests, correction requests, complaints, or
+            legal notices, contact PlayCred at <a href="mailto:info@playcred.ae" style="color: var(--pc-primary);">info@playcred.ae</a>.</p>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="../../" class="brand" style="margin-bottom: 1.5rem;">
+            <img src="https://cdn.playcred.ae/playcred-logo.webp" alt="PlayCred Logo">
+            <span>PlayCred</span>
+          </a>
+          <p style="color: var(--pc-text-muted); max-width: 300px;">The sports venue booking platform that rewards
+            players and empowers brands.</p>
+        </div>
+        <div>
+          <h4 style="margin-bottom: 1.5rem;">Platform</h4>
+          <ul
+            style="list-style: none; display: flex; flex-direction: column; gap: 0.75rem; color: var(--pc-text-muted);">
+            <li><a href="../../players/">For Players</a></li>
+            <li><a href="../../advertisers/">For Advertisers</a></li>
+            <li><a href="https://playcred-player.web.app/app">Launch App</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 style="margin-bottom: 1.5rem;">Company</h4>
+          <ul
+            style="list-style: none; display: flex; flex-direction: column; gap: 0.75rem; color: var(--pc-text-muted);">
+            <li><a href="../../about/">About Us</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="../">Legal</a></li>
+            <li><a href="./">Privacy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 PlayCred. All rights reserved.</span>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/play_cred" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+            </svg>
+          </a>
+          <a href="https://www.linkedin.com/company/playcred-sport-fze/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+              <rect x="2" y="9" width="4" height="12"></rect>
+              <circle cx="4" cy="4" r="2"></circle>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../js/main.js"></script>
+</body>
+
+</html>
+

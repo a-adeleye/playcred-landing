@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Terms | PlayCred</title>
+  <meta name="description" content="PlayCred user terms for accounts, credits, bookings, liability, and account use.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&family=Inter:wght@400;500;700&display=swap"
+    rel="stylesheet">
+  <script>
+    (function () {
+      var storageKey = 'playcred-theme';
+      var darkTheme = 'dark';
+      var lightTheme = 'light';
+      var root = document.documentElement;
+      var theme = null;
+
+      try {
+        var storedTheme = window.localStorage.getItem(storageKey);
+        if (storedTheme === darkTheme || storedTheme === lightTheme) {
+          theme = storedTheme;
+        }
+      } catch (error) { }
+
+      if (!theme) {
+        theme = darkTheme;
+      }
+
+      root.dataset.theme = theme;
+      root.style.colorScheme = theme;
+    }());
+  </script>
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body class="legal-page">
+  <header class="header">
+    <div class="container header-content">
+      <a href="../../" class="brand">
+        <img src="https://cdn.playcred.ae/playcred-logo.webp" alt="PlayCred Logo">
+        <span>PlayCred</span>
+      </a>
+      <nav class="nav">
+        <a href="../../players/" class="nav-link">For Players</a>
+        <a href="../../advertisers/" class="nav-link">For Advertisers</a>
+        <a href="../../about/" class="nav-link">About</a>
+        <a href="https://playcred-player.web.app/app" class="btn btn--primary" style="margin-top: 1rem; width: 100%;">Launch App</a>
+      </nav>
+      <div class="header-actions">
+        <a href="https://playcred-player.web.app/app" class="btn btn--primary">Launch App</a>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Toggle theme">
+          <span class="theme-toggle__icons" aria-hidden="true">
+            <svg class="theme-toggle__icon theme-toggle__icon--sun" xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <circle cx="12" cy="12" r="4"></circle>
+              <path d="M12 2v2"></path>
+              <path d="M12 20v2"></path>
+              <path d="m4.93 4.93 1.41 1.41"></path>
+              <path d="m17.66 17.66 1.41 1.41"></path>
+              <path d="M2 12h2"></path>
+              <path d="M20 12h2"></path>
+              <path d="m6.34 17.66-1.41 1.41"></path>
+              <path d="m19.07 4.93-1.41 1.41"></path>
+            </svg>
+            <svg class="theme-toggle__icon theme-toggle__icon--moon" xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M12 3a9 9 0 1 0 9 9c0-.4 0-.79-.06-1.18A7 7 0 0 1 12 3z"></path>
+            </svg>
+          </span>
+        </button>
+      </div>
+      <button class="menu-toggle" aria-label="Toggle Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="legal-hero">
+      <div class="container legal-hero__inner reveal">
+        <span class="section-label">User Terms</span>
+        <h1>PlayCred terms for players and account holders.</h1>
+        <p class="legal-hero__lede">
+          These terms cover account eligibility, earned credits, bookings, cancellations, conduct, liability,
+          suspension, governing law, and the responsibilities that come with using the PlayCred platform.
+        </p>
+        <div class="legal-meta">
+          <span class="legal-chip">Last updated 19 May 2026</span>
+          <span class="legal-chip">Users must be 18+</span>
+          <span class="legal-chip">Contact: info@playcred.ae</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="container legal-layout" id="top">
+      <aside class="legal-nav">
+        <h2>On this page</h2>
+        <ul>
+          <li><a href="#acceptance">Acceptance and eligibility</a></li>
+          <li><a href="#accounts">Accounts and security</a></li>
+          <li><a href="#credits">Credits and bookings</a></li>
+          <li><a href="#conduct">Conduct and content</a></li>
+          <li><a href="#suspension">Suspension and liability</a></li>
+          <li><a href="#law">Governing law and contact</a></li>
+        </ul>
+      </aside>
+
+      <div class="legal-content">
+        <section class="legal-section reveal" id="acceptance">
+          <h2>1. Acceptance and eligibility</h2>
+          <p>By creating an account, booking a game, earning credits, or otherwise using PlayCred, you agree to the
+            user terms and the privacy policy that apply to the platform.</p>
+          <p>PlayCred is intended only for users who are 18 years old or older. If PlayCred learns that an account
+            belongs to someone under 18, it may suspend or delete that account where allowed by law.</p>
+        </section>
+
+        <section class="legal-section reveal" id="accounts">
+          <h2>2. Accounts and security</h2>
+          <p>You must provide accurate, complete, and current information when you register and keep your details up to
+            date.</p>
+          <p>You are responsible for protecting your login details and for all activity that happens through your
+            account. PlayCred may use security checks, fraud-prevention tools, and device or log data to protect the
+            platform and its users.</p>
+          <p>PlayCred may suspend or refuse access if it detects false, duplicate, abusive, or suspicious accounts.</p>
+        </section>
+
+        <section class="legal-section reveal" id="credits">
+          <h2>3. Credits, bookings, and cancellations</h2>
+          <p>Users can earn PlayCred credits by completing rewarded ad experiences and may use those credits to book
+            eligible sports venues and sessions through the platform.</p>
+          <p>Credits are issued only after PlayCred confirms successful ad completion. Credits have no cash value and
+            cannot be refunded as money unless PlayCred expressly says otherwise.</p>
+          <p>Booking, cancellation, waiting-list, and refund rules may be shown in the app for each game. If you cancel
+            a booking, any credit refund will depend on the rules shown for that booking.</p>
+        </section>
+
+        <section class="legal-section reveal" id="conduct">
+          <h2>4. Conduct and content</h2>
+          <p>You must use PlayCred lawfully and respectfully. That includes following venue rules, not abusing credits
+            or promotions, and not creating fake or misleading activity.</p>
+          <p>If PlayCred allows profiles, comments, reviews, or uploads, you are responsible for the content you submit
+            and for ensuring it does not infringe another person's rights or violate the law.</p>
+          <p>PlayCred may moderate or remove content and may take action if activity threatens users, venues, advertisers,
+            or the platform.</p>
+        </section>
+
+        <section class="legal-section reveal">
+          <h2>5. Advertising and platform operations</h2>
+          <p>PlayCred may show advertisements and may use that advertising activity to help fund rewards and bookings.
+            Ad performance data may be used for reporting, fraud prevention, and service operation.</p>
+          <p>PlayCred does not promise that watching ads will lead to a booking, reward outcome, or specific result
+            beyond the rules shown in the app.</p>
+        </section>
+
+        <section class="legal-section reveal" id="suspension">
+          <h2>6. Suspension, intellectual property, and liability</h2>
+          <p>PlayCred may suspend or terminate access if you breach the terms, misuse credits or bookings, commit fraud,
+            create duplicate accounts, or place users, venues, or partners at risk.</p>
+          <p>All PlayCred branding, software, design, content, and related intellectual property remain owned by PlayCred
+            or its licensors. You only receive a limited right to use the platform for its intended purpose.</p>
+          <p>To the maximum extent permitted by law, PlayCred limits liability for indirect losses, third-party services,
+            venue decisions, technical failures, and other losses outside its reasonable control. You agree to
+            indemnify PlayCred for claims arising from your misuse of the platform or your breach of these terms.</p>
+        </section>
+
+        <section class="legal-section reveal" id="law">
+          <h2>7. Governing law and contact</h2>
+          <p>These terms are governed by the laws of the United Arab Emirates and, where applicable, the Emirate of
+            Dubai. Any dispute will be handled by the competent courts of Dubai unless mandatory law requires another
+            forum.</p>
+          <p>For support, legal notices, privacy requests, or account questions, contact PlayCred at
+            <a href="mailto:info@playcred.ae" style="color: var(--pc-primary);">info@playcred.ae</a>.
+          </p>
+          <p>If you need the privacy policy, it is available as a separate page in the legal hub.</p>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="../../" class="brand" style="margin-bottom: 1.5rem;">
+            <img src="https://cdn.playcred.ae/playcred-logo.webp" alt="PlayCred Logo">
+            <span>PlayCred</span>
+          </a>
+          <p style="color: var(--pc-text-muted); max-width: 300px;">The sports venue booking platform that rewards
+            players and empowers brands.</p>
+        </div>
+        <div>
+          <h4 style="margin-bottom: 1.5rem;">Platform</h4>
+          <ul
+            style="list-style: none; display: flex; flex-direction: column; gap: 0.75rem; color: var(--pc-text-muted);">
+            <li><a href="../../players/">For Players</a></li>
+            <li><a href="../../advertisers/">For Advertisers</a></li>
+            <li><a href="https://playcred-player.web.app/app">Launch App</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 style="margin-bottom: 1.5rem;">Company</h4>
+          <ul
+            style="list-style: none; display: flex; flex-direction: column; gap: 0.75rem; color: var(--pc-text-muted);">
+            <li><a href="../../about/">About Us</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="../">Legal</a></li>
+            <li><a href="../privacy/">Privacy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 PlayCred. All rights reserved.</span>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/play_cred" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+            </svg>
+          </a>
+          <a href="https://www.linkedin.com/company/playcred-sport-fze/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+              <rect x="2" y="9" width="4" height="12"></rect>
+              <circle cx="4" cy="4" r="2"></circle>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../js/main.js"></script>
+</body>
+
+</html>
+

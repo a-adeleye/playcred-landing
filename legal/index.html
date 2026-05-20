@@ -4,7 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About PlayCred | Our Mission & Story</title>
+  <title>Legal | PlayCred Terms & Privacy</title>
+  <meta name="description" content="PlayCred's legal hub for user terms, advertiser terms, and privacy policy.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -34,56 +35,9 @@
     }());
   </script>
   <link rel="stylesheet" href="../css/style.css">
-  <style>
-    .about-story {
-      max-width: 800px;
-      margin: 4rem auto;
-    }
-
-    .about-story h2 {
-      font-size: 2.5rem;
-      margin-bottom: 2rem;
-    }
-
-    .about-story p {
-      font-size: 1.25rem;
-      color: var(--pc-text-muted);
-      line-height: 1.8;
-      margin-bottom: 2rem;
-    }
-
-    .stats-row {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
-      margin-top: 6rem;
-      border-top: 1px solid var(--pc-border-light);
-      padding-top: 4rem;
-    }
-
-    .stat-item h3 {
-      font-size: 3rem;
-      color: var(--pc-primary);
-      font-weight: 700;
-    }
-
-    .stat-item p {
-      color: var(--pc-text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      font-size: 0.8rem;
-      font-weight: 700;
-    }
-
-    @media (max-width: 600px) {
-      .stats-row {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
 </head>
 
-<body>
+<body class="legal-page">
   <header class="header">
     <div class="container header-content">
       <a href="../" class="brand">
@@ -129,45 +83,72 @@
     </div>
   </header>
 
-  <main class="container" style="padding-top: 10rem; padding-bottom: 6rem;">
-    <div style="text-align: center; max-width: 700px; margin: 0 auto;" class="reveal">
-      <span class="section-label">Our Mission</span>
-      <h1>Making sports accessible to <span class="text-primary">everyone, everywhere.</span></h1>
-    </div>
-
-    <div class="about-story reveal">
-      <h2>The PlayCred Story</h2>
-      <p>We believe that financial barriers should never stand between a player and their passion. In many cities,
-        premium sports facilities are becoming harder to afford for local communities.</p>
-      <p>PlayCred was born from a simple question: <em>What if we could turn the value of attention into the value of
-          action?</em></p>
-      <p>By advertisering with brands that value active lifestyles, we've created a sustainable ecosystem where advertisers
-        get high-intent engagement, and players get the field time they deserve. It's a win-win for the entire sports
-        community.</p>
-
-      <div class="stats-row">
-        <div class="stat-item">
-          <h3>10K+</h3>
-          <p>Active Players</p>
-        </div>
-        <div class="stat-item">
-          <h3>250+</h3>
-          <p>Advertiser Venues</p>
-        </div>
-        <div class="stat-item">
-          <h3>500K+</h3>
-          <p>Matches Booked</p>
+  <main>
+    <section class="legal-hero">
+      <div class="container legal-hero__inner reveal">
+        <span class="section-label">Legal Center</span>
+        <h1>Terms and privacy, all in one place.</h1>
+        <p class="legal-hero__lede">
+          These pages reflect PlayCred's current public legal documents for players, advertisers, and privacy.
+          The underlying PDFs note that final UAE legal review is still recommended before full public launch.
+        </p>
+        <div class="legal-meta">
+          <span class="legal-chip">Last updated 19 May 2026</span>
+          <span class="legal-chip">Support: info@playcred.ae</span>
+          <span class="legal-chip">Jurisdiction: United Arab Emirates</span>
         </div>
       </div>
-    </div>
+    </section>
+
+    <section class="container" style="padding-top: 0;">
+      <div class="legal-card-grid reveal">
+        <article class="legal-card">
+          <span class="section-label">Players</span>
+          <h2>User Terms</h2>
+          <p>The user terms cover eligibility, accounts, earned credits, bookings, cancellations, platform rules,
+            liability limits, and dispute handling for players using PlayCred.</p>
+          <a class="legal-card__link" href="./user-terms/">Open user terms</a>
+        </article>
+        <article class="legal-card">
+          <span class="section-label">Advertisers</span>
+          <h2>Advertiser Terms</h2>
+          <p>The advertiser terms cover account registration, campaign orders, approvals, pricing, prohibited content,
+            billing, refunds, fraud checks, and campaign delivery rules.</p>
+          <a class="legal-card__link" href="./advertiser-terms/">Open advertiser terms</a>
+        </article>
+        <article class="legal-card">
+          <span class="section-label">Privacy</span>
+          <h2>Privacy Policy</h2>
+          <p>The privacy policy explains what data PlayCred collects, how it is used, when it is shared, and which
+            rights users have over that data.</p>
+          <a class="legal-card__link" href="./privacy/">Open privacy policy</a>
+        </article>
+      </div>
+
+      <div class="legal-section reveal" style="margin-top: 1.5rem;">
+        <h2>What to read first</h2>
+        <div class="legal-summary">
+          <div class="legal-summary__item">
+            <span>Players</span>
+            <p>Start with User Terms, then check the privacy policy for data handling.</p>
+          </div>
+          <div class="legal-summary__item">
+            <span>Advertisers</span>
+            <p>Review campaign rules, content standards, billing, and prohibited categories.</p>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">
         <div>
-          <a href="../" class="brand" style="margin-bottom: 1.5rem;"><img src="https://cdn.playcred.ae/playcred-logo.webp"
-              alt="PlayCred Logo"><span>PlayCred</span></a>
+          <a href="../" class="brand" style="margin-bottom: 1.5rem;">
+            <img src="https://cdn.playcred.ae/playcred-logo.webp" alt="PlayCred Logo">
+            <span>PlayCred</span>
+          </a>
           <p style="color: var(--pc-text-muted); max-width: 300px;">The sports venue booking platform that rewards
             players and empowers brands.</p>
         </div>
@@ -186,13 +167,13 @@
             style="list-style: none; display: flex; flex-direction: column; gap: 0.75rem; color: var(--pc-text-muted);">
             <li><a href="../about/">About Us</a></li>
             <li><a href="#">Contact</a></li>
-            <li><a href="../legal/">Legal</a></li>
-            <li><a href="../legal/privacy/">Privacy</a></li>
+            <li><a href="./">Legal</a></li>
+            <li><a href="./privacy/">Privacy</a></li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
-        <span>© 2026 PlayCred. All rights reserved.</span>
+        <span>ï¿½ 2026 PlayCred. All rights reserved.</span>
         <div class="footer-social">
           <a href="https://www.instagram.com/play_cred" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -212,9 +193,9 @@
       </div>
     </div>
   </footer>
+
   <script src="../js/main.js"></script>
 </body>
 
 </html>
-
 
