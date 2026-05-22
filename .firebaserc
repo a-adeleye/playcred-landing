@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "playcred-6e57b"
+  },
+  "targets": {
+    "playcred-6e57b": {
+      "hosting": {
+        "playcred": [
+          "playcred"
+        ]
+      }
+    }
+  }
+}

@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build": "node scripts/configure-app-links.cjs production"
+    "build": "node scripts/build-landing.cjs production",
+    "deploy": "npm run build && firebase deploy --only hosting:playcred"
+  },
+  "devDependencies": {
+    "firebase-tools": "^14.0.0"
   }
 }

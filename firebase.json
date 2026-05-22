@@ -1,0 +1,47 @@
+{
+  "hosting": [
+    {
+      "target": "playcred",
+      "public": "landing",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "/players",
+          "destination": "/players/index.html"
+        },
+        {
+          "source": "/players/**",
+          "destination": "/players/index.html"
+        },
+        {
+          "source": "/advertisers",
+          "destination": "/advertisers/index.html"
+        },
+        {
+          "source": "/advertisers/**",
+          "destination": "/advertisers/index.html"
+        },
+        {
+          "source": "/app/player",
+          "destination": "/players/index.html"
+        },
+        {
+          "source": "/app/player/**",
+          "destination": "/players/index.html"
+        },
+        {
+          "source": "/app/advertiser",
+          "destination": "/advertisers/index.html"
+        },
+        {
+          "source": "/app/advertiser/**",
+          "destination": "/advertisers/index.html"
+        }
+      ]
+    }
+  ]
+}

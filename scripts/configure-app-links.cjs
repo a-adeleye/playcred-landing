@@ -29,6 +29,7 @@ const publicPages = [
 ];
 
 const requestedEnvironment = process.argv[2];
+const targetRoot = path.resolve(process.argv[3] || process.cwd());
 const targetEnvironment = environments[requestedEnvironment];
 
 if (!targetEnvironment) {
@@ -43,7 +44,7 @@ function replaceAll(content, fromValues, toValue) {
 }
 
 for (const publicPage of publicPages) {
-  const filePath = path.resolve(publicPage);
+  const filePath = path.join(targetRoot, publicPage);
   const originalContent = fs.readFileSync(filePath, 'utf8');
   const nextContent = replaceAll(
     replaceAll(originalContent, knownPlayerBaseUrls, targetEnvironment.playerBaseUrl),
