@@ -21,13 +21,6 @@ const knownAdvertiserBaseUrls = Object.values(environments).map(
   (environment) => environment.advertiserBaseUrl,
 );
 
-const publicPages = [
-  'index.html',
-  'about/index.html',
-  'players/index.html',
-  'advertisers/index.html',
-];
-
 const requestedEnvironment = process.argv[2];
 const targetRoot = path.resolve(process.argv[3] || process.cwd());
 const targetEnvironment = environments[requestedEnvironment];
@@ -43,8 +36,25 @@ function replaceAll(content, fromValues, toValue) {
   }, content);
 }
 
-for (const publicPage of publicPages) {
-  const filePath = path.join(targetRoot, publicPage);
+function listHtmlFiles(dirPath) {
+  const entries = fs.readdirSync(dirPath, { withFileTypes: true });
+  const files = [];
+
+  for (const entry of entries) {
+    const entryPath = path.join(dirPath, entry.name);
+    if (entry.isDirectory()) {
+      files.push(...listHtmlFiles(entryPath));
+    } else if (entry.isFile() && entry.name.endsWith('.html')) {
+      files.push(entryPath);
+    }
+  }
+
+  return files;
+}
+
+const htmlFiles = listHtmlFiles(targetRoot);
+
+for (const filePath of htmlFiles) {
   const originalContent = fs.readFileSync(filePath, 'utf8');
   const nextContent = replaceAll(
     replaceAll(originalContent, knownPlayerBaseUrls, targetEnvironment.playerBaseUrl),
