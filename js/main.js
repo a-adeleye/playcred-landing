@@ -172,7 +172,7 @@ async function getContactFirebaseSdk() {
     ]).then(([appModule, appCheckModule]) => {
       const app = appModule.initializeApp(config.firebase);
       const appCheck = appCheckModule.initializeAppCheck(app, {
-        provider: new appCheckModule.ReCaptchaV3Provider(config.appCheckSiteKey),
+        provider: new appCheckModule.ReCaptchaEnterpriseProvider(config.appCheckSiteKey),
         isTokenAutoRefreshEnabled: true,
       });
 
