@@ -80,8 +80,26 @@ function applyActiveNavLink() {
   });
 }
 
+let contactConfigCache = undefined;
+
 function getContactConfig() {
-  return window.__PLAYCRED_CONTACT_CONFIG__ || null;
+  if (contactConfigCache !== undefined) {
+    return contactConfigCache;
+  }
+
+  const configScript = document.getElementById('playcred-contact-config');
+  if (configScript) {
+    try {
+      contactConfigCache = JSON.parse(configScript.textContent || 'null');
+      return contactConfigCache;
+    } catch (error) {
+      contactConfigCache = null;
+      return contactConfigCache;
+    }
+  }
+
+  contactConfigCache = window.__PLAYCRED_CONTACT_CONFIG__ || null;
+  return contactConfigCache;
 }
 
 function getContactSubmissionUrl() {
