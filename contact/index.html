@@ -41,6 +41,10 @@
     .contact-page {
       position: relative;
       overflow: hidden;
+      background:
+        radial-gradient(circle at 9% 18%, rgba(34, 197, 94, 0.16), transparent 18rem),
+        radial-gradient(circle at 86% 10%, rgba(34, 197, 94, 0.07), transparent 24rem),
+        var(--pc-bg-floor);
     }
 
     .contact-page > * {
@@ -48,158 +52,289 @@
       z-index: 1;
     }
 
+    html[data-theme="light"] .contact-page {
+      background: #fff;
+    }
+
+    .contact-page .container {
+      max-width: 1190px;
+    }
+
+    .header .brand img {
+      width: 56px;
+      height: 56px;
+    }
+
     .contact-hero {
-      padding: clamp(9rem, 12vw, 11rem) 0 4rem;
+      position: relative;
+      isolation: isolate;
+      min-height: 760px;
+      padding: clamp(8.5rem, 11vw, 10.5rem) 0 5.2rem;
+      background:
+        linear-gradient(180deg, rgba(2, 8, 16, 0.22), rgba(2, 8, 16, 0.72) 88%),
+        url("../playcred-contact-dark-hero.png") left top / cover no-repeat;
+    }
+
+    html[data-theme="light"] .contact-hero {
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.84) 88%),
+        url("../playcred-contact-light-hero.png") left top / cover no-repeat;
+    }
+
+    .contact-hero::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 9rem;
+      background: linear-gradient(180deg, transparent, var(--pc-bg-floor));
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    html[data-theme="light"] .contact-hero::after {
+      background: linear-gradient(180deg, transparent, #fff);
     }
 
     .contact-hero__grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
-      gap: 2rem;
+      grid-template-columns: minmax(0, 1fr) minmax(360px, 0.9fr);
+      gap: clamp(3rem, 8vw, 7rem);
       align-items: start;
     }
 
+    .contact-hero__grid > * {
+      min-width: 0;
+    }
+
     .contact-hero h1 {
-      font-size: clamp(3rem, 7vw, 5.2rem);
-      margin-top: 0.75rem;
-      max-width: 11ch;
+      margin-top: 1.4rem;
+      max-width: 14.4ch;
+      font-size: clamp(3.15rem, 5.7vw, 5rem);
+      font-weight: 700;
+      line-height: 1.08;
+      letter-spacing: 0;
+      text-wrap: balance;
+    }
+
+    .contact-hero h1 .text-primary {
+      color: #5ee889;
     }
 
     .contact-hero__lede {
-      max-width: 720px;
+      max-width: 680px;
       color: var(--pc-text-muted);
-      line-height: 1.8;
-      font-size: 1.1rem;
-      margin-top: 1.25rem;
+      line-height: 1.85;
+      font-size: 1.02rem;
+      margin-top: 1.8rem;
     }
 
     .contact-hero__actions {
       display: flex;
       flex-wrap: wrap;
-      gap: 1rem;
-      margin-top: 2rem;
+      gap: 0.9rem;
+      margin-top: 2.25rem;
     }
 
     .contact-panel,
     .contact-card,
     .contact-form,
     .contact-cta {
-      border-radius: var(--pc-radius-lg);
-      background: var(--pc-bg-card);
-      box-shadow: var(--pc-shadow);
+      border: 1px solid var(--pc-border-light);
+      border-radius: 16px;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.018)),
+        rgba(8, 18, 31, 0.58);
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.22);
+      backdrop-filter: blur(14px);
+    }
+
+    html[data-theme="light"] .contact-panel,
+    html[data-theme="light"] .contact-card,
+    html[data-theme="light"] .contact-form,
+    html[data-theme="light"] .contact-cta {
+      background: rgba(255, 255, 255, 0.88);
+      box-shadow: 0 24px 70px rgba(17, 24, 39, 0.08);
+      backdrop-filter: blur(18px);
     }
 
     .contact-panel {
       padding: 1.5rem;
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.015));
+      margin-top: 0.25rem;
     }
 
-    .contact-panel h2 {
-      font-size: 1.35rem;
-      margin-bottom: 0.85rem;
+    .contact-panel__heading {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.8rem;
+      margin-bottom: 1.15rem;
+    }
+
+    .contact-panel h2,
+    .contact-panel__heading h2 {
+      font-size: 1.38rem;
+      font-weight: 700;
+      margin-bottom: 0.3rem;
     }
 
     .contact-panel p {
       color: var(--pc-text-muted);
-      line-height: 1.7;
+      line-height: 1.65;
+    }
+
+    .contact-panel__heading p {
+      color: var(--pc-primary);
+      font-size: 1.05rem;
     }
 
     .contact-stack {
       display: grid;
-      gap: 1rem;
-      margin-top: 1.25rem;
+      gap: 0.9rem;
+      margin-top: 1rem;
     }
 
     .contact-item {
-      padding: 1rem;
-      border-radius: 1rem;
+      display: grid;
+      grid-template-columns: 3rem 1fr;
+      gap: 1rem;
+      align-items: center;
+      min-height: 7.1rem;
+      padding: 1.15rem 1.25rem;
+      border-radius: 12px;
       border: 1px solid var(--pc-border-light);
-      background: rgba(255, 255, 255, 0.03);
+      background: rgba(255, 255, 255, 0.025);
+    }
+
+    html[data-theme="light"] .contact-item {
+      background: rgba(255, 255, 255, 0.72);
     }
 
     .contact-item strong {
       display: block;
-      margin-bottom: 0.35rem;
-      font-size: 1rem;
+      margin-bottom: 0.25rem;
+      font-size: 1.02rem;
+      font-weight: 700;
     }
 
     .contact-item span,
     .contact-item a {
       color: var(--pc-text-muted);
-      line-height: 1.7;
+      line-height: 1.55;
+      overflow-wrap: anywhere;
     }
 
     .contact-item small {
       display: block;
+      color: var(--pc-text-muted);
+      font-size: 0.94rem;
+      line-height: 1.6;
+      margin-top: 0.1rem;
+    }
+
+    .contact-icon {
+      display: inline-grid;
+      place-items: center;
+      width: 2.55rem;
+      height: 2.55rem;
+      flex: 0 0 auto;
+      border-radius: 999px;
+      color: var(--pc-primary);
+      background: rgba(34, 197, 94, 0.1);
+    }
+
+    .contact-icon svg,
+    .btn svg {
+      width: 1.15rem;
+      height: 1.15rem;
+      stroke-width: 2;
+    }
+
+    .contact-card .contact-icon {
+      width: 3rem;
+      height: 3rem;
+      margin-bottom: 1.6rem;
+      border-radius: 999px;
+    }
+
+    html[data-theme="dark"] .contact-card .contact-icon {
+      background: transparent;
+    }
+
+    html[data-theme="light"] .contact-card .contact-icon {
+      width: 3.5rem;
+      height: 3.5rem;
+      background: rgba(34, 197, 94, 0.14);
     }
 
     .contact-section {
-      padding: 4.5rem 0;
+      padding: 2rem 0;
     }
 
     .contact-section__heading {
-      max-width: 760px;
-      margin-bottom: 1.8rem;
+      max-width: 710px;
+      margin-bottom: 2rem;
     }
 
     .contact-section__heading h2 {
-      font-size: clamp(2rem, 4vw, 3.4rem);
+      font-size: clamp(2.4rem, 4vw, 3.35rem);
+      font-weight: 600;
+      letter-spacing: 0;
+      line-height: 1.05;
       margin-top: 0.5rem;
+      text-wrap: balance;
     }
 
     .contact-section__heading p {
       color: var(--pc-text-muted);
-      line-height: 1.75;
-      margin-top: 1rem;
-      max-width: 720px;
+      line-height: 1.7;
+      margin-top: 1.15rem;
+      max-width: 620px;
     }
 
     .contact-grid {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 1.25rem;
+      gap: 1.35rem;
     }
 
     .contact-card {
-      padding: 1.5rem;
+      min-height: 15.5rem;
+      padding: 1.65rem 1.55rem;
     }
 
     .contact-card h3 {
-      font-size: 1.3rem;
+      font-size: 1.16rem;
+      font-weight: 700;
+      letter-spacing: 0;
       margin-bottom: 0.75rem;
     }
 
     .contact-card p {
       color: var(--pc-text-muted);
-      line-height: 1.75;
-    }
-
-    .contact-card__link {
-      display: inline-flex;
-      margin-top: 1rem;
-      color: var(--pc-primary);
-      font-weight: 600;
+      font-size: 0.96rem;
+      line-height: 1.7;
     }
 
     .contact-form {
-      padding: 1.5rem;
+      padding: clamp(1.4rem, 3vw, 2.2rem);
     }
 
     .contact-form h2 {
-      font-size: 1.75rem;
+      font-size: clamp(1.55rem, 2.7vw, 2rem);
+      font-weight: 600;
+      letter-spacing: 0;
       margin-bottom: 0.5rem;
     }
 
     .contact-form p {
       color: var(--pc-text-muted);
-      line-height: 1.75;
-      margin-bottom: 1.5rem;
+      line-height: 1.7;
+      margin-bottom: 1.4rem;
     }
 
     .form-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1rem;
+      gap: 1rem 1.35rem;
     }
 
     .field {
@@ -213,21 +348,42 @@
     }
 
     .field label {
-      font-size: 0.9rem;
+      font-size: 0.86rem;
       color: var(--pc-text-main);
-      font-weight: 600;
+      font-weight: 700;
     }
 
     .field input,
     .field select,
     .field textarea {
       width: 100%;
-      padding: 0.95rem 1rem;
-      border-radius: 1rem;
+      padding: 0.94rem 1rem;
+      border-radius: 8px;
       border: 1px solid var(--pc-border-light);
-      background: rgba(255, 255, 255, 0.03);
+      background: rgba(255, 255, 255, 0.035);
       color: var(--pc-text-main);
       font: inherit;
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    html[data-theme="light"] .field input,
+    html[data-theme="light"] .field select,
+    html[data-theme="light"] .field textarea {
+      background: rgba(255, 255, 255, 0.82);
+    }
+
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      border-color: rgba(34, 197, 94, 0.72);
+      box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.13);
+    }
+
+    .field input::placeholder,
+    .field textarea::placeholder {
+      color: var(--pc-text-muted);
+      opacity: 0.92;
     }
 
     .field select {
@@ -256,7 +412,8 @@
       gap: 0.75rem;
       align-items: flex-start;
       color: var(--pc-text-muted);
-      line-height: 1.7;
+      line-height: 1.65;
+      max-width: 410px;
     }
 
     .checkbox-row input {
@@ -264,21 +421,48 @@
       accent-color: var(--pc-primary);
     }
 
+    .contact-form__footer {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 1.5rem;
+    }
+
+    .contact-form__actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+    }
+
     .contact-cta {
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 2rem;
-      padding: 2rem;
+      padding: clamp(1.5rem, 3.3vw, 2.15rem);
       background:
-        linear-gradient(135deg, rgba(34, 197, 94, 0.12), rgba(245, 158, 11, 0.04)),
-        var(--pc-bg-card);
+        radial-gradient(circle at 10% 5%, rgba(34, 197, 94, 0.22), transparent 22rem),
+        linear-gradient(135deg, rgba(34, 197, 94, 0.12), rgba(34, 197, 94, 0.02)),
+        rgba(8, 18, 31, 0.68);
+    }
+
+    html[data-theme="light"] .contact-cta {
+      background:
+        radial-gradient(circle at 10% 5%, rgba(34, 197, 94, 0.11), transparent 24rem),
+        rgba(255, 255, 255, 0.9);
     }
 
     .contact-cta h2 {
-      font-size: clamp(2rem, 4vw, 3.2rem);
+      max-width: 760px;
+      font-size: clamp(1.7rem, 3vw, 2.35rem);
+      font-weight: 500;
+      letter-spacing: 0;
       margin-top: 0.5rem;
       margin-bottom: 1rem;
+      text-wrap: balance;
     }
 
     .contact-cta p {
@@ -291,7 +475,51 @@
       display: flex;
       flex-direction: column;
       gap: 0.9rem;
-      min-width: 260px;
+      min-width: 290px;
+    }
+
+    .contact-page .btn {
+      min-height: 3.05rem;
+      padding: 0.84rem 1.35rem;
+      border-radius: 8px;
+      font-size: 0.94rem;
+    }
+
+    .contact-page .btn--xl {
+      min-height: 3.55rem;
+      padding: 0.95rem 1.1rem;
+      font-size: 0.9rem;
+    }
+
+    .contact-page .btn--primary {
+      color: #fff;
+      background: linear-gradient(135deg, #18b957, #30c957);
+      box-shadow: 0 12px 28px rgba(34, 197, 94, 0.2);
+    }
+
+    .contact-page .btn--secondary {
+      color: #fff;
+      background: #0d1826;
+      border-color: rgba(255, 255, 255, 0.12);
+    }
+
+    .contact-page .btn--outline {
+      background: rgba(2, 8, 16, 0.14);
+    }
+
+    html[data-theme="light"] .contact-page .btn--outline {
+      background: rgba(255, 255, 255, 0.65);
+    }
+
+    .contact-page .section-label {
+      margin-bottom: 0;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+    }
+
+    .contact-page a:not(.btn):hover {
+      color: var(--pc-primary);
     }
 
     @media (max-width: 1080px) {
@@ -300,26 +528,95 @@
         grid-template-columns: 1fr;
       }
 
+      .contact-hero {
+        min-height: unset;
+      }
+
       .contact-cta {
         flex-direction: column;
         align-items: flex-start;
+      }
+
+      .contact-cta__actions {
+        width: 100%;
       }
     }
 
     @media (max-width: 640px) {
       .contact-hero {
-        padding-top: 8.75rem;
+        padding-top: 7.6rem;
+        background-position: 22% top;
+      }
+
+      .contact-section {
+        padding: 1.4rem 0;
+      }
+
+      .contact-hero h1 {
+        max-width: 100%;
+        font-size: clamp(2.25rem, 10.5vw, 2.7rem);
+        overflow-wrap: break-word;
+      }
+
+      .contact-hero__lede {
+        font-size: 1rem;
+        max-width: calc(100vw - 4.5rem);
+        overflow-wrap: break-word;
+      }
+
+      .contact-panel,
+      .contact-card,
+      .contact-form,
+      .contact-cta {
+        max-width: calc(100vw - 4.5rem);
+        width: 100%;
+      }
+
+      .contact-page .btn {
+        max-width: 100%;
+        min-width: 0;
+        white-space: normal;
       }
 
       .contact-hero__actions,
       .contact-cta__actions,
-      .form-grid {
+      .form-grid,
+      .contact-form__actions {
+        max-width: calc(100vw - 4.5rem);
         width: 100%;
       }
 
+      .contact-hero__actions,
+      .contact-form__actions {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+      }
+
       .contact-hero__actions .btn,
-      .contact-cta__actions .btn {
+      .contact-cta__actions .btn,
+      .contact-form__actions .btn {
         width: 100%;
+      }
+
+      .contact-section__heading h2 {
+        font-size: clamp(2rem, 10vw, 2.45rem);
+      }
+
+      .contact-section__heading {
+        max-width: calc(100vw - 4.5rem);
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-item {
+        grid-template-columns: 2.8rem 1fr;
+      }
+
+      .contact-form__footer {
+        flex-direction: column-reverse;
+        align-items: flex-start;
       }
     }
   </style>
@@ -377,39 +674,107 @@
         <div class="contact-hero__grid reveal">
           <div>
             <span class="section-label">Contact PlayCred</span>
-            <h1>Let us connect players, brands, and venues.</h1>
+            <h1>Let us <span class="text-primary">connect</span> players, brands, and venues.</h1>
             <p class="contact-hero__lede">
               We are here to help with user support, advertiser campaigns, venue partnerships, and business inquiries
               across the PlayCred sports booking ecosystem.
             </p>
             <div class="contact-hero__actions">
-              <a href="https://wa.me/971503657707" class="btn btn--primary btn--xl">Chat on WhatsApp</a>
-              <a href="mailto:info@playcred.ae" class="btn btn--secondary btn--xl">Email Support</a>
-              <a href="../about/#faq" class="btn btn--outline btn--xl">Browse FAQ</a>
+              <a href="https://wa.me/971503657707" class="btn btn--primary btn--xl">
+                <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M3 20.2 4.6 16A8.5 8.5 0 1 1 8 19.1z"></path>
+                  <path d="M9 9.5c.2 2.6 2.1 4.5 4.7 5"></path>
+                  <path d="m9.2 9.1.8-.8c.3-.3.8-.2 1 .2l.5 1c.2.3.1.7-.2.9l-.4.3"></path>
+                  <path d="m13.7 14.5.4-.4c.3-.3.7-.3 1-.1l1 .6c.4.2.5.7.2 1l-.8.8"></path>
+                </svg>
+                Chat on WhatsApp
+              </a>
+              <a href="mailto:info@playcred.ae" class="btn btn--secondary btn--xl">
+                <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+                  <path d="m3 7 9 6 9-6"></path>
+                </svg>
+                Email Support
+              </a>
+              <a href="../faq/" class="btn btn--outline btn--xl">
+                <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14 2H7a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7z"></path>
+                  <path d="M14 2v5h5"></path>
+                </svg>
+                Browse FAQ
+              </a>
             </div>
           </div>
 
           <aside class="contact-panel">
-            <h2>WhatsApp Business</h2>
-            <p>+971 50 365 7707</p>
+            <div class="contact-panel__heading">
+              <span class="contact-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M3 20.2 4.6 16A8.5 8.5 0 1 1 8 19.1z"></path>
+                  <path d="M9 9.5c.2 2.6 2.1 4.5 4.7 5"></path>
+                  <path d="m9.2 9.1.8-.8c.3-.3.8-.2 1 .2l.5 1c.2.3.1.7-.2.9l-.4.3"></path>
+                  <path d="m13.7 14.5.4-.4c.3-.3.7-.3 1-.1l1 .6c.4.2.5.7.2 1l-.8.8"></path>
+                </svg>
+              </span>
+              <div>
+                <h2>WhatsApp Business</h2>
+                <p>+971 50 365 7707</p>
+              </div>
+            </div>
             <div class="contact-stack">
               <div class="contact-item">
-                <strong>User Support</strong>
-                <span>support@playcred.ae</span>
-                <small>Bookings, credits, cancellations, app access, and technical support.</small>
+                <span class="contact-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 14a8 8 0 0 1 16 0"></path>
+                    <path d="M18 19c0 1-1 2-2 2h-1"></path>
+                    <path d="M4 14v3a2 2 0 0 0 2 2h1v-7H6a2 2 0 0 0-2 2Z"></path>
+                    <path d="M20 14v3a2 2 0 0 1-2 2h-1v-7h1a2 2 0 0 1 2 2Z"></path>
+                  </svg>
+                </span>
+                <div>
+                  <strong>User Support</strong>
+                  <span>support@playcred.ae</span>
+                  <small>Bookings, credits, cancellations, app access, and technical support.</small>
+                </div>
               </div>
               <div class="contact-item">
-                <strong>General and Business</strong>
-                <span>info@playcred.ae</span>
-                <small>Advertising, partnerships, media, and venue collaboration.</small>
+                <span class="contact-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="7" width="18" height="13" rx="2"></rect>
+                    <path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                    <path d="M3 12h18"></path>
+                    <path d="M10 12v2h4v-2"></path>
+                  </svg>
+                </span>
+                <div>
+                  <strong>General and Business</strong>
+                  <span>info@playcred.ae</span>
+                  <small>Advertising, partnerships, media, and venue collaboration.</small>
+                </div>
               </div>
               <div class="contact-item">
-                <strong>Location</strong>
-                <span>Dubai, United Arab Emirates</span>
+                <span class="contact-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                </span>
+                <div>
+                  <strong>Location</strong>
+                  <span>Dubai, United Arab Emirates</span>
+                </div>
               </div>
               <div class="contact-item">
-                <strong>Business Hours</strong>
-                <span>Monday to Friday, 9:00 AM to 6:00 PM UAE Time</span>
+                <span class="contact-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="9"></circle>
+                    <path d="M12 7v5l3 2"></path>
+                  </svg>
+                </span>
+                <div>
+                  <strong>Business Hours</strong>
+                  <span>Monday to Friday, 9:00 AM to 6:00 PM UAE Time</span>
+                </div>
               </div>
             </div>
           </aside>
@@ -430,18 +795,55 @@
 
         <div class="contact-grid reveal">
           <article class="contact-card">
+            <span class="contact-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="7" r="4"></circle>
+                <path d="M4 21a8 8 0 0 1 16 0"></path>
+              </svg>
+            </span>
             <h3>User Support</h3>
             <p>Help with bookings, PlayCred credits, rewarded ads, account access, cancellations, and app-related issues.</p>
           </article>
           <article class="contact-card">
+            <span class="contact-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m3 11 18-7v16L3 13v-2Z"></path>
+                <path d="M11.6 15.1 10 21"></path>
+                <path d="M19 8h2"></path>
+                <path d="M19 12h2"></path>
+              </svg>
+            </span>
             <h3>Advertiser Inquiries</h3>
             <p>For brands interested in rewarded video ads, banners, pop-ups, campaign setup, and performance tracking.</p>
           </article>
           <article class="contact-card">
+            <span class="contact-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 21V9"></path>
+                <path d="M20 21V9"></path>
+                <path d="M3 9h18"></path>
+                <path d="M5 5h14"></path>
+                <path d="M7 5v4"></path>
+                <path d="M17 5v4"></path>
+                <path d="M7 13h10"></path>
+                <path d="M7 17h10"></path>
+                <path d="M10 9v12"></path>
+                <path d="M14 9v12"></path>
+              </svg>
+            </span>
             <h3>Venue Partnerships</h3>
             <p>For sports venues that want to attract more players, increase utilization, and join the PlayCred ecosystem.</p>
           </article>
           <article class="contact-card">
+            <span class="contact-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M8 11 5.5 8.5a2.1 2.1 0 0 1 3-3L12 9"></path>
+                <path d="m16 11 2.5-2.5a2.1 2.1 0 0 0-3-3L12 9"></path>
+                <path d="m8 13 4 4 4-4"></path>
+                <path d="M4 12l4 4"></path>
+                <path d="m20 12-4 4"></path>
+              </svg>
+            </span>
             <h3>Business Inquiries</h3>
             <p>For strategic partnerships, sponsorships, media inquiries, and commercial opportunities.</p>
           </article>
@@ -460,15 +862,15 @@
             <div class="form-grid">
               <div class="field">
                 <label for="full-name">Full Name *</label>
-                <input id="full-name" name="Full Name" type="text" required>
+                <input id="full-name" name="Full Name" type="text" placeholder="Enter your full name" required>
               </div>
               <div class="field">
                 <label for="email">Email Address *</label>
-                <input id="email" name="Email Address" type="email" required>
+                <input id="email" name="Email Address" type="email" placeholder="Enter your email address" required>
               </div>
               <div class="field">
                 <label for="phone">Phone / WhatsApp</label>
-                <input id="phone" name="Phone / WhatsApp" type="tel">
+                <input id="phone" name="Phone / WhatsApp" type="tel" placeholder="Enter your phone number">
               </div>
               <div class="field">
                 <label for="inquiry-type">Inquiry Type *</label>
@@ -478,34 +880,48 @@
                   <option>Advertiser Inquiry</option>
                   <option>Venue Partnership</option>
                   <option>Business Partnership</option>
-                  <option>Media Inquiry</option>
+                  <option selected>Media Inquiry</option>
                   <option>Technical Support</option>
                   <option>Other</option>
                 </select>
               </div>
               <div class="field">
                 <label for="company-name">Company Name</label>
-                <input id="company-name" name="Company Name" type="text">
+                <input id="company-name" name="Company Name" type="text" placeholder="Enter your company name">
               </div>
               <div class="field">
                 <label for="subject">Subject *</label>
-                <input id="subject" name="Subject" type="text" required>
+                <input id="subject" name="Subject" type="text" placeholder="Enter the subject" required>
               </div>
               <div class="field field--full">
                 <label for="message">Message *</label>
-                <textarea id="message" name="Message" required></textarea>
-              </div>
-              <div class="field field--full">
-                <label class="checkbox-row" for="privacy-consent">
-                  <input id="privacy-consent" name="Privacy Consent" type="checkbox" required>
-                  <span>I agree that PlayCred may contact me regarding my inquiry. <a href="../legal/privacy/">View Privacy Policy</a>.</span>
-                </label>
+                <textarea id="message" name="Message" placeholder="Type your message here..." required></textarea>
               </div>
             </div>
 
-            <div style="margin-top: 1.5rem; display: flex; flex-wrap: wrap; gap: 1rem; align-items: center;">
-              <button type="submit" class="btn btn--primary btn--xl">Send Message</button>
-              <a href="https://wa.me/971503657707" class="btn btn--secondary btn--xl">Chat on WhatsApp</a>
+            <div class="contact-form__footer">
+              <div class="contact-form__actions">
+                <button type="submit" class="btn btn--primary btn--xl">
+                  <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="m22 2-7 20-4-9-9-4Z"></path>
+                    <path d="M22 2 11 13"></path>
+                  </svg>
+                  Send Message
+                </button>
+                <a href="https://wa.me/971503657707" class="btn btn--secondary btn--xl">
+                  <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 20.2 4.6 16A8.5 8.5 0 1 1 8 19.1z"></path>
+                    <path d="M9 9.5c.2 2.6 2.1 4.5 4.7 5"></path>
+                    <path d="m9.2 9.1.8-.8c.3-.3.8-.2 1 .2l.5 1c.2.3.1.7-.2.9l-.4.3"></path>
+                    <path d="m13.7 14.5.4-.4c.3-.3.7-.3 1-.1l1 .6c.4.2.5.7.2 1l-.8.8"></path>
+                  </svg>
+                  Chat on WhatsApp
+                </a>
+              </div>
+              <label class="checkbox-row" for="privacy-consent">
+                <input id="privacy-consent" name="Privacy Consent" type="checkbox" checked required>
+                <span>I agree that PlayCred may contact me regarding my inquiry. View <a href="../legal/privacy/">Privacy Policy</a>.</span>
+              </label>
             </div>
           </form>
         </div>
@@ -521,9 +937,29 @@
             <p>Most questions can be handled through WhatsApp or email. If you are not sure where to start, the FAQ and support email are good first stops.</p>
           </div>
           <div class="contact-cta__actions">
-            <a href="https://wa.me/971503657707" class="btn btn--primary">Chat on WhatsApp</a>
-            <a href="mailto:info@playcred.ae" class="btn btn--secondary">Email Support</a>
-            <a href="../about/#faq" class="btn btn--outline">Browse FAQ</a>
+            <a href="https://wa.me/971503657707" class="btn btn--primary">
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 20.2 4.6 16A8.5 8.5 0 1 1 8 19.1z"></path>
+                <path d="M9 9.5c.2 2.6 2.1 4.5 4.7 5"></path>
+                <path d="m9.2 9.1.8-.8c.3-.3.8-.2 1 .2l.5 1c.2.3.1.7-.2.9l-.4.3"></path>
+                <path d="m13.7 14.5.4-.4c.3-.3.7-.3 1-.1l1 .6c.4.2.5.7.2 1l-.8.8"></path>
+              </svg>
+              Chat on WhatsApp
+            </a>
+            <a href="mailto:info@playcred.ae" class="btn btn--secondary">
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+                <path d="m3 7 9 6 9-6"></path>
+              </svg>
+              Email Support
+            </a>
+            <a href="../faq/" class="btn btn--outline">
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H7a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7z"></path>
+                <path d="M14 2v5h5"></path>
+              </svg>
+              Browse FAQ
+            </a>
           </div>
         </div>
       </div>
@@ -553,7 +989,7 @@
           <ul
             style="list-style: none; display: flex; flex-direction: column; gap: 0.75rem; color: var(--pc-text-muted);">
             <li><a href="../about/">About Us</a></li>
-            <li><a href="../about/#faq">FAQ</a></li>
+            <li><a href="../faq/">FAQ</a></li>
             <li><a href="/contact/">Contact</a></li>
             <li><a href="../legal/">Legal</a></li>
             <li><a href="../legal/privacy/">Privacy</a></li>

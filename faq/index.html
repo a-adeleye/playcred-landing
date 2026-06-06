@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ | PlayCred</title>
+  <meta name="description"
+    content="Answers to common PlayCred questions for users and advertisers, including credits, bookings, rewarded ads, campaign setup, and support.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@400;500;700&display=swap"
+    rel="stylesheet">
+  <script>
+    (function () {
+      var storageKey = 'playcred-theme';
+      var darkTheme = 'dark';
+      var lightTheme = 'light';
+      var root = document.documentElement;
+      var theme = null;
+
+      try {
+        var storedTheme = window.localStorage.getItem(storageKey);
+        if (storedTheme === darkTheme || storedTheme === lightTheme) {
+          theme = storedTheme;
+        }
+      } catch (error) { }
+
+      if (!theme) {
+        theme = darkTheme;
+      }
+
+      root.dataset.theme = theme;
+      root.style.colorScheme = theme;
+    }());
+  </script>
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .faq-page {
+      min-height: 100vh;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 8% 22%, rgba(34, 197, 94, 0.12), transparent 20rem),
+        #020604;
+    }
+
+    html[data-theme="light"] .faq-page {
+      background:
+        radial-gradient(circle at 8% 22%, rgba(34, 197, 94, 0.08), transparent 22rem),
+        #fff;
+    }
+
+    .faq-page .container {
+      max-width: 1190px;
+    }
+
+    .faq-page .brand img,
+    .header .brand img {
+      width: 56px;
+      height: 56px;
+    }
+
+    .faq-hero {
+      position: relative;
+      isolation: isolate;
+      padding: clamp(8.8rem, 12vw, 10.5rem) 0 2.3rem;
+      background:
+        linear-gradient(180deg, rgba(2, 6, 4, 0.14), rgba(2, 6, 4, 0.76) 92%),
+        url("../playcred-faq-hero-dark.png") center top / cover no-repeat;
+    }
+
+    html[data-theme="light"] .faq-hero {
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.88) 92%),
+        url("../playcred-faq-hero-light.png") center top / cover no-repeat;
+    }
+
+    .faq-hero::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 9rem;
+      background: linear-gradient(180deg, transparent, var(--pc-bg-floor));
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    html[data-theme="light"] .faq-hero::after {
+      background: linear-gradient(180deg, transparent, #fff);
+    }
+
+    .faq-hero__copy {
+      max-width: 640px;
+    }
+
+    .faq-hero h1 {
+      margin-top: 1.4rem;
+      max-width: 760px;
+      font-size: clamp(3rem, 4.25vw, 4rem);
+      font-weight: 500;
+      line-height: 1.08;
+      letter-spacing: 0;
+      text-wrap: balance;
+    }
+
+    .faq-hero h1 .text-primary {
+      color: #57e685;
+    }
+
+    .faq-mobile-break {
+      display: none;
+    }
+
+    .faq-hero__lede {
+      max-width: 520px;
+      margin-top: 1.4rem;
+      color: var(--pc-text-muted);
+      font-size: 1.12rem;
+      line-height: 1.72;
+    }
+
+    .faq-section {
+      padding: 1.6rem 0 3rem;
+    }
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.35rem;
+    }
+
+    .faq-group,
+    .faq-cta {
+      border-radius: 18px;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.014)),
+        rgba(8, 18, 17, 0.62);
+      box-shadow: 0 28px 80px rgba(0, 0, 0, 0.25);
+      backdrop-filter: blur(16px);
+    }
+
+    html[data-theme="light"] .faq-group,
+    html[data-theme="light"] .faq-cta {
+      background: rgba(255, 255, 255, 0.88);
+      box-shadow: 0 24px 70px rgba(17, 24, 39, 0.08);
+      backdrop-filter: blur(18px);
+    }
+
+    .faq-group {
+      min-height: 65.5rem;
+      padding: clamp(1.2rem, 2.5vw, 1.75rem);
+    }
+
+    .faq-group__heading {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .faq-group__heading h2 {
+      font-size: clamp(1.65rem, 3vw, 2.05rem);
+      font-weight: 500;
+      letter-spacing: 0;
+    }
+
+    .faq-icon {
+      display: inline-grid;
+      place-items: center;
+      width: 4.05rem;
+      height: 4.05rem;
+      flex: 0 0 auto;
+      border-radius: 999px;
+      color: var(--pc-primary);
+      background: rgba(34, 197, 94, 0.12);
+    }
+
+    .faq-icon svg,
+    .faq-page .btn svg {
+      width: 1.45rem;
+      height: 1.45rem;
+      stroke-width: 2;
+    }
+
+    .faq-list {
+      display: grid;
+      gap: 0.45rem;
+    }
+
+    .faq-item {
+      border: 1px solid var(--pc-border-light);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.025);
+      overflow: hidden;
+      transition: border-color 0.2s ease, background 0.2s ease;
+    }
+
+    html[data-theme="light"] .faq-item {
+      background: rgba(255, 255, 255, 0.78);
+    }
+
+    .faq-item[open] {
+      border-color: rgba(34, 197, 94, 0.34);
+      background: rgba(34, 197, 94, 0.055);
+    }
+
+    .faq-item summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      min-height: 2.75rem;
+      padding: 0.72rem 1rem;
+      color: var(--pc-text-main);
+      font-size: 0.98rem;
+      font-weight: 600;
+      line-height: 1.35;
+      list-style: none;
+      cursor: pointer;
+    }
+
+    .faq-item summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq-item summary::after {
+      content: "";
+      width: 0.58rem;
+      height: 0.58rem;
+      flex: 0 0 auto;
+      border-right: 2px solid var(--pc-primary);
+      border-bottom: 2px solid var(--pc-primary);
+      transform: rotate(45deg) translateY(-2px);
+      transition: transform 0.2s ease;
+    }
+
+    .faq-item[open] summary::after {
+      transform: rotate(225deg) translate(-2px, -1px);
+    }
+
+    .faq-answer {
+      padding: 0 1rem 1rem;
+      color: var(--pc-text-muted);
+      font-size: 0.94rem;
+      line-height: 1.62;
+    }
+
+    .faq-cta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      margin-top: 2.1rem;
+      padding: clamp(1.55rem, 3vw, 2.15rem);
+      background:
+        radial-gradient(circle at 10% 0%, rgba(34, 197, 94, 0.2), transparent 23rem),
+        rgba(8, 18, 17, 0.66);
+    }
+
+    html[data-theme="light"] .faq-cta {
+      background:
+        radial-gradient(circle at 10% 0%, rgba(34, 197, 94, 0.12), transparent 23rem),
+        rgba(255, 255, 255, 0.9);
+    }
+
+    .faq-cta h2 {
+      margin-top: 0.85rem;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 500;
+      letter-spacing: 0;
+    }
+
+    .faq-cta p {
+      margin-top: 1rem;
+      color: var(--pc-text-muted);
+      line-height: 1.65;
+    }
+
+    .faq-cta__actions {
+      display: grid;
+      gap: 0.9rem;
+      min-width: 260px;
+    }
+
+    .faq-page .btn {
+      min-height: 3.25rem;
+      border-radius: 8px;
+      font-size: 0.94rem;
+    }
+
+    .faq-page .btn--primary {
+      color: #021006;
+      background: linear-gradient(135deg, #22d968, #21c65e);
+      box-shadow: 0 14px 28px rgba(34, 197, 94, 0.18);
+    }
+
+    .faq-page .btn--secondary {
+      color: #fff;
+      background: rgba(2, 8, 16, 0.22);
+      border-color: rgba(255, 255, 255, 0.22);
+    }
+
+    html[data-theme="light"] .faq-page .btn--secondary {
+      color: var(--pc-text-main);
+      background: rgba(255, 255, 255, 0.64);
+      border-color: rgba(15, 26, 20, 0.15);
+    }
+
+    .faq-page .btn--outline {
+      background: rgba(2, 8, 16, 0.14);
+    }
+
+    html[data-theme="light"] .faq-page .btn--outline {
+      background: rgba(255, 255, 255, 0.7);
+    }
+
+    .faq-page .section-label {
+      margin-bottom: 0;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+    }
+
+    .faq-page .site-footer {
+      background: rgba(2, 6, 4, 0.96);
+    }
+
+    html[data-theme="light"] .faq-page .site-footer {
+      background: #f8fbf8;
+    }
+
+    .footer-link--active {
+      color: var(--pc-primary);
+    }
+
+    @media (max-width: 980px) {
+      .faq-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .faq-group {
+        min-height: unset;
+      }
+
+      .faq-cta {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .faq-cta__actions {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .faq-page .container {
+        max-width: 100%;
+        padding-inline: 1rem;
+      }
+
+      .faq-hero {
+        padding-top: 7.4rem;
+        background-position: 58% top;
+      }
+
+      .faq-hero h1 {
+        max-width: calc(100vw - 4rem);
+        font-size: clamp(2.2rem, 10.5vw, 2.8rem);
+        overflow-wrap: break-word;
+      }
+
+      .faq-hero__lede {
+        max-width: calc(100vw - 4rem);
+        overflow-wrap: break-word;
+      }
+
+      .faq-hero h1 .text-primary {
+        display: block;
+      }
+
+      .faq-mobile-break {
+        display: block;
+      }
+
+      .faq-section {
+        padding-top: 1rem;
+      }
+
+      .faq-grid,
+      .faq-group,
+      .faq-cta {
+        max-width: calc(100vw - 2rem);
+        width: 100%;
+      }
+
+      .faq-group__heading {
+        gap: 0.9rem;
+      }
+
+      .faq-icon {
+        width: 3.35rem;
+        height: 3.35rem;
+      }
+
+      .faq-item summary {
+        font-size: 0.94rem;
+      }
+
+      .faq-cta__actions .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="header">
+    <div class="container header-content">
+      <a href="../" class="brand">
+        <img src="https://cdn.playcred.ae/playcred-logo.webp" alt="PlayCred Logo">
+        <span>PlayCred</span>
+      </a>
+      <nav class="nav">
+        <a href="../players/" class="nav-link">For Players</a>
+        <a href="../advertisers/" class="nav-link">For Advertisers</a>
+        <a href="../about/" class="nav-link">About</a>
+        <a href="https://playcred-player.web.app/app" class="btn btn--primary" style="margin-top: 1rem; width: 100%;">Launch App</a>
+      </nav>
+      <div class="header-actions">
+        <a href="https://playcred-player.web.app/app" class="btn btn--primary">Launch App</a>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Toggle theme">
+          <span class="theme-toggle__icons" aria-hidden="true">
+            <svg class="theme-toggle__icon theme-toggle__icon--sun" xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <circle cx="12" cy="12" r="4"></circle>
+              <path d="M12 2v2"></path>
+              <path d="M12 20v2"></path>
+              <path d="m4.93 4.93 1.41 1.41"></path>
+              <path d="m17.66 17.66 1.41 1.41"></path>
+              <path d="M2 12h2"></path>
+              <path d="M20 12h2"></path>
+              <path d="m6.34 17.66-1.41 1.41"></path>
+              <path d="m19.07 4.93-1.41 1.41"></path>
+            </svg>
+            <svg class="theme-toggle__icon theme-toggle__icon--moon" xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M12 3a9 9 0 1 0 9 9c0-.4 0-.79-.06-1.18A7 7 0 0 1 12 3z"></path>
+            </svg>
+          </span>
+        </button>
+      </div>
+      <button class="menu-toggle" aria-label="Toggle Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <main class="faq-page">
+    <section class="faq-hero">
+      <div class="container">
+        <div class="faq-hero__copy reveal">
+          <span class="section-label">FAQ</span>
+          <h1>Questions from <span class="text-primary">users and<span class="faq-mobile-break"></span> advertisers.</span></h1>
+          <p class="faq-hero__lede">The answers below are to help you get quick clarity on PlayCred for easier decision making.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq-section">
+      <div class="container">
+        <div class="faq-grid reveal">
+          <article class="faq-group">
+            <div class="faq-group__heading">
+              <span class="faq-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="7" r="4"></circle>
+                  <path d="M4 21a8 8 0 0 1 16 0"></path>
+                </svg>
+              </span>
+              <h2>For Users</h2>
+            </div>
+            <div class="faq-list">
+              <details class="faq-item">
+                <summary>What is PlayCred?</summary>
+                <div class="faq-answer">PlayCred is a sports booking platform that allows users to earn PlayCred credits by watching rewarded ads and use those credits to book sports sessions.</div>
+              </details>
+              <details class="faq-item">
+                <summary>How does PlayCred work?</summary>
+                <div class="faq-answer">Watch ads, earn PlayCred credits, and use those credits to book available games or sports sessions through the PlayCred app.</div>
+              </details>
+              <details class="faq-item">
+                <summary>Is PlayCred free to use?</summary>
+                <div class="faq-answer">Yes. Users can earn credits by watching rewarded ads and use those credits to book available sessions, subject to availability and platform rules.</div>
+              </details>
+              <details class="faq-item">
+                <summary>What can PlayCred do for me?</summary>
+                <div class="faq-answer">PlayCred helps you turn completed rewarded ads into credits that can be used for eligible sports sessions at participating venues.</div>
+              </details>
+              <details class="faq-item">
+                <summary>How do I earn PlayCred credits?</summary>
+                <div class="faq-answer">You can earn credits by watching completed rewarded video ads inside the PlayCred app. Once the ad is completed, credits are added to your account.</div>
+              </details>
+              <details class="faq-item">
+                <summary>How many credits do I need to book a game?</summary>
+                <div class="faq-answer">The number of credits required may depend on session type, location, and availability. The required credits will be shown before you confirm your booking.</div>
+              </details>
+              <details class="faq-item">
+                <summary>Can I buy PlayCred credits?</summary>
+                <div class="faq-answer">Currently, PlayCred is focused on allowing users to earn credits through ads. If credit purchase options become available, they will be shown clearly in the app.</div>
+              </details>
+              <details class="faq-item">
+                <summary>Do PlayCred credits expire?</summary>
+                <div class="faq-answer">Yes. PlayCred credits may have an expiry period. Expiry details will be shown in the app, and users are encouraged to use credits before they expire.</div>
+              </details>
+              <details class="faq-item">
+                <summary>Can I cancel my booking?</summary>
+                <div class="faq-answer">Cancellation rules depend on the policy shown at booking. If your booking is eligible for a credit refund, the refundable amount will be displayed before cancellation.</div>
+              </details>
+              <details class="faq-item">
+                <summary>What happens if I misschedule a slot?</summary>
+                <div class="faq-answer">If you book the wrong slot, the available cancellation or change options depend on the booking policy shown in the app for that session.</div>
+              </details>
+              <details class="faq-item">
+                <summary>Can I transfer my credits to another user?</summary>
+                <div class="faq-answer">No. PlayCred credits are linked to your account and cannot be transferred, sold, exchanged, or redeemed for cash.</div>
+              </details>
+              <details class="faq-item">
+                <summary>Are there any eligibility?</summary>
+                <div class="faq-answer">PlayCred is intended for users who meet the minimum age requirement and agree to the platform's Terms and Conditions.</div>
+              </details>
+              <details class="faq-item">
+                <summary>What sports can I book on PlayCred?</summary>
+                <div class="faq-answer">PlayCred may offer access to football, basketball, and other sports sessions depending on availability, location, and partner venues.</div>
+              </details>
+              <details class="faq-item">
+                <summary>Where is PlayCred available?</summary>
+                <div class="faq-answer">PlayCred is launching in selected locations first. Available sessions, venues, and cities will be shown inside the app.</div>
+              </details>
+              <details class="faq-item">
+                <summary>Who can use PlayCred?</summary>
+                <div class="faq-answer">PlayCred is intended for users who meet the minimum age requirement and agree to the platform's Terms and Conditions.</div>
+              </details>
+            </div>
+          </article>
+
+          <article class="faq-group">
+            <div class="faq-group__heading">
+              <span class="faq-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="m3 11 18-7v16L3 13v-2Z"></path>
+                  <path d="M11.6 15.1 10 21"></path>
+                  <path d="M19 8h2"></path>
+                  <path d="M19 12h2"></path>
+                </svg>
+              </span>
+              <h2>For Advertisers</h2>
+            </div>
+            <div class="faq-list">
+              <details class="faq-item">
+                <summary>What is PlayCred for advertisers?</summary>
+                <div class="faq-answer">PlayCred gives brands the opportunity to reach an active sports-focused audience through rewarded video ads, banners, pop-ups, and other in-app placements.</div>
+              </details>
+              <details class="faq-item">
+                <summary>Why should advertisers use PlayCred?</summary>
+                <div class="faq-answer">PlayCred connects advertisers with users who are actively engaging with the platform to earn credits and book sports sessions.</div>
+              </details>
+              <details class="faq-item">
+                <summary>What ad formats are available?</summary>
+                <div class="faq-answer">Formats may include rewarded video ads, home screen banners, pop-up or interstitial ads, confirmation page banners, and sponsored placements depending on the selected package.</div>
+              </details>
+              <details class="faq-item">
+                <summary>What is rewarded advertising?</summary>
+                <div class="faq-answer">Rewarded advertising lets users watch an ad voluntarily in exchange for PlayCred credits, creating a focused and high-attention ad experience.</div>
+              </details>
+              <details class="faq-item">
+                <summary>Can advertisers choose where the ads are shown?</summary>
+                <div class="faq-answer">Yes. Ad placement depends on the selected advertising package and available inventory, including rewarded video, banner, pop-up, and confirmation screen positions.</div>
+              </details>
+              <details class="faq-item">
+                <summary>How does campaign pricing work?</summary>
+                <div class="faq-answer">Pricing may depend on package, ad format, duration, impressions, completed views, clicks, or other platform-based pricing shown at purchase.</div>
+              </details>
+              <details class="faq-item">
+                <summary>Are reports live?</summary>
+                <div class="faq-answer">Advertisers may be able to track campaign metrics such as impressions, clicks, completed views, status, and other available performance data in the dashboard.</div>
+              </details>
+              <details class="faq-item">
+                <summary>Can I test campaigns before?</summary>
+                <div class="faq-answer">Yes. Subject to available packages, advertisers may be able to run a short campaign or pilot before committing to a longer advertising plan.</div>
+              </details>
+              <details class="faq-item">
+                <summary>What metrics can advertisers see?</summary>
+                <div class="faq-answer">Advertisers may see impressions, clicks, click-through rate, completed views, campaign status, and other performance data available in the advertiser dashboard.</div>
+              </details>
+              <details class="faq-item">
+                <summary>Can I pause or edit my campaign?</summary>
+                <div class="faq-answer">Yes. Depending on campaign settings, advertisers may be able to edit, pause, update dates, or adjust campaign details from the dashboard.</div>
+              </details>
+              <details class="faq-item">
+                <summary>Does PlayCred approve ads before they go live?</summary>
+                <div class="faq-answer">Yes. Ads may be reviewed before going live to ensure they meet platform standards, technical requirements, and advertising guidelines.</div>
+              </details>
+              <details class="faq-item">
+                <summary>What happens if my ad is rejected?</summary>
+                <div class="faq-answer">If an ad is rejected, the reason may be shown in the advertiser dashboard. Advertisers can update the creative and resubmit it for review.</div>
+              </details>
+              <details class="faq-item">
+                <summary>What types of business can advertise on PlayCred?</summary>
+                <div class="faq-answer">Sports brands, fitness businesses, food and beverage companies, lifestyle brands, local services, events, and other relevant advertisers may be suitable.</div>
+              </details>
+              <details class="faq-item">
+                <summary>Can I talk to my whitelist or booking pages?</summary>
+                <div class="faq-answer">Clickable ads may direct users to an approved destination such as your website, landing page, app, booking page, or campaign-specific page.</div>
+              </details>
+              <details class="faq-item">
+                <summary>Is PlayCred suitable for small businesses?</summary>
+                <div class="faq-answer">Yes. PlayCred can be suitable for both local businesses and larger brands that want to reach a targeted sports audience through digital advertising.</div>
+              </details>
+              <details class="faq-item">
+                <summary>Can I run short-term campaigns?</summary>
+                <div class="faq-answer">Yes. Subject to package availability, advertisers may be able to run short-term campaigns, test campaigns, or pilots.</div>
+              </details>
+              <details class="faq-item">
+                <summary>Does PlayCred guarantee results?</summary>
+                <div class="faq-answer">PlayCred may provide delivery estimates or reporting, but actual results vary depending on campaign, creative quality, audience engagement, targeting, and inventory.</div>
+              </details>
+              <details class="faq-item">
+                <summary>How can advertisers get started?</summary>
+                <div class="faq-answer">Advertisers can register on the advertiser platform, select an available package, upload creatives, and submit ads for review before launch.</div>
+              </details>
+              <details class="faq-item">
+                <summary>What creative materials do I need?</summary>
+                <div class="faq-answer">Advertisers may need to provide videos, banners, images, campaign links, brand information, and required text depending on the selected ad format.</div>
+              </details>
+              <details class="faq-item">
+                <summary>Who can I contact for advertising support?</summary>
+                <div class="faq-answer">For advertising inquiries, campaign setup, or support, contact PlayCred through the official contact form or support email shown on the website.</div>
+              </details>
+            </div>
+          </article>
+        </div>
+
+        <div class="faq-cta reveal">
+          <div>
+            <span class="section-label">Ready to join?</span>
+            <h2>Ready to be part of PlayCred?</h2>
+            <p>Join a platform built for players, brands, and venues, accessible across the UAE.</p>
+          </div>
+          <div class="faq-cta__actions">
+            <a href="../players/" class="btn btn--primary">Start Playing</a>
+            <a href="../advertisers/" class="btn btn--secondary">Advertise with Us</a>
+            <a href="mailto:info@playcred.ae?subject=Venue%20Partnership%20with%20PlayCred" class="btn btn--outline">Partner as a Venue</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="../" class="brand" style="margin-bottom: 1.5rem;"><img src="https://cdn.playcred.ae/playcred-logo.webp"
+              alt="PlayCred Logo"><span>PlayCred</span></a>
+          <p style="color: var(--pc-text-muted); max-width: 300px;">The sports venue booking platform that rewards
+            players and empowers brands.</p>
+          <div class="footer-social" style="margin-top: 1.5rem;">
+            <a href="https://www.instagram.com/play_cred" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+            </a>
+            <a href="https://www.linkedin.com/company/playcred-sport-fze/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                <rect x="2" y="9" width="4" height="12"></rect>
+                <circle cx="4" cy="4" r="2"></circle>
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div>
+          <h4 style="margin-bottom: 1.5rem;">Platform</h4>
+          <ul
+            style="list-style: none; display: flex; flex-direction: column; gap: 0.75rem; color: var(--pc-text-muted);">
+            <li><a href="../players/">For Players</a></li>
+            <li><a href="../advertisers/">For Advertisers</a></li>
+            <li><a href="https://playcred-player.web.app/app">Launch App</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 style="margin-bottom: 1.5rem;">Company</h4>
+          <ul
+            style="list-style: none; display: flex; flex-direction: column; gap: 0.75rem; color: var(--pc-text-muted);">
+            <li><a href="../about/">About Us</a></li>
+            <li><a href="../faq/" class="footer-link--active">FAQ</a></li>
+            <li><a href="../contact/">Contact</a></li>
+            <li><a href="../legal/">Legal</a></li>
+            <li><a href="../legal/privacy/">Privacy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 PlayCred. All rights reserved.</span>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/play_cred" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+            </svg>
+          </a>
+          <a href="https://www.linkedin.com/company/playcred-sport-fze/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+              <rect x="2" y="9" width="4" height="12"></rect>
+              <circle cx="4" cy="4" r="2"></circle>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+
+</html>
