@@ -5,20 +5,26 @@ const environments = {
   local: {
     playerBaseUrl: 'http://localhost:4300',
     advertiserBaseUrl: 'http://localhost:4302',
+    contactApiBaseUrl: 'http://localhost:8081',
   },
   staging: {
     playerBaseUrl: 'https://playcred-player.web.app',
     advertiserBaseUrl: 'https://playcred-advertiser.web.app',
+    contactApiBaseUrl: 'https://api-dev.playcred.ae',
   },
   production: {
     playerBaseUrl: 'https://app.playcred.ae',
     advertiserBaseUrl: 'https://advertiser.playcred.ae',
+    contactApiBaseUrl: 'https://api.playcred.ae',
   },
 };
 
 const knownPlayerBaseUrls = Object.values(environments).map((environment) => environment.playerBaseUrl);
 const knownAdvertiserBaseUrls = Object.values(environments).map(
   (environment) => environment.advertiserBaseUrl,
+);
+const knownContactApiBaseUrls = Object.values(environments).map(
+  (environment) => environment.contactApiBaseUrl,
 );
 
 const requestedEnvironment = process.argv[2];
@@ -61,12 +67,17 @@ for (const filePath of htmlFiles) {
     knownAdvertiserBaseUrls,
     targetEnvironment.advertiserBaseUrl,
   );
+  const nextContentWithContactApi = replaceAll(
+    nextContent,
+    knownContactApiBaseUrls,
+    targetEnvironment.contactApiBaseUrl,
+  );
 
-  if (nextContent !== originalContent) {
-    fs.writeFileSync(filePath, nextContent);
+  if (nextContentWithContactApi !== originalContent) {
+    fs.writeFileSync(filePath, nextContentWithContactApi);
   }
 }
 
 console.log(
-  `Configured public app links for ${requestedEnvironment}: ${targetEnvironment.playerBaseUrl}, ${targetEnvironment.advertiserBaseUrl}`,
+  `Configured public app links for ${requestedEnvironment}: ${targetEnvironment.playerBaseUrl}, ${targetEnvironment.advertiserBaseUrl}, ${targetEnvironment.contactApiBaseUrl}`,
 );

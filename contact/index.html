@@ -430,6 +430,21 @@
       margin-top: 1.5rem;
     }
 
+    .contact-form__status {
+      flex: 1 1 260px;
+      min-height: 1.5em;
+      color: var(--pc-text-muted);
+      line-height: 1.5;
+    }
+
+    .contact-form__status.is-success {
+      color: #5ee889;
+    }
+
+    .contact-form__status.is-error {
+      color: #fca5a5;
+    }
+
     .contact-form__actions {
       display: flex;
       flex-wrap: wrap;
@@ -859,7 +874,7 @@
           <h2>Tell us what you need and we will route it from there.</h2>
           <p>Use the form below for general inquiries. For urgent support, WhatsApp is usually the fastest option.</p>
 
-          <form action="mailto:info@playcred.ae" method="post" enctype="text/plain">
+          <form action="http://localhost:8081/api/v1/contact" method="post" data-contact-form>
             <div class="form-grid">
               <div class="field">
                 <label for="full-name">Full Name *</label>
@@ -901,6 +916,7 @@
             </div>
 
             <div class="contact-form__footer">
+              <p class="contact-form__status" data-contact-status role="status" aria-live="polite"></p>
               <div class="contact-form__actions">
                 <button type="submit" class="btn btn--primary btn--xl">
                   <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">

@@ -80,9 +80,92 @@ function applyActiveNavLink() {
   });
 }
 
+function collectContactFormPayload(form) {
+  const getValue = (selector) => {
+    const field = form.querySelector(selector);
+    return field ? field.value.trim() : '';
+  };
+
+  return {
+    fullName: getValue('#full-name'),
+    email: getValue('#email'),
+    phone: getValue('#phone') || null,
+    inquiryType: getValue('#inquiry-type'),
+    companyName: getValue('#company-name') || null,
+    subject: getValue('#subject'),
+    message: getValue('#message'),
+    privacyConsent: Boolean(form.querySelector('#privacy-consent')?.checked),
+    source: 'contact-page',
+  };
+}
+
+function wireContactForm() {
+  const form = document.querySelector('[data-contact-form]');
+
+  if (!form) {
+    return;
+  }
+
+  const status = form.querySelector('[data-contact-status]');
+  const submitButton = form.querySelector('button[type="submit"]');
+  const originalButtonLabel = submitButton ? submitButton.innerHTML : '';
+
+  function setStatus(message, variant) {
+    if (!status) {
+      return;
+    }
+
+    status.textContent = message;
+    status.classList.remove('is-success', 'is-error');
+
+    if (variant) {
+      status.classList.add(variant);
+    }
+  }
+
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+
+    if (!form.reportValidity()) {
+      return;
+    }
+
+    setStatus('Sending your message...', null);
+    if (submitButton) {
+      submitButton.disabled = true;
+    }
+
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify(collectContactFormPayload(form)),
+      });
+
+      if (!response.ok) {
+        throw new Error(`Request failed with status ${response.status}`);
+      }
+
+      form.reset();
+      setStatus('Your message has been sent. We will get back to you soon.', 'is-success');
+    } catch (error) {
+      setStatus('We could not send your message just now. Please try again.', 'is-error');
+    } finally {
+      if (submitButton) {
+        submitButton.disabled = false;
+        submitButton.innerHTML = originalButtonLabel;
+      }
+    }
+  });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   applyTheme(getInitialTheme());
   applyActiveNavLink();
+  wireContactForm();
 
   // Reveal animations
   const revealElements = document.querySelectorAll('.reveal');
