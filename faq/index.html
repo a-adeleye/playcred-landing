@@ -201,7 +201,7 @@
       background: rgba(255, 255, 255, 0.78);
     }
 
-    .faq-item[open] {
+    .faq-item.is-open {
       border-color: rgba(34, 197, 94, 0.34);
       background: rgba(34, 197, 94, 0.055);
     }
@@ -225,6 +225,10 @@
       display: none;
     }
 
+    .faq-item summary::marker {
+      content: "";
+    }
+
     .faq-item summary::after {
       content: "";
       width: 0.58rem;
@@ -236,15 +240,33 @@
       transition: transform 0.2s ease;
     }
 
-    .faq-item[open] summary::after {
+    .faq-item.is-open summary::after {
       transform: rotate(225deg) translate(-2px, -1px);
     }
 
     .faq-answer {
-      padding: 0 1rem 1rem;
+      max-height: 0;
+      overflow: hidden;
+      padding: 0 1rem;
       color: var(--pc-text-muted);
       font-size: 0.94rem;
       line-height: 1.62;
+      opacity: 0;
+      transform: translateY(-0.2rem);
+      transition: max-height 0.35s ease, opacity 0.22s ease, transform 0.35s ease, padding 0.35s ease;
+    }
+
+    .faq-item.is-open .faq-answer {
+      max-height: 24rem;
+      padding: 0 1rem 1rem;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .faq-answer {
+        transition: none;
+      }
     }
 
     .faq-cta {
@@ -746,6 +768,44 @@
   </footer>
 
   <script src="../js/main.js"></script>
+  <script>
+    (function () {
+      var items = document.querySelectorAll('.faq-item');
+
+      items.forEach(function (item) {
+        var summary = item.querySelector('summary');
+        var answer = item.querySelector('.faq-answer');
+        if (!summary || !answer) return;
+
+        // Keep the visual class in sync if the item starts open.
+        if (item.open) item.classList.add('is-open');
+
+        summary.addEventListener('click', function (event) {
+          event.preventDefault();
+
+          if (item.classList.contains('is-open')) {
+            // Closing: play the transition first, then drop the open attribute.
+            item.classList.remove('is-open');
+
+            var onClosed = function (e) {
+              if (e.target !== answer || e.propertyName !== 'max-height') return;
+              answer.removeEventListener('transitionend', onClosed);
+              if (!item.classList.contains('is-open')) item.open = false;
+            };
+            answer.addEventListener('transitionend', onClosed);
+          } else {
+            // Opening: render content first, then trigger the transition.
+            item.open = true;
+            requestAnimationFrame(function () {
+              requestAnimationFrame(function () {
+                item.classList.add('is-open');
+              });
+            });
+          }
+        });
+      });
+    }());
+  </script>
 </body>
 
 </html>

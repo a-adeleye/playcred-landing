@@ -68,14 +68,14 @@
       padding: clamp(8.2rem, 10vw, 9.6rem) 0 3.4rem;
       background:
         linear-gradient(180deg, rgba(2, 6, 4, 0.08), rgba(2, 6, 4, 0.78) 96%),
-        url("../playcred-about-us-hero-dark.png") left top / cover no-repeat;
+        url("../playcred-about-us-hero-dark.png") center center / cover no-repeat;
       border-bottom: 1px solid var(--pc-border-light);
     }
 
     html[data-theme="light"] .about-hero {
       background:
         linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.9) 96%),
-        url("../playcred-about-us-hero-light.png") left top / cover no-repeat;
+        url("../playcred-about-us-hero-light.png") center center / cover no-repeat;
     }
 
     .about-hero::after {
@@ -147,7 +147,6 @@
     .ecosystem,
     .mini-faq,
     .about-cta {
-      border: 1px solid var(--pc-border-light);
       border-radius: 16px;
       background:
         linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.014)),
@@ -378,6 +377,7 @@
     .belief-grid {
       grid-template-columns: minmax(0, 1.05fr) minmax(340px, 0.95fr);
       align-items: center;
+      margin-bottom: 1.5rem;
     }
 
     .value-panel {
@@ -453,27 +453,81 @@
     }
 
     .mini-faq-item {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      min-height: 2.55rem;
-      gap: 1rem;
-      padding: 0.65rem 0.85rem;
       border: 1px solid var(--pc-border-light);
       border-radius: 8px;
       background: rgba(255, 255, 255, 0.025);
+      overflow: hidden;
+      transition: border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .mini-faq-item.is-open {
+      border-color: rgba(34, 197, 94, 0.34);
+      background: rgba(34, 197, 94, 0.055);
+    }
+
+    .mini-faq-item summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      min-height: 2.55rem;
+      padding: 0.65rem 0.85rem;
+      background: transparent;
       font-weight: 600;
       font-size: 0.9rem;
+      line-height: 1.35;
+      list-style: none;
+      cursor: pointer;
+      transition: color 0.2s ease;
     }
 
     html[data-theme="light"] .mini-faq-item {
       background: rgba(255, 255, 255, 0.76);
     }
 
-    .mini-faq-item span {
+    .mini-faq-item summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .mini-faq-item summary::marker {
+      content: "";
+    }
+
+    .mini-faq-item summary::after {
+      content: "+";
       color: var(--pc-primary);
       font-size: 1.1rem;
       line-height: 1;
+      transition: transform 0.25s ease;
+    }
+
+    .mini-faq-item.is-open summary::after {
+      transform: rotate(45deg);
+    }
+
+    .mini-faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      padding: 0 0.85rem;
+      color: var(--pc-text-muted);
+      font-size: 0.88rem;
+      line-height: 1.65;
+      opacity: 0;
+      transform: translateY(-0.2rem);
+      transition: max-height 0.35s ease, opacity 0.22s ease, transform 0.35s ease, padding 0.35s ease;
+    }
+
+    .mini-faq-item.is-open .mini-faq-answer {
+      max-height: 8rem;
+      padding: 0 0.85rem 0.85rem;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .mini-faq-answer {
+        transition: none;
+      }
     }
 
     .see-all {
@@ -482,7 +536,6 @@
       gap: 0.45rem;
       margin-top: 0.8rem;
       color: var(--pc-primary);
-      font-weight: 700;
       font-size: 0.9rem;
     }
 
@@ -503,7 +556,6 @@
       border-radius: 8px;
       padding: 0.82rem 1.35rem;
       font-size: 0.9rem;
-      font-weight: 700;
     }
 
     .about-page .btn--primary {
@@ -921,10 +973,22 @@
             </div>
             <div>
               <div class="mini-faq-list">
-                <div class="mini-faq-item">What is PlayCred? <span>+</span></div>
-                <div class="mini-faq-item">How does PlayCred work? <span>+</span></div>
-                <div class="mini-faq-item">Is PlayCred free to use? <span>+</span></div>
-                <div class="mini-faq-item">Can I buy PlayCred credits? <span>+</span></div>
+                <details class="mini-faq-item">
+                  <summary>What is PlayCred?</summary>
+                  <div class="mini-faq-answer">PlayCred is a sports booking platform that allows users to earn PlayCred credits by watching rewarded ads and use those credits to book sports sessions.</div>
+                </details>
+                <details class="mini-faq-item">
+                  <summary>How does PlayCred work?</summary>
+                  <div class="mini-faq-answer">Watch ads, earn PlayCred credits, and use those credits to book available games or sports sessions through the PlayCred app.</div>
+                </details>
+                <details class="mini-faq-item">
+                  <summary>Is PlayCred free to use?</summary>
+                  <div class="mini-faq-answer">Yes. Users can earn credits by watching rewarded ads and use those credits to book available sessions, subject to availability and platform rules.</div>
+                </details>
+                <details class="mini-faq-item">
+                  <summary>Can I buy PlayCred credits?</summary>
+                  <div class="mini-faq-answer">Currently, PlayCred is focused on allowing users to earn credits through ads. If credit purchase options become available, they will be shown clearly in the app.</div>
+                </details>
               </div>
               <a class="see-all" href="../faq/">See all FAQs
                 <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
@@ -1030,6 +1094,44 @@
   </footer>
 
   <script src="../js/main.js"></script>
+  <script>
+    (function () {
+      var items = document.querySelectorAll('.mini-faq-item');
+
+      items.forEach(function (item) {
+        var summary = item.querySelector('summary');
+        var answer = item.querySelector('.mini-faq-answer');
+        if (!summary || !answer) return;
+
+        // Keep the visual class in sync if the item starts open.
+        if (item.open) item.classList.add('is-open');
+
+        summary.addEventListener('click', function (event) {
+          event.preventDefault();
+
+          if (item.classList.contains('is-open')) {
+            // Closing: play the transition first, then drop the open attribute.
+            item.classList.remove('is-open');
+
+            var onClosed = function (e) {
+              if (e.target !== answer || e.propertyName !== 'max-height') return;
+              answer.removeEventListener('transitionend', onClosed);
+              if (!item.classList.contains('is-open')) item.open = false;
+            };
+            answer.addEventListener('transitionend', onClosed);
+          } else {
+            // Opening: render content first, then trigger the transition.
+            item.open = true;
+            requestAnimationFrame(function () {
+              requestAnimationFrame(function () {
+                item.classList.add('is-open');
+              });
+            });
+          }
+        });
+      });
+    }());
+  </script>
 </body>
 
 </html>

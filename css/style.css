@@ -682,15 +682,14 @@ html[data-theme="light"] .hero-feature {
   gap: 0.6rem;
   min-height: 2.75rem;
   padding: 0.6rem 1rem;
-  border: 1px solid var(--pc-border-light);
+  border: none;
   border-radius: 999px;
-  background: var(--pc-theme-toggle-bg);
+  background: none;
   color: var(--pc-text-main);
   transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
 }
 
 .theme-toggle:hover {
-  background: var(--pc-theme-toggle-hover);
   transform: translateY(-1px);
 }
 
