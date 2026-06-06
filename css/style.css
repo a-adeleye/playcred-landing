@@ -892,7 +892,6 @@ html[data-theme="light"] .nav-overlay {
 
 .advertiser-cta {
   background: linear-gradient(135deg, var(--pc-bg-card), var(--pc-bg-surface-strong));
-  border: 1px solid var(--pc-border-light);
   border-radius: 2rem;
   padding: 4rem;
   display: flex;

@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact PlayCred | Support, Partnerships, and Advertising</title>
+  <meta name="description"
+    content="Contact PlayCred for user support, advertiser campaigns, venue partnerships, and business inquiries across the sports booking ecosystem.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@400;500;700&display=swap"
+    rel="stylesheet">
+  <script>
+    (function () {
+      var storageKey = 'playcred-theme';
+      var darkTheme = 'dark';
+      var lightTheme = 'light';
+      var root = document.documentElement;
+      var theme = null;
+
+      try {
+        var storedTheme = window.localStorage.getItem(storageKey);
+        if (storedTheme === darkTheme || storedTheme === lightTheme) {
+          theme = storedTheme;
+        }
+      } catch (error) { }
+
+      if (!theme) {
+        theme = darkTheme;
+      }
+
+      root.dataset.theme = theme;
+      root.style.colorScheme = theme;
+    }());
+  </script>
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .contact-page {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-page > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .contact-hero {
+      padding: clamp(9rem, 12vw, 11rem) 0 4rem;
+    }
+
+    .contact-hero__grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .contact-hero h1 {
+      font-size: clamp(3rem, 7vw, 5.2rem);
+      margin-top: 0.75rem;
+      max-width: 11ch;
+    }
+
+    .contact-hero__lede {
+      max-width: 720px;
+      color: var(--pc-text-muted);
+      line-height: 1.8;
+      font-size: 1.1rem;
+      margin-top: 1.25rem;
+    }
+
+    .contact-hero__actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .contact-panel,
+    .contact-card,
+    .contact-form,
+    .contact-cta {
+      border-radius: var(--pc-radius-lg);
+      background: var(--pc-bg-card);
+      box-shadow: var(--pc-shadow);
+    }
+
+    .contact-panel {
+      padding: 1.5rem;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.015));
+    }
+
+    .contact-panel h2 {
+      font-size: 1.35rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .contact-panel p {
+      color: var(--pc-text-muted);
+      line-height: 1.7;
+    }
+
+    .contact-stack {
+      display: grid;
+      gap: 1rem;
+      margin-top: 1.25rem;
+    }
+
+    .contact-item {
+      padding: 1rem;
+      border-radius: 1rem;
+      border: 1px solid var(--pc-border-light);
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .contact-item strong {
+      display: block;
+      margin-bottom: 0.35rem;
+      font-size: 1rem;
+    }
+
+    .contact-item span,
+    .contact-item a {
+      color: var(--pc-text-muted);
+      line-height: 1.7;
+    }
+
+    .contact-item small {
+      display: block;
+    }
+
+    .contact-section {
+      padding: 4.5rem 0;
+    }
+
+    .contact-section__heading {
+      max-width: 760px;
+      margin-bottom: 1.8rem;
+    }
+
+    .contact-section__heading h2 {
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      margin-top: 0.5rem;
+    }
+
+    .contact-section__heading p {
+      color: var(--pc-text-muted);
+      line-height: 1.75;
+      margin-top: 1rem;
+      max-width: 720px;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1.25rem;
+    }
+
+    .contact-card {
+      padding: 1.5rem;
+    }
+
+    .contact-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .contact-card p {
+      color: var(--pc-text-muted);
+      line-height: 1.75;
+    }
+
+    .contact-card__link {
+      display: inline-flex;
+      margin-top: 1rem;
+      color: var(--pc-primary);
+      font-weight: 600;
+    }
+
+    .contact-form {
+      padding: 1.5rem;
+    }
+
+    .contact-form h2 {
+      font-size: 1.75rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-form p {
+      color: var(--pc-text-muted);
+      line-height: 1.75;
+      margin-bottom: 1.5rem;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+    }
+
+    .field--full {
+      grid-column: 1 / -1;
+    }
+
+    .field label {
+      font-size: 0.9rem;
+      color: var(--pc-text-main);
+      font-weight: 600;
+    }
+
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      padding: 0.95rem 1rem;
+      border-radius: 1rem;
+      border: 1px solid var(--pc-border-light);
+      background: rgba(255, 255, 255, 0.03);
+      color: var(--pc-text-main);
+      font: inherit;
+    }
+
+    .field textarea {
+      min-height: 160px;
+      resize: vertical;
+    }
+
+    .field small {
+      color: var(--pc-text-muted);
+      line-height: 1.6;
+    }
+
+    .checkbox-row {
+      display: flex;
+      gap: 0.75rem;
+      align-items: flex-start;
+      color: var(--pc-text-muted);
+      line-height: 1.7;
+    }
+
+    .checkbox-row input {
+      margin-top: 0.25rem;
+      accent-color: var(--pc-primary);
+    }
+
+    .contact-cta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      padding: 2rem;
+      background:
+        linear-gradient(135deg, rgba(34, 197, 94, 0.12), rgba(245, 158, 11, 0.04)),
+        var(--pc-bg-card);
+    }
+
+    .contact-cta h2 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      margin-top: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .contact-cta p {
+      color: var(--pc-text-muted);
+      max-width: 620px;
+      line-height: 1.75;
+    }
+
+    .contact-cta__actions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+      min-width: 260px;
+    }
+
+    @media (max-width: 1080px) {
+      .contact-hero__grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-cta {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .contact-hero {
+        padding-top: 8.75rem;
+      }
+
+      .contact-hero__actions,
+      .contact-cta__actions,
+      .form-grid {
+        width: 100%;
+      }
+
+      .contact-hero__actions .btn,
+      .contact-cta__actions .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="header">
+    <div class="container header-content">
+      <a href="../" class="brand">
+        <img src="https://cdn.playcred.ae/playcred-logo.webp" alt="PlayCred Logo">
+        <span>PlayCred</span>
+      </a>
+      <nav class="nav">
+        <a href="../players/" class="nav-link">For Players</a>
+        <a href="../advertisers/" class="nav-link">For Advertisers</a>
+        <a href="../about/" class="nav-link">About</a>
+        <a href="https://playcred-player.web.app/app" class="btn btn--primary" style="margin-top: 1rem; width: 100%;">Launch App</a>
+      </nav>
+      <div class="header-actions">
+        <a href="https://playcred-player.web.app/app" class="btn btn--primary">Launch App</a>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Toggle theme">
+          <span class="theme-toggle__icons" aria-hidden="true">
+            <svg class="theme-toggle__icon theme-toggle__icon--sun" xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <circle cx="12" cy="12" r="4"></circle>
+              <path d="M12 2v2"></path>
+              <path d="M12 20v2"></path>
+              <path d="m4.93 4.93 1.41 1.41"></path>
+              <path d="m17.66 17.66 1.41 1.41"></path>
+              <path d="M2 12h2"></path>
+              <path d="M20 12h2"></path>
+              <path d="m6.34 17.66-1.41 1.41"></path>
+              <path d="m19.07 4.93-1.41 1.41"></path>
+            </svg>
+            <svg class="theme-toggle__icon theme-toggle__icon--moon" xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M12 3a9 9 0 1 0 9 9c0-.4 0-.79-.06-1.18A7 7 0 0 1 12 3z"></path>
+            </svg>
+          </span>
+        </button>
+      </div>
+      <button class="menu-toggle" aria-label="Toggle Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <main class="contact-page">
+    <section class="contact-hero">
+      <div class="container">
+        <div class="contact-hero__grid reveal">
+          <div>
+            <span class="section-label">Contact PlayCred</span>
+            <h1>Let us connect players, brands, and venues.</h1>
+            <p class="contact-hero__lede">
+              We are here to help with user support, advertiser campaigns, venue partnerships, and business inquiries
+              across the PlayCred sports booking ecosystem.
+            </p>
+            <div class="contact-hero__actions">
+              <a href="https://wa.me/971503657707" class="btn btn--primary btn--xl">Chat on WhatsApp</a>
+              <a href="mailto:info@playcred.ae" class="btn btn--secondary btn--xl">Email Support</a>
+              <a href="../about/#faq" class="btn btn--outline btn--xl">Browse FAQ</a>
+            </div>
+          </div>
+
+          <aside class="contact-panel">
+            <h2>WhatsApp Business</h2>
+            <p>+971 50 365 7707</p>
+            <div class="contact-stack">
+              <div class="contact-item">
+                <strong>User Support</strong>
+                <span>support@playcred.ae</span>
+                <small>Bookings, credits, cancellations, app access, and technical support.</small>
+              </div>
+              <div class="contact-item">
+                <strong>General and Business</strong>
+                <span>info@playcred.ae</span>
+                <small>Advertising, partnerships, media, and venue collaboration.</small>
+              </div>
+              <div class="contact-item">
+                <strong>Location</strong>
+                <span>Dubai, United Arab Emirates</span>
+              </div>
+              <div class="contact-item">
+                <strong>Business Hours</strong>
+                <span>Monday to Friday, 9:00 AM to 6:00 PM UAE Time</span>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-section">
+      <div class="container">
+        <div class="contact-section__heading reveal">
+          <span class="section-label">How can we help?</span>
+          <h2>Choose the right contact path so your message reaches the correct PlayCred team faster.</h2>
+          <p>
+            Whether you are a user, advertiser, venue partner, or business contact, we have a clear route for your
+            message.
+          </p>
+        </div>
+
+        <div class="contact-grid reveal">
+          <article class="contact-card">
+            <h3>User Support</h3>
+            <p>Help with bookings, PlayCred credits, rewarded ads, account access, cancellations, and app-related issues.</p>
+          </article>
+          <article class="contact-card">
+            <h3>Advertiser Inquiries</h3>
+            <p>For brands interested in rewarded video ads, banners, pop-ups, campaign setup, and performance tracking.</p>
+          </article>
+          <article class="contact-card">
+            <h3>Venue Partnerships</h3>
+            <p>For sports venues that want to attract more players, increase utilization, and join the PlayCred ecosystem.</p>
+          </article>
+          <article class="contact-card">
+            <h3>Business Inquiries</h3>
+            <p>For strategic partnerships, sponsorships, media inquiries, and commercial opportunities.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-section">
+      <div class="container">
+        <div class="contact-form reveal">
+          <span class="section-label">Send us a message</span>
+          <h2>Tell us what you need and we will route it from there.</h2>
+          <p>Use the form below for general inquiries. For urgent support, WhatsApp is usually the fastest option.</p>
+
+          <form action="mailto:info@playcred.ae" method="post" enctype="text/plain">
+            <div class="form-grid">
+              <div class="field">
+                <label for="full-name">Full Name *</label>
+                <input id="full-name" name="Full Name" type="text" required>
+              </div>
+              <div class="field">
+                <label for="email">Email Address *</label>
+                <input id="email" name="Email Address" type="email" required>
+              </div>
+              <div class="field">
+                <label for="phone">Phone / WhatsApp</label>
+                <input id="phone" name="Phone / WhatsApp" type="tel">
+              </div>
+              <div class="field">
+                <label for="inquiry-type">Inquiry Type *</label>
+                <select id="inquiry-type" name="Inquiry Type" required>
+                  <option value="">Select one</option>
+                  <option>User Support</option>
+                  <option>Advertiser Inquiry</option>
+                  <option>Venue Partnership</option>
+                  <option>Business Partnership</option>
+                  <option>Media Inquiry</option>
+                  <option>Technical Support</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="company-name">Company Name</label>
+                <input id="company-name" name="Company Name" type="text">
+              </div>
+              <div class="field">
+                <label for="subject">Subject *</label>
+                <input id="subject" name="Subject" type="text" required>
+              </div>
+              <div class="field field--full">
+                <label for="message">Message *</label>
+                <textarea id="message" name="Message" required></textarea>
+              </div>
+              <div class="field field--full">
+                <label class="checkbox-row" for="privacy-consent">
+                  <input id="privacy-consent" name="Privacy Consent" type="checkbox" required>
+                  <span>I agree that PlayCred may contact me regarding my inquiry. <a href="../legal/privacy/">View Privacy Policy</a>.</span>
+                </label>
+              </div>
+            </div>
+
+            <div style="margin-top: 1.5rem; display: flex; flex-wrap: wrap; gap: 1rem; align-items: center;">
+              <button type="submit" class="btn btn--primary btn--xl">Send Message</button>
+              <a href="https://wa.me/971503657707" class="btn btn--secondary btn--xl">Chat on WhatsApp</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-section">
+      <div class="container">
+        <div class="contact-cta reveal">
+          <div>
+            <span class="section-label">Ready to connect?</span>
+            <h2>Whether you want to play, advertise, partner as a venue, or explore business opportunities, we would be happy to hear from you.</h2>
+            <p>Most questions can be handled through WhatsApp or email. If you are not sure where to start, the FAQ and support email are good first stops.</p>
+          </div>
+          <div class="contact-cta__actions">
+            <a href="https://wa.me/971503657707" class="btn btn--primary">Chat on WhatsApp</a>
+            <a href="mailto:info@playcred.ae" class="btn btn--secondary">Email Support</a>
+            <a href="../about/#faq" class="btn btn--outline">Browse FAQ</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="../" class="brand" style="margin-bottom: 1.5rem;"><img src="https://cdn.playcred.ae/playcred-logo.webp"
+              alt="PlayCred Logo"><span>PlayCred</span></a>
+          <p style="color: var(--pc-text-muted); max-width: 300px;">The sports venue booking platform that rewards
+            players and empowers brands.</p>
+        </div>
+        <div>
+          <h4 style="margin-bottom: 1.5rem;">Platform</h4>
+          <ul
+            style="list-style: none; display: flex; flex-direction: column; gap: 0.75rem; color: var(--pc-text-muted);">
+            <li><a href="../players/">For Players</a></li>
+            <li><a href="../advertisers/">For Advertisers</a></li>
+            <li><a href="https://playcred-player.web.app/app">Launch App</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 style="margin-bottom: 1.5rem;">Company</h4>
+          <ul
+            style="list-style: none; display: flex; flex-direction: column; gap: 0.75rem; color: var(--pc-text-muted);">
+            <li><a href="../about/">About Us</a></li>
+            <li><a href="../about/#faq">FAQ</a></li>
+            <li><a href="/contact/">Contact</a></li>
+            <li><a href="../legal/">Legal</a></li>
+            <li><a href="../legal/privacy/">Privacy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 PlayCred. All rights reserved.</span>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/play_cred" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+            </svg>
+          </a>
+          <a href="https://www.linkedin.com/company/playcred-sport-fze/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+              <rect x="2" y="9" width="4" height="12"></rect>
+              <circle cx="4" cy="4" r="2"></circle>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+
+</html>

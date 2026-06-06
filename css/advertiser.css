@@ -36,7 +36,6 @@ html[data-theme="light"] .advertiser-hero {
 
 .feature-card {
   background: var(--pc-bg-card);
-  border: 1px solid var(--pc-border-light);
   border-radius: var(--pc-radius-md);
   padding: 2rem;
   transition: all 0.3s ease;

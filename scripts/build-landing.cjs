@@ -12,6 +12,7 @@ const publicPaths = [
   'advertisers',
   'css',
   'js',
+  'contact',
   'legal',
   'players',
   'pricing',
