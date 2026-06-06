@@ -161,6 +161,20 @@ function collectContactFormPayload(form) {
   };
 }
 
+async function readResponseBody(response) {
+  const text = await response.text();
+
+  if (!text.trim()) {
+    return null;
+  }
+
+  try {
+    return JSON.parse(text);
+  } catch (error) {
+    return text;
+  }
+}
+
 function wireContactForm() {
   const form = document.querySelector('[data-contact-form]');
 
@@ -199,7 +213,15 @@ function wireContactForm() {
 
     try {
       const { appCheck, getToken } = await getContactFirebaseSdk();
-      const appCheckTokenResponse = await getToken(appCheck, false);
+      let appCheckTokenResponse;
+
+      try {
+        appCheckTokenResponse = await getToken(appCheck, false);
+      } catch (appCheckError) {
+        console.error('App Check token retrieval failed.', appCheckError);
+        throw new Error('App Check token retrieval failed.');
+      }
+
       const response = await fetch(getContactSubmissionUrl(), {
         method: 'POST',
         headers: {
@@ -211,18 +233,27 @@ function wireContactForm() {
       });
 
       if (!response.ok) {
-        throw new Error(`Request failed with status ${response.status}`);
+        const errorBody = await readResponseBody(response);
+        const detail = typeof errorBody === 'string' ? ` ${errorBody.slice(0, 180)}` : '';
+        throw new Error(`Request failed with status ${response.status}.${detail}`);
       }
 
-      const responseBody = await response.json().catch(() => null);
-      if (!responseBody || responseBody.success !== true) {
+      const responseBody = await readResponseBody(response);
+      if (responseBody && typeof responseBody === 'object' && responseBody.success === false) {
         throw new Error('Unexpected response body.');
       }
 
       form.reset();
       setStatus('Your message has been sent. We will get back to you soon.', 'is-success');
     } catch (error) {
-      setStatus('We could not send your message just now. Please try again.', 'is-error');
+      console.error('Contact form submit failed.', error);
+      if (error && typeof error.message === 'string' && error.message.includes('App Check token retrieval failed')) {
+        setStatus('App Check could not be verified right now. Please refresh and try again.', 'is-error');
+      } else if (error && typeof error.message === 'string' && error.message.includes('Request failed with status 4')) {
+        setStatus('The contact API rejected the request. Please check the form and try again.', 'is-error');
+      } else {
+        setStatus('We could not send your message just now. Please try again.', 'is-error');
+      }
     } finally {
       if (submitButton) {
         submitButton.disabled = false;
