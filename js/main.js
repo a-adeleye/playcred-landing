@@ -47,7 +47,7 @@ function getInitialTheme() {
   return getStoredTheme() || THEME_DARK;
 }
 
-const SITE_SECTION_SEGMENTS = ['players', 'advertisers', 'advertising', 'about', 'faq'];
+const SITE_SECTION_SEGMENTS = ['players', 'advertisers', 'advertising', 'about', 'faq', 'contact'];
 
 function getSiteSection(pathname) {
   const pathSegments = pathname.split('/').filter(Boolean);

@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About PlayCred | Sports Booking Platform Powered by Rewards</title>
   <meta name="description"
-    content="PlayCred is a sports booking platform that allows users to watch rewarded ads, earn PlayCred credits, and book real sports sessions while helping advertisers reach active sports communities.">
+    content="Learn how PlayCred makes sports more accessible through advertising-powered rewards for players, advertisers, venues, and local communities.">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -41,362 +41,605 @@
     .about-page {
       position: relative;
       overflow: hidden;
+      background:
+        radial-gradient(circle at 12% 24%, rgba(34, 197, 94, 0.12), transparent 20rem),
+        #020604;
     }
 
-    .about-page > * {
-      position: relative;
-      z-index: 1;
+    html[data-theme="light"] .about-page {
+      background:
+        radial-gradient(circle at 10% 21%, rgba(34, 197, 94, 0.07), transparent 22rem),
+        #fff;
+    }
+
+    .about-page .container {
+      max-width: 1190px;
+    }
+
+    .header .brand img,
+    .about-page .brand img {
+      width: 56px;
+      height: 56px;
     }
 
     .about-hero {
-      padding: clamp(9rem, 12vw, 11rem) 0 4rem;
+      position: relative;
+      isolation: isolate;
+      padding: clamp(8.2rem, 10vw, 9.6rem) 0 3.4rem;
+      background:
+        linear-gradient(180deg, rgba(2, 6, 4, 0.08), rgba(2, 6, 4, 0.78) 96%),
+        url("../playcred-about-us-hero-dark.png") left top / cover no-repeat;
+      border-bottom: 1px solid var(--pc-border-light);
+    }
+
+    html[data-theme="light"] .about-hero {
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.9) 96%),
+        url("../playcred-about-us-hero-light.png") left top / cover no-repeat;
+    }
+
+    .about-hero::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 8rem;
+      background: linear-gradient(180deg, transparent, var(--pc-bg-floor));
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    html[data-theme="light"] .about-hero::after {
+      background: linear-gradient(180deg, transparent, #fff);
+    }
+
+    .about-hero__grid,
+    .split-grid,
+    .path-grid,
+    .belief-grid,
+    .bottom-grid {
+      display: grid;
+      gap: 1.5rem;
     }
 
     .about-hero__grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
-      gap: 2rem;
+      grid-template-columns: minmax(0, 1.06fr) minmax(340px, 0.84fr);
+      gap: clamp(3rem, 8vw, 6.6rem);
       align-items: start;
     }
 
-    .about-hero__lede {
-      max-width: 760px;
-      color: var(--pc-text-muted);
-      font-size: 1.12rem;
-      line-height: 1.8;
-      margin-top: 1.25rem;
-    }
-
     .about-hero h1 {
-      font-size: clamp(3rem, 7vw, 4rem);
-      margin-top: 0.75rem;
-      max-width: 15ch;
+      max-width: 720px;
+      margin-top: 1.25rem;
+      font-size: clamp(3rem, 4.25vw, 4.15rem);
+      font-weight: 500;
+      line-height: 1.16;
+      letter-spacing: 0;
+      text-wrap: balance;
     }
 
-    .about-hero__actions {
+    .about-mobile-break {
+      display: none;
+    }
+
+    .about-copy {
+      max-width: 725px;
+      margin-top: 1.35rem;
+      color: var(--pc-text-muted);
+      font-size: 1rem;
+      line-height: 1.8;
+    }
+
+    .about-copy + .about-copy {
+      margin-top: 1.1rem;
+    }
+
+    .about-actions,
+    .cta-actions {
       display: flex;
       flex-wrap: wrap;
-      gap: 1rem;
-      margin-top: 2rem;
+      gap: 0.85rem;
+      margin-top: 1.9rem;
     }
 
-    .about-hero__panel {
-      border-radius: var(--pc-radius-lg);
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.015));
-      box-shadow: var(--pc-shadow);
-      padding: 1.5rem;
-    }
-
-    .about-hero__panel h2 {
-      font-size: 1.35rem;
-      margin-bottom: 0.85rem;
-    }
-
-    .about-hero__panel p {
-      color: var(--pc-text-muted);
-      line-height: 1.7;
-    }
-
-    .about-pill-grid {
-      display: grid;
-      gap: 0.9rem;
-      margin-top: 1.25rem;
-    }
-
-    .about-pill {
-      padding: 1rem;
+    .surface,
+    .info-card,
+    .path-card,
+    .ecosystem,
+    .mini-faq,
+    .about-cta {
       border: 1px solid var(--pc-border-light);
-      border-radius: 1rem;
-      background: rgba(255, 255, 255, 0.03);
+      border-radius: 16px;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.014)),
+        rgba(8, 18, 17, 0.6);
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.22);
+      backdrop-filter: blur(16px);
     }
 
-    .about-pill strong {
-      display: block;
-      margin-bottom: 0.35rem;
-      font-size: 1rem;
+    html[data-theme="light"] .surface,
+    html[data-theme="light"] .info-card,
+    html[data-theme="light"] .path-card,
+    html[data-theme="light"] .ecosystem,
+    html[data-theme="light"] .mini-faq,
+    html[data-theme="light"] .about-cta {
+      background: rgba(255, 255, 255, 0.88);
+      box-shadow: 0 24px 70px rgba(17, 24, 39, 0.08);
+      backdrop-filter: blur(18px);
     }
 
-    .about-pill span {
-      color: var(--pc-text-muted);
-      line-height: 1.6;
-      font-size: 0.95rem;
-    }
-
-    .about-section {
-      padding: 4.5rem 0;
-    }
-
-    .about-section__heading {
-      max-width: 760px;
-      margin-bottom: 1.8rem;
-    }
-
-    .about-section__heading h2 {
-      font-size: clamp(2rem, 4vw, 3.4rem);
-      margin-top: 0.5rem;
-    }
-
-    .about-section__heading p {
-      color: var(--pc-text-muted);
-      line-height: 1.75;
-      margin-top: 1rem;
-      max-width: 720px;
-    }
-
-    .about-copy-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1.25rem;
-    }
-
-    .about-card {
-      border-radius: var(--pc-radius-lg);
-      background: var(--pc-bg-card);
-      box-shadow: var(--pc-shadow);
-      padding: 1.5rem;
-    }
-
-    .about-card h3 {
-      font-size: 1.3rem;
-      margin-bottom: 0.85rem;
-    }
-
-    .about-card p,
-    .about-card li {
-      color: var(--pc-text-muted);
-      line-height: 1.75;
-    }
-
-    .about-card p + p {
-      margin-top: 0.95rem;
-    }
-
-    .about-card ul {
-      list-style: none;
-      margin-top: 1rem;
-      display: grid;
-      gap: 0.75rem;
-    }
-
-    .about-card li {
-      display: flex;
-      gap: 0.7rem;
-      align-items: flex-start;
-    }
-
-    .about-card li svg {
-      flex: 0 0 auto;
-      margin-top: 0.2rem;
-    }
-
-    .cards-3,
-    .cards-4 {
-      display: grid;
-      gap: 1.25rem;
-    }
-
-    .cards-3 {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-
-    .cards-4 {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-    }
-
-    .card-tile {
-      border-radius: var(--pc-radius-lg);
-      background: var(--pc-bg-card);
-      box-shadow: var(--pc-shadow);
-      padding: 1.4rem;
-      min-height: 100%;
-    }
-
-    .card-tile__badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.45rem;
-      padding: 0.5rem 0.75rem;
-      border-radius: 999px;
-      border: 1px solid var(--pc-border-light);
-      color: var(--pc-primary);
-      background: rgba(34, 197, 94, 0.06);
-      font-size: 0.82rem;
-      font-weight: 600;
-      margin-bottom: 1rem;
-    }
-
-    .card-tile h3 {
-      font-size: 1.25rem;
-      margin-bottom: 0.75rem;
-    }
-
-    .card-tile p {
-      color: var(--pc-text-muted);
-      line-height: 1.75;
-    }
-
-    .step-list {
-      list-style: none;
-      display: grid;
-      gap: 0.75rem;
-      margin-top: 1rem;
-    }
-
-    .step-list li {
-      display: flex;
-      gap: 0.75rem;
-      align-items: flex-start;
-      color: var(--pc-text-muted);
-      line-height: 1.7;
-    }
-
-    .step-list svg {
-      flex: 0 0 auto;
+    .audience-panel {
+      padding: 1.45rem;
       margin-top: 0.15rem;
     }
 
-    .promise-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1.25rem;
+    .audience-panel h2,
+    .info-card h3,
+    .path-card h3,
+    .about-cta h2 {
+      font-weight: 600;
+      letter-spacing: 0;
     }
 
-    .cta-panel {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 2rem;
-      padding: 2rem;
-      border-radius: calc(var(--pc-radius-lg) + 0.25rem);
-      background:
-        linear-gradient(135deg, rgba(34, 197, 94, 0.12), rgba(245, 158, 11, 0.04)),
-        var(--pc-bg-card);
-      box-shadow: var(--pc-shadow);
-    }
-
-    .cta-panel h2 {
-      font-size: clamp(2rem, 4vw, 3.2rem);
-      margin-top: 0.5rem;
-      margin-bottom: 1rem;
-    }
-
-    .cta-panel p {
-      color: var(--pc-text-muted);
-      max-width: 640px;
-      line-height: 1.75;
-    }
-
-    .cta-panel__actions {
-      display: flex;
-      flex-direction: column;
-      gap: 0.9rem;
-      min-width: 260px;
-    }
-
-    .faq-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1.25rem;
-    }
-
-    .faq-group {
-      border: 1px solid var(--pc-border-light);
-      border-radius: var(--pc-radius-lg);
-      background: var(--pc-bg-card);
-      box-shadow: var(--pc-shadow);
-      padding: 1.5rem;
-    }
-
-    .faq-group h3 {
+    .audience-panel h2 {
       font-size: 1.45rem;
       margin-bottom: 1rem;
     }
 
-    .faq-list {
+    .audience-panel p,
+    .info-card p,
+    .path-card p,
+    .about-cta p,
+    .ecosystem p,
+    .mini-faq p {
+      color: var(--pc-text-muted);
+      line-height: 1.72;
+    }
+
+    .audience-list {
       display: grid;
-      gap: 0.75rem;
+      gap: 0.9rem;
+      margin-top: 1.45rem;
     }
 
-    .faq-item {
-      border: 1px solid var(--pc-border-light);
-      border-radius: 1rem;
-      background: rgba(255, 255, 255, 0.02);
-      overflow: hidden;
-    }
-
-    .faq-item summary {
-      list-style: none;
-      cursor: pointer;
-      padding: 1rem 1rem 1rem 1.1rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+    .audience-item,
+    .value-row,
+    .ecosystem-item {
+      display: grid;
+      grid-template-columns: 3rem minmax(0, 1fr);
       gap: 1rem;
-      font-weight: 600;
-      line-height: 1.5;
+      align-items: center;
     }
 
-    .faq-item summary::-webkit-details-marker {
-      display: none;
+    .audience-item {
+      min-height: 6.45rem;
+      padding: 1rem;
+      border: 1px solid var(--pc-border-light);
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.025);
     }
 
-    .faq-item summary::after {
-      content: '+';
+    html[data-theme="light"] .audience-item {
+      background: rgba(255, 255, 255, 0.72);
+    }
+
+    .audience-item strong,
+    .value-row strong,
+    .ecosystem-item strong {
+      display: block;
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.22rem;
+    }
+
+    .audience-item span,
+    .value-row span,
+    .ecosystem-item span {
+      color: var(--pc-text-muted);
+      line-height: 1.58;
+    }
+
+    .about-icon {
+      display: inline-grid;
+      place-items: center;
+      width: 2.75rem;
+      height: 2.75rem;
+      border-radius: 999px;
       color: var(--pc-primary);
-      font-size: 1.25rem;
+      background: rgba(34, 197, 94, 0.12);
       flex: 0 0 auto;
     }
 
-    .faq-item[open] summary::after {
-      content: '-';
+    .about-icon--large {
+      width: 5.7rem;
+      height: 5.7rem;
     }
 
-    .faq-answer {
+    .about-icon svg {
+      width: 1.25rem;
+      height: 1.25rem;
+      stroke-width: 2;
+    }
+
+    .about-icon--large img {
+      width: 3.3rem;
+      height: 3.3rem;
+      object-fit: contain;
+    }
+
+    .about-section {
+      padding: 2rem 0;
+    }
+
+    .section-head {
+      max-width: 660px;
+      margin-bottom: 1.65rem;
+    }
+
+    .section-head h2 {
+      margin-top: 0.75rem;
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 400;
+      line-height: 1.16;
+      letter-spacing: 0;
+      text-wrap: balance;
+    }
+
+    .section-head p {
+      margin-top: 1.05rem;
       color: var(--pc-text-muted);
-      line-height: 1.75;
-      padding: 0 1.1rem 1rem;
+      line-height: 1.72;
+    }
+
+    .split-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .info-card {
+      min-height: 14.8rem;
+      padding: 1.65rem;
+    }
+
+    .info-card--logo {
+      display: grid;
+      grid-template-columns: 7.3rem minmax(0, 1fr);
+      gap: 1.4rem;
+      align-items: center;
+    }
+
+    .info-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .check-list {
+      list-style: none;
+      display: grid;
+      gap: 1.05rem;
+      margin-top: 1.05rem;
+    }
+
+    .check-list li {
+      display: grid;
+      grid-template-columns: 1.2rem minmax(0, 1fr);
+      gap: 0.75rem;
+      color: var(--pc-text-muted);
+      line-height: 1.6;
+    }
+
+    .check-list svg {
+      margin-top: 0.2rem;
+      color: var(--pc-primary);
+    }
+
+    .how-layout {
+      display: grid;
+      grid-template-columns: minmax(250px, 0.9fr) minmax(0, 1.6fr);
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .path-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .path-card {
+      min-height: 18.8rem;
+      padding: 1.35rem;
+    }
+
+    .path-card .about-icon {
+      margin-bottom: 1.05rem;
+    }
+
+    .path-label {
+      display: block;
+      color: var(--pc-primary);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 0.45rem;
+    }
+
+    .path-card h3 {
+      font-size: 1.04rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .path-card p,
+    .path-card li {
+      font-size: 0.94rem;
+    }
+
+    .path-card .check-list {
+      gap: 0.72rem;
+    }
+
+    .belief-grid {
+      grid-template-columns: minmax(0, 1.05fr) minmax(340px, 0.95fr);
+      align-items: center;
+    }
+
+    .value-panel {
+      padding: 1.4rem;
+    }
+
+    .value-panel .value-row + .value-row {
+      margin-top: 1.35rem;
+      padding-top: 1.35rem;
+      border-top: 1px solid var(--pc-border-light);
+    }
+
+    .ecosystem {
+      display: grid;
+      grid-template-columns: minmax(230px, 1.1fr) repeat(4, minmax(0, 1fr));
+      gap: 0;
+      padding: 1.6rem;
+      align-items: stretch;
+    }
+
+    .ecosystem-intro {
+      padding-right: 1.5rem;
+    }
+
+    .ecosystem-intro h2 {
+      margin-top: 0.65rem;
+      font-size: clamp(1.9rem, 3vw, 2.6rem);
+      font-weight: 400;
+      line-height: 1.15;
+      letter-spacing: 0;
+    }
+
+    .ecosystem-intro p {
+      margin-top: 0.9rem;
+    }
+
+    .ecosystem-item {
+      grid-template-columns: 1fr;
+      gap: 0.8rem;
+      padding: 0.3rem 1.4rem;
+      border-left: 1px solid var(--pc-border-light);
+      align-content: start;
+    }
+
+    .bottom-grid {
+      grid-template-columns: minmax(0, 1.08fr) minmax(330px, 0.92fr);
+      margin-top: 1.2rem;
+    }
+
+    .mini-faq,
+    .about-cta {
+      padding: 1.4rem;
+    }
+
+    .mini-faq {
+      display: grid;
+      grid-template-columns: minmax(210px, 0.9fr) minmax(0, 1.1fr);
+      gap: 1.2rem;
+    }
+
+    .mini-faq h2,
+    .about-cta h2 {
+      margin-top: 0.55rem;
+      font-size: clamp(1.7rem, 3vw, 2.3rem);
+      font-weight: 400;
+      line-height: 1.15;
+      letter-spacing: 0;
+    }
+
+    .mini-faq-list {
+      display: grid;
+      gap: 0.45rem;
+    }
+
+    .mini-faq-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 2.55rem;
+      gap: 1rem;
+      padding: 0.65rem 0.85rem;
+      border: 1px solid var(--pc-border-light);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.025);
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    html[data-theme="light"] .mini-faq-item {
+      background: rgba(255, 255, 255, 0.76);
+    }
+
+    .mini-faq-item span {
+      color: var(--pc-primary);
+      font-size: 1.1rem;
+      line-height: 1;
+    }
+
+    .see-all {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      margin-top: 0.8rem;
+      color: var(--pc-primary);
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+
+    .about-cta {
+      background:
+        radial-gradient(circle at 8% 4%, rgba(34, 197, 94, 0.2), transparent 16rem),
+        rgba(8, 18, 17, 0.62);
+    }
+
+    html[data-theme="light"] .about-cta {
+      background:
+        radial-gradient(circle at 8% 4%, rgba(34, 197, 94, 0.12), transparent 16rem),
+        rgba(255, 255, 255, 0.9);
+    }
+
+    .about-page .btn {
+      min-height: 3rem;
+      border-radius: 8px;
+      padding: 0.82rem 1.35rem;
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    .about-page .btn--primary {
+      color: #021006;
+      background: linear-gradient(135deg, #22d968, #21c65e);
+      box-shadow: 0 14px 28px rgba(34, 197, 94, 0.18);
+    }
+
+    .about-page .btn--secondary {
+      color: #fff;
+      background: rgba(2, 8, 16, 0.28);
+      border-color: rgba(255, 255, 255, 0.22);
+    }
+
+    html[data-theme="light"] .about-page .btn--secondary {
+      color: #fff;
+      background: #0d1826;
+      border-color: rgba(15, 26, 20, 0.15);
+    }
+
+    .about-page .btn--outline {
+      background: rgba(2, 8, 16, 0.12);
+    }
+
+    html[data-theme="light"] .about-page .btn--outline {
+      background: rgba(255, 255, 255, 0.68);
+    }
+
+    .about-page .section-label {
+      margin-bottom: 0;
+      color: var(--pc-primary);
+      font-size: 0.73rem;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+    }
+
+    .footer-link--active {
+      color: var(--pc-primary);
     }
 
     @media (max-width: 1080px) {
       .about-hero__grid,
-      .about-copy-grid,
-      .faq-grid,
-      .promise-grid {
+      .split-grid,
+      .how-layout,
+      .belief-grid,
+      .bottom-grid,
+      .mini-faq {
         grid-template-columns: 1fr;
       }
 
-      .cards-4 {
+      .path-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .ecosystem {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
-      .cards-3 {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+      .ecosystem-intro {
+        grid-column: 1 / -1;
+        padding-right: 0;
+        margin-bottom: 1.2rem;
       }
 
-      .cta-panel {
-        flex-direction: column;
-        align-items: flex-start;
+      .ecosystem-item:nth-child(2n) {
+        border-left: 0;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .path-grid,
+      .ecosystem {
+        grid-template-columns: 1fr;
+      }
+
+      .ecosystem-item {
+        border-left: 0;
+        border-top: 1px solid var(--pc-border-light);
+        padding: 1rem 0;
       }
     }
 
     @media (max-width: 640px) {
+      .about-page .container {
+        max-width: 100%;
+        padding-inline: 1rem;
+      }
+
       .about-hero {
-        padding-top: 8.75rem;
+        padding-top: 7.4rem;
       }
 
-      .about-hero__actions,
-      .cta-panel__actions {
+      .about-hero h1 {
+        max-width: calc(100vw - 3rem);
+        font-size: clamp(2.15rem, 9.6vw, 2.55rem);
+        overflow-wrap: break-word;
+      }
+
+      .about-mobile-break {
+        display: block;
+      }
+
+      .about-copy {
+        max-width: calc(100vw - 3rem);
+        overflow-wrap: break-word;
+      }
+
+      .surface,
+      .info-card,
+      .path-card,
+      .ecosystem,
+      .mini-faq,
+      .about-cta {
+        max-width: calc(100vw - 2rem);
         width: 100%;
       }
 
-      .about-hero__actions .btn,
-      .cta-panel__actions .btn {
-        width: 100%;
-      }
-
-      .cards-3,
-      .cards-4 {
+      .about-actions,
+      .cta-actions {
+        display: grid;
         grid-template-columns: 1fr;
+      }
+
+      .about-actions .btn,
+      .cta-actions .btn {
+        width: 100%;
+      }
+
+      .info-card--logo,
+      .audience-item,
+      .value-row {
+        grid-template-columns: 1fr;
+      }
+
+      .about-section {
+        padding: 2rem 0;
       }
     }
   </style>
@@ -413,6 +656,7 @@
         <a href="../players/" class="nav-link">For Players</a>
         <a href="../advertisers/" class="nav-link">For Advertisers</a>
         <a href="../about/" class="nav-link">About</a>
+        <a href="../contact/" class="nav-link">Contact</a>
         <a href="https://playcred-player.web.app/app" class="btn btn--primary" style="margin-top: 1rem; width: 100%;">Launch App</a>
       </nav>
       <div class="header-actions">
@@ -454,38 +698,61 @@
         <div class="about-hero__grid reveal">
           <div>
             <span class="section-label">About PlayCred</span>
-            <h1>Making sports more accessible through advertising-powered rewards.</h1>
-            <p class="about-hero__lede">
+            <h1>Making sports more<span class="about-mobile-break"></span> accessible through<span class="about-mobile-break"></span> advertising-<span class="about-mobile-break"></span>powered rewards.</h1>
+            <p class="about-copy">
               PlayCred is a sports booking platform built to make playing easier, more affordable, and more accessible.
-              We connect players who want to book games, brands that want meaningful attention, and venues that want
-              more active bookings.
+              We connect players who want to book games, brands that want meaningful reach, and venues that want more
+              action bookings.
             </p>
-            <p class="about-hero__lede">
-              Instead of asking players to pay every time they want to play, PlayCred allows users to watch rewarded
-              ads, earn PlayCred credits, and use those credits to book real sports sessions through the platform.
+            <p class="about-copy">
+              Instead of raising players to pay more for the same seat or play, PlayCred allows access to world-class
+              sports, at PlayCred venues, and earn rewards to book and play in the locations of your choice.
             </p>
-            <div class="about-hero__actions">
-              <a href="../players/" class="btn btn--primary btn--xl">Start Playing</a>
-              <a href="../advertisers/" class="btn btn--secondary btn--xl">Advertise with PlayCred</a>
-              <a href="mailto:info@playcred.ae?subject=Venue%20Partnership%20with%20PlayCred" class="btn btn--outline btn--xl">Partner as a Venue</a>
+            <div class="about-actions">
+              <a href="../players/" class="btn btn--primary">Start Playing</a>
+              <a href="../advertisers/" class="btn btn--secondary">Advertise with PlayCred</a>
+              <a href="mailto:info@playcred.ae?subject=Venue%20Partnership%20with%20PlayCred" class="btn btn--outline">Partner as a Venue</a>
             </div>
           </div>
 
-          <aside class="about-hero__panel">
+          <aside class="surface audience-panel">
             <h2>Built for three audiences</h2>
-            <p>PlayCred is designed to create value for users, advertisers, and venues at the same time.</p>
-            <div class="about-pill-grid">
-              <div class="about-pill">
-                <strong>Players</strong>
-                <span>Earn credits, unlock sessions, and turn attention into access.</span>
+            <p>PlayCred is designed to create value for users, advertisers, and venues, all at the same time.</p>
+            <div class="audience-list">
+              <div class="audience-item">
+                <span class="about-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M16 21v-2a4 4 0 0 0-8 0v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                    <path d="M18 8v5"></path>
+                    <path d="M21 10.5h-6"></path>
+                  </svg>
+                </span>
+                <div><strong>Players</strong><span>Earn rewards, unlock venues, and turn ad views into experiences.</span></div>
               </div>
-              <div class="about-pill">
-                <strong>Advertisers</strong>
-                <span>Reach active sports communities in a more focused environment.</span>
+              <div class="audience-item">
+                <span class="about-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="9" cy="8" r="4"></circle>
+                    <path d="M2 21a7 7 0 0 1 14 0"></path>
+                    <path d="M17 11h.01"></path>
+                    <path d="M20 8h.01"></path>
+                    <path d="M22 14h.01"></path>
+                  </svg>
+                </span>
+                <div><strong>Advertisers</strong><span>Reach active sports communities in a more focused and impactful way.</span></div>
               </div>
-              <div class="about-pill">
-                <strong>Venues</strong>
-                <span>Increase bookings and connect available slots with real demand.</span>
+              <div class="audience-item">
+                <span class="about-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 21V9"></path>
+                    <path d="M20 21V9"></path>
+                    <path d="M3 9h18"></path>
+                    <path d="M7 9V5h10v4"></path>
+                    <path d="M9 21v-7h6v7"></path>
+                  </svg>
+                </span>
+                <div><strong>Venues</strong><span>Increase bookings and convert unavailable slots with real demand.</span></div>
               </div>
             </div>
           </aside>
@@ -495,54 +762,38 @@
 
     <section class="about-section">
       <div class="container">
-        <div class="about-section__heading reveal">
+        <div class="section-head reveal">
           <span class="section-label">Our Mission</span>
           <h2>Our mission is simple: turn advertising value into real playing opportunities.</h2>
-          <p>
-            We believe sports should not be limited only to people who can afford regular field bookings. Many players
-            want to stay active, play with friends, and join games, but the cost of booking venues can become a
-            barrier. PlayCred is designed to reduce that barrier.
-          </p>
+          <p>We believe sports should not be limited by cost or location. By connecting players with advertisers and venues, we open the door to more access, more games, and more opportunities for everyone, everywhere.</p>
         </div>
 
-        <div class="about-copy-grid reveal">
-          <article class="about-card">
-            <h3>Why PlayCred exists</h3>
-            <p>
-              In many cities, sports facilities are available, but they are not always affordable or easy to book
-              regularly. At the same time, brands are spending money on digital advertising but often struggle to reach
-              the right audience in a meaningful way.
-            </p>
-            <p>
-              PlayCred was created to solve both problems. Users give their attention to relevant advertising.
-              Advertisers receive visibility from active users. That value is then converted into PlayCred credits that
-              help users book sports sessions.
-            </p>
+        <div class="split-grid reveal">
+          <article class="info-card info-card--logo">
+            <span class="about-icon about-icon--large" aria-hidden="true">
+              <img src="https://cdn.playcred.ae/playcred-logo.webp" alt="">
+            </span>
+            <div>
+              <h3>Why PlayCred exists</h3>
+              <p>In many places, sports facilities are unavailable, too far away, or cost more than they should. At the same time, brands are constantly looking for meaningful ways to reach real, active audiences.</p>
+              <p>PlayCred was created to solve both problems. We bridge that difference by aligning value with play.</p>
+            </div>
           </article>
 
-          <article class="about-card">
+          <article class="info-card">
             <h3>How the model works</h3>
-            <ul>
+            <ul class="check-list">
               <li>
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
-                  stroke="var(--pc-primary)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m9 12 2 2 4-4"></path></svg>
                 Users watch rewarded ads and earn PlayCred credits.
               </li>
               <li>
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
-                  stroke="var(--pc-primary)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-                Brands reach an audience that is already engaged and sports-focused.
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m9 12 2 2 4-4"></path></svg>
+                Brands reach real audiences that are actively engaged in sports.
               </li>
               <li>
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
-                  stroke="var(--pc-primary)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-                Venues receive more visibility and more chances to fill available time slots.
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m9 12 2 2 4-4"></path></svg>
+                Venues receive more visibility and more bookings through the platform.
               </li>
             </ul>
           </article>
@@ -552,374 +803,145 @@
 
     <section class="about-section">
       <div class="container">
-        <div class="about-section__heading reveal">
-          <span class="section-label">How It Works</span>
-          <h2>Three simple paths, one shared ecosystem.</h2>
-          <p>
-            PlayCred is set up so each audience gets a clear experience. Players earn. Advertisers reach. Venues fill
-            slots.
-          </p>
-        </div>
+        <div class="how-layout">
+          <div class="section-head reveal">
+            <span class="section-label">How It Works</span>
+            <h2>Three simple paths, one shared ecosystem.</h2>
+            <p>PlayCred works as one environment where players, advertisers, and venues grow together.</p>
+          </div>
 
-        <div class="cards-3 reveal">
-          <article class="card-tile">
-            <div class="card-tile__badge">For Players</div>
-            <h3>Watch, earn, and book.</h3>
-            <p>Players can use PlayCred to earn credits by watching rewarded ads inside the platform. Those credits can
-              then be used to book available sports sessions.</p>
-            <ul class="step-list">
-              <li>
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
-                  stroke="var(--pc-primary)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="20 6 9 17 4 12"></polyline>
+          <div class="path-grid reveal">
+            <article class="path-card">
+              <span class="about-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M16 21v-2a4 4 0 0 0-8 0v2"></path><circle cx="12" cy="7" r="4"></circle><path d="M18 8v5"></path><path d="M21 10.5h-6"></path>
                 </svg>
-                Watch rewarded ads.
-              </li>
-              <li>
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
-                  stroke="var(--pc-primary)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-                Earn PlayCred credits.
-              </li>
-              <li>
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
-                  stroke="var(--pc-primary)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-                Choose a game or venue and book.
-              </li>
-            </ul>
-          </article>
+              </span>
+              <span class="path-label">For Players</span>
+              <h3>Watch, earn, and book.</h3>
+              <p>Players earn credits by watching ads and use them to book and play at PlayCred venues.</p>
+              <ul class="check-list">
+                <li><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m20 6-11 11-5-5"></path></svg>Watch rewarded ads</li>
+                <li><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m20 6-11 11-5-5"></path></svg>Earn PlayCred credits</li>
+                <li><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m20 6-11 11-5-5"></path></svg>Book and play at venues worldwide</li>
+              </ul>
+            </article>
 
-          <article class="card-tile">
-            <div class="card-tile__badge">For Advertisers</div>
-            <h3>Reach an active audience.</h3>
-            <p>PlayCred gives brands access to users in a focused sports environment through rewarded video ads, banners,
-              pop-ups, and other approved in-app placements.</p>
-            <ul class="step-list">
-              <li>
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
-                  stroke="var(--pc-primary)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="20 6 9 17 4 12"></polyline>
+            <article class="path-card">
+              <span class="about-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="7"></circle><circle cx="12" cy="12" r="3"></circle><path d="M12 3v3"></path><path d="M21 12h-3"></path>
                 </svg>
-                High-intent user engagement.
-              </li>
-              <li>
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
-                  stroke="var(--pc-primary)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-                Performance tracking and reporting.
-              </li>
-              <li>
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
-                  stroke="var(--pc-primary)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-                A more useful ad experience than passive placements.
-              </li>
-            </ul>
-          </article>
+              </span>
+              <span class="path-label">For Advertisers</span>
+              <h3>Reach an active audience.</h3>
+              <p>PlayCred gives brands access to users in a real, engaged sports environment.</p>
+              <ul class="check-list">
+                <li><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m20 6-11 11-5-5"></path></svg>Highly relevant user engagement</li>
+                <li><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m20 6-11 11-5-5"></path></svg>Performance tracking and reporting</li>
+                <li><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m20 6-11 11-5-5"></path></svg>Access to active players in the locations that matter most</li>
+              </ul>
+            </article>
 
-          <article class="card-tile">
-            <div class="card-tile__badge">For Venues</div>
-            <h3>Turn interest into bookings.</h3>
-            <p>PlayCred helps sports venues increase usage by bringing more players to available time slots and building a
-              stronger connection between demand and bookings.</p>
-            <ul class="step-list">
-              <li>
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
-                  stroke="var(--pc-primary)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="20 6 9 17 4 12"></polyline>
+            <article class="path-card">
+              <span class="about-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 21V9"></path><path d="M20 21V9"></path><path d="M3 9h18"></path><path d="M7 9V5h10v4"></path><path d="M9 21v-7h6v7"></path>
                 </svg>
-                More active booking opportunities.
-              </li>
-              <li>
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
-                  stroke="var(--pc-primary)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-                Better field utilization.
-              </li>
-              <li>
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
-                  stroke="var(--pc-primary)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-                A growing sports community around your venue.
-              </li>
-            </ul>
-          </article>
+              </span>
+              <span class="path-label">For Venues</span>
+              <h3>Turn interest into bookings.</h3>
+              <p>PlayCred brings players to venues using the platform's reach and booking tools.</p>
+              <ul class="check-list">
+                <li><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m20 6-11 11-5-5"></path></svg>More visibility with active players</li>
+                <li><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m20 6-11 11-5-5"></path></svg>Better facility utilization</li>
+                <li><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m20 6-11 11-5-5"></path></svg>A growing sports community at your venue</li>
+              </ul>
+            </article>
+          </div>
         </div>
       </div>
     </section>
 
     <section class="about-section">
       <div class="container">
-        <div class="about-section__heading reveal">
-          <span class="section-label">What Makes PlayCred Different</span>
-          <h2>It is not just a booking platform. It is a reward-based sports ecosystem.</h2>
-          <p>
-            Users do not only browse and pay. They participate, earn, and play. Advertisers do not only place ads.
-            They support real sports activity and connect with users in a more engaging environment. Venues do not only
-            rent fields. They become part of a platform that encourages more people to stay active.
-          </p>
+        <div class="belief-grid reveal">
+          <div class="section-head">
+            <span class="section-label">Built for players. Backed by purpose.</span>
+            <h2>It is not just a booking platform. It is a reward-based sports ecosystem.</h2>
+            <p>Unlike any other platform, PlayCred rewards users with every action they take. Watch, earn, book, and play, all in one system built to keep sports accessible.</p>
+          </div>
+
+          <div class="surface value-panel">
+            <div class="value-row">
+              <span class="about-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-8 0v2"></path><circle cx="12" cy="7" r="4"></circle><path d="M18 8v5"></path><path d="M21 10.5h-6"></path></svg>
+              </span>
+              <div><strong>Built around real value</strong><span>PlayCred links attention and access. The value created is given back to the people who contribute to a real and active sports community.</span></div>
+            </div>
+            <div class="value-row">
+              <span class="about-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V9"></path><path d="M20 21V9"></path><path d="M3 9h18"></path><path d="M7 9V5h10v4"></path><path d="M9 21v-7h6v7"></path></svg>
+              </span>
+              <div><strong>Designed for community impact</strong><span>We make sports more inclusive by opening up opportunities for players, brands, venues, and local sports communities to grow together.</span></div>
+            </div>
+          </div>
         </div>
 
-        <div class="about-copy-grid reveal">
-          <article class="about-card">
-            <h3>Built around real value</h3>
-            <p>
-              PlayCred turns attention into access. The value created by advertiser engagement is converted into credits
-              that help users book sports sessions.
-            </p>
-          </article>
-
-          <article class="about-card">
-            <h3>Designed for community impact</h3>
-            <p>
-              The model creates a win-win for the entire sports community, bringing together players, brands, venues,
-              and local sports partners in one system.
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="about-section">
-      <div class="container">
-        <div class="about-section__heading reveal">
-          <span class="section-label">Our Ecosystem</span>
-          <h2>Four groups, one shared platform.</h2>
-          <p>PlayCred is built for people who want to play more, brands that want meaningful reach, and venues that
-            want stronger utilization.</p>
+        <div class="ecosystem reveal">
+          <div class="ecosystem-intro">
+            <span class="section-label">Our Ecosystem</span>
+            <h2>Four groups, one shared platform.</h2>
+            <p>PlayCred brings four essential groups together. Everyone benefits and the ecosystem keeps growing.</p>
+          </div>
+          <div class="ecosystem-item">
+            <span class="about-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-8 0v2"></path><circle cx="12" cy="7" r="4"></circle><path d="M18 8v5"></path><path d="M21 10.5h-6"></path></svg></span>
+            <div><strong>Players</strong><span>Individuals who want to play more often.</span></div>
+          </div>
+          <div class="ecosystem-item">
+            <span class="about-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="7"></circle><circle cx="12" cy="12" r="3"></circle><path d="M12 3v3"></path><path d="M21 12h-3"></path></svg></span>
+            <div><strong>Advertisers</strong><span>Brands that want to reach real sports communities.</span></div>
+          </div>
+          <div class="ecosystem-item">
+            <span class="about-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 8 8-8 10-8-10Z"></path><path d="m9 11 2 2 4-4"></path></svg></span>
+            <div><strong>Venues</strong><span>Facilities that want to increase bookings and utilization.</span></div>
+          </div>
+          <div class="ecosystem-item">
+            <span class="about-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></span>
+            <div><strong>Community</strong><span>A shared movement that makes sports more accessible.</span></div>
+          </div>
         </div>
 
-        <div class="cards-4 reveal">
-          <article class="card-tile">
-            <h3>Players</h3>
-            <p>A platform built for people who want to play more often.</p>
-          </article>
-          <article class="card-tile">
-            <h3>Advertisers</h3>
-            <p>A new way for brands to reach active sports communities.</p>
-          </article>
-          <article class="card-tile">
-            <h3>Venues</h3>
-            <p>A booking channel designed to bring more players to the field.</p>
-          </article>
-          <article class="card-tile">
-            <h3>Community</h3>
-            <p>A reward-based model that makes sports more accessible.</p>
-          </article>
-        </div>
-      </div>
-    </section>
+        <div class="bottom-grid reveal">
+          <div class="mini-faq">
+            <div>
+              <span class="section-label">FAQ</span>
+              <h2>Questions from users and advertisers.</h2>
+              <p>Here are some of the most common questions about PlayCred.</p>
+            </div>
+            <div>
+              <div class="mini-faq-list">
+                <div class="mini-faq-item">What is PlayCred? <span>+</span></div>
+                <div class="mini-faq-item">How does PlayCred work? <span>+</span></div>
+                <div class="mini-faq-item">Is PlayCred free to use? <span>+</span></div>
+                <div class="mini-faq-item">Can I buy PlayCred credits? <span>+</span></div>
+              </div>
+              <a class="see-all" href="../faq/">See all FAQs
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+              </a>
+            </div>
+          </div>
 
-    <section class="about-section">
-      <div class="container">
-        <div class="about-section__heading reveal">
-          <span class="section-label">Our Vision</span>
-          <h2>We are building toward a leading sports rewards and booking platform in the UAE and beyond.</h2>
-          <p>
-            The long-term goal is to make sports easier to access, help venues stay active, and give brands a smarter
-            way to support communities in a measurable and meaningful way.
-          </p>
-        </div>
-
-        <div class="promise-grid reveal">
-          <article class="about-card">
-            <h3>Our vision</h3>
-            <p>To build a future where more people can access sports, more venues can stay active, and more brands can
-              support communities in a measurable and meaningful way.</p>
-          </article>
-          <article class="about-card">
-            <h3>Our promise</h3>
-            <p>We promise a simple way to earn credits and book sports sessions, a focused platform for active users,
-              and a new channel for venues to attract players and increase booking opportunities.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="about-section">
-      <div class="container">
-        <div class="cta-panel reveal">
-          <div>
+          <div class="about-cta">
             <span class="section-label">Ready to join?</span>
             <h2>Ready to be part of PlayCred?</h2>
-            <p>Join a platform built for players, advertisers, venues, and active communities.</p>
-          </div>
-          <div class="cta-panel__actions">
-            <a href="../players/" class="btn btn--primary">Start Playing</a>
-            <a href="../advertisers/" class="btn btn--secondary">Advertise with Us</a>
-            <a href="mailto:info@playcred.ae?subject=Venue%20Partnership%20with%20PlayCred" class="btn btn--outline">Partner as a Venue</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="about-section" id="faq">
-      <div class="container">
-        <div class="about-section__heading reveal">
-          <span class="section-label">FAQ</span>
-          <h2>Questions from users and advertisers.</h2>
-          <p>The answers below use the FAQ copy you provided and are grouped for easier scanning.</p>
-        </div>
-
-        <div class="faq-grid reveal">
-          <article class="faq-group">
-            <h3>For Users</h3>
-            <div class="faq-list">
-              <details class="faq-item">
-                <summary>What is PlayCred?</summary>
-                <div class="faq-answer">PlayCred is a sports booking platform that allows users to earn PlayCred credits by watching rewarded ads and use those credits to book sports sessions.</div>
-              </details>
-              <details class="faq-item">
-                <summary>How does PlayCred work?</summary>
-                <div class="faq-answer">The process is simple: watch ads, earn PlayCred credits, and use those credits to book available games or sports sessions through the PlayCred app.</div>
-              </details>
-              <details class="faq-item">
-                <summary>Is PlayCred free to use?</summary>
-                <div class="faq-answer">Yes. Users can earn credits by watching rewarded ads and use those credits to book available sessions, subject to availability and platform rules.</div>
-              </details>
-              <details class="faq-item">
-                <summary>What are PlayCred credits?</summary>
-                <div class="faq-answer">PlayCred credits are in-app credits used only within the PlayCred platform to book eligible sports sessions. They are not money, cash, cashback, or a financial wallet.</div>
-              </details>
-              <details class="faq-item">
-                <summary>How do I earn PlayCred credits?</summary>
-                <div class="faq-answer">You can earn credits by watching completed rewarded video ads inside the PlayCred app. Once the ad is completed, credits are added to your account.</div>
-              </details>
-              <details class="faq-item">
-                <summary>How many credits do I need to book a game?</summary>
-                <div class="faq-answer">The number of credits required may depend on the session type, location, and availability. The required credits will be clearly shown before you confirm your booking.</div>
-              </details>
-              <details class="faq-item">
-                <summary>Can I buy PlayCred credits?</summary>
-                <div class="faq-answer">Currently, PlayCred is focused on allowing users to earn credits through ads. If credit purchase options become available in the future, they will be shown clearly in the app.</div>
-              </details>
-              <details class="faq-item">
-                <summary>Do PlayCred credits expire?</summary>
-                <div class="faq-answer">Yes. PlayCred credits may have an expiry period. The expiry details will be shown in the app, and users are encouraged to use their credits before they expire.</div>
-              </details>
-              <details class="faq-item">
-                <summary>Can I cancel my booking?</summary>
-                <div class="faq-answer">Cancellation rules depend on the platform policy shown at the time of booking. If your booking is eligible for a credit refund, the refundable amount will be displayed before you confirm cancellation.</div>
-              </details>
-              <details class="faq-item">
-                <summary>What happens if a session is full?</summary>
-                <div class="faq-answer">If a session is full, you may not be able to book that slot. Where available, PlayCred may provide a waiting list or show alternative available sessions.</div>
-              </details>
-              <details class="faq-item">
-                <summary>Can I transfer my credits to another user?</summary>
-                <div class="faq-answer">No. PlayCred credits are linked to your account and cannot be transferred, sold, exchanged, or redeemed for cash.</div>
-              </details>
-              <details class="faq-item">
-                <summary>Are the ads skippable?</summary>
-                <div class="faq-answer">Rewarded ads may need to be watched fully in order to earn credits. If the ad is not completed, credits may not be issued.</div>
-              </details>
-              <details class="faq-item">
-                <summary>What sports can I book on PlayCred?</summary>
-                <div class="faq-answer">PlayCred may offer access to football, basketball, and other sports sessions depending on availability, location, and partner venues.</div>
-              </details>
-              <details class="faq-item">
-                <summary>Where is PlayCred available?</summary>
-                <div class="faq-answer">PlayCred is launching in selected locations first. Available sessions, venues, and cities will be shown inside the app.</div>
-              </details>
-              <details class="faq-item">
-                <summary>Who can use PlayCred?</summary>
-                <div class="faq-answer">PlayCred is intended for users who meet the minimum age requirement and agree to the platform's Terms and Conditions.</div>
-              </details>
+            <p>Join a platform built for players, brands, and venues, accessible across the UAE.</p>
+            <div class="cta-actions">
+              <a href="../players/" class="btn btn--primary">Start Playing</a>
+              <a href="../advertisers/" class="btn btn--secondary">Advertise with Us</a>
+              <a href="mailto:info@playcred.ae?subject=Venue%20Partnership%20with%20PlayCred" class="btn btn--outline">Partner as a Venue</a>
             </div>
-          </article>
-
-          <article class="faq-group">
-            <h3>For Advertisers</h3>
-            <div class="faq-list">
-              <details class="faq-item">
-                <summary>What is PlayCred for advertisers?</summary>
-                <div class="faq-answer">PlayCred gives brands the opportunity to reach an active sports-focused audience through rewarded video ads, banners, pop-ups, and other in-app advertising placements.</div>
-              </details>
-              <details class="faq-item">
-                <summary>Why should advertisers use PlayCred?</summary>
-                <div class="faq-answer">PlayCred connects advertisers with users who are actively engaging with the platform to earn credits and book sports sessions. This creates a more focused and interactive advertising environment compared with standard passive ad placements.</div>
-              </details>
-              <details class="faq-item">
-                <summary>What ad formats are available?</summary>
-                <div class="faq-answer">PlayCred may offer several advertising formats, including rewarded video ads, home screen banners, pop-up or interstitial ads, confirmation page banners, and other sponsored placements depending on the selected package.</div>
-              </details>
-              <details class="faq-item">
-                <summary>What is a rewarded video ad?</summary>
-                <div class="faq-answer">A rewarded video ad is an ad that users watch in order to earn PlayCred credits. This format is designed to generate higher attention because users voluntarily watch the ad to receive credits.</div>
-              </details>
-              <details class="faq-item">
-                <summary>Can advertisers choose where their ads appear?</summary>
-                <div class="faq-answer">Yes. Ad placement depends on the selected advertising package and available inventory. Placement options may include rewarded video, banner, pop-up, and confirmation screen positions.</div>
-              </details>
-              <details class="faq-item">
-                <summary>How does campaign pricing work?</summary>
-                <div class="faq-answer">Campaign pricing may depend on the selected package, ad format, campaign duration, impressions, completed views, clicks, or other platform-based pricing shown at the time of purchase.</div>
-              </details>
-              <details class="faq-item">
-                <summary>Are prices fixed?</summary>
-                <div class="faq-answer">Prices, packages, and campaign options may change from time to time. The latest available pricing will be shown on the PlayCred platform or in the advertiser dashboard.</div>
-              </details>
-              <details class="faq-item">
-                <summary>Can I set a campaign budget?</summary>
-                <div class="faq-answer">Yes. Advertisers may be able to select or top up a campaign budget depending on the available campaign setup and package options.</div>
-              </details>
-              <details class="faq-item">
-                <summary>What statistics can advertisers see?</summary>
-                <div class="faq-answer">Advertisers may be able to track key campaign metrics such as impressions, clicks, click-through rate, completed views, campaign status, and other performance data available in the advertiser dashboard.</div>
-              </details>
-              <details class="faq-item">
-                <summary>Can I pause or edit my campaign?</summary>
-                <div class="faq-answer">Yes. Depending on the campaign settings, advertisers may be able to edit, pause, update dates, or adjust campaign details from the advertiser dashboard.</div>
-              </details>
-              <details class="faq-item">
-                <summary>Does PlayCred approve ads before they go live?</summary>
-                <div class="faq-answer">Yes. Ads may be reviewed by PlayCred before going live to ensure they meet platform standards, technical requirements, and advertising guidelines.</div>
-              </details>
-              <details class="faq-item">
-                <summary>What happens if my ad is rejected?</summary>
-                <div class="faq-answer">If an ad is rejected, the reason may be shown in the advertiser dashboard. Advertisers can then update the creative and resubmit it for review.</div>
-              </details>
-              <details class="faq-item">
-                <summary>What type of businesses can advertise on PlayCred?</summary>
-                <div class="faq-answer">PlayCred is suitable for brands that want to reach active, young, social, and sports-interested users. This may include sports brands, fitness businesses, food and beverage companies, lifestyle brands, local services, events, and other relevant advertisers.</div>
-              </details>
-              <details class="faq-item">
-                <summary>Can ads link to my website or landing page?</summary>
-                <div class="faq-answer">Yes. Clickable ads may direct users to the advertiser's website, landing page, app, or other approved destination.</div>
-              </details>
-              <details class="faq-item">
-                <summary>Is PlayCred suitable for small businesses?</summary>
-                <div class="faq-answer">Yes. PlayCred can be suitable for both local businesses and larger brands that want to reach a targeted sports audience through digital advertising.</div>
-              </details>
-              <details class="faq-item">
-                <summary>Can I run a short test campaign?</summary>
-                <div class="faq-answer">Yes. Subject to available packages, advertisers may be able to run a short campaign or pilot campaign before committing to a longer-term advertising plan.</div>
-              </details>
-              <details class="faq-item">
-                <summary>Does PlayCred guarantee results?</summary>
-                <div class="faq-answer">PlayCred may provide campaign delivery estimates or performance reporting, but actual results may vary depending on the campaign, creative quality, audience engagement, targeting, and available inventory.</div>
-              </details>
-              <details class="faq-item">
-                <summary>How can advertisers get started?</summary>
-                <div class="faq-answer">Advertisers can register on the PlayCred advertiser platform, select an available package, upload campaign creatives, and submit ads for review before launch.</div>
-              </details>
-              <details class="faq-item">
-                <summary>What creative materials do I need?</summary>
-                <div class="faq-answer">Advertisers may need to provide videos, banners, images, campaign links, brand information, and any required text depending on the selected ad format.</div>
-              </details>
-              <details class="faq-item">
-                <summary>Who can I contact for advertising support?</summary>
-                <div class="faq-answer">For advertising inquiries, campaign setup, or support, advertisers can contact PlayCred through the official contact form or support email shown on the website.</div>
-              </details>
-            </div>
-          </article>
+          </div>
         </div>
       </div>
     </section>
@@ -933,6 +955,28 @@
               alt="PlayCred Logo"><span>PlayCred</span></a>
           <p style="color: var(--pc-text-muted); max-width: 300px;">The sports venue booking platform that rewards
             players and empowers brands.</p>
+          <div class="footer-social" style="margin-top: 1.4rem;">
+            <a href="https://www.instagram.com/play_cred" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+            </a>
+          <a href="https://www.facebook.com/profile.php?id=61589515002229" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+            </svg>
+          </a>            <a href="https://www.linkedin.com/company/playcred-sport-fze/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                <rect x="2" y="9" width="4" height="12"></rect>
+                <circle cx="4" cy="4" r="2"></circle>
+              </svg>
+            </a>
+          </div>
         </div>
         <div>
           <h4 style="margin-bottom: 1.5rem;">Platform</h4>
@@ -947,9 +991,9 @@
           <h4 style="margin-bottom: 1.5rem;">Company</h4>
           <ul
             style="list-style: none; display: flex; flex-direction: column; gap: 0.75rem; color: var(--pc-text-muted);">
-            <li><a href="../about/">About Us</a></li>
+            <li><a href="../about/" class="footer-link--active">About Us</a></li>
             <li><a href="../faq/">FAQ</a></li>
-            <li><a href="/contact/">Contact</a></li>
+            <li><a href="../contact/">Contact</a></li>
             <li><a href="../legal/">Legal</a></li>
             <li><a href="../legal/privacy/">Privacy</a></li>
           </ul>
@@ -959,14 +1003,20 @@
         <span>&copy; 2026 PlayCred. All rights reserved.</span>
         <div class="footer-social">
           <a href="https://www.instagram.com/play_cred" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
               <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
               <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
             </svg>
           </a>
-          <a href="https://www.linkedin.com/company/playcred-sport-fze/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <a href="https://www.facebook.com/profile.php?id=61589515002229" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+            </svg>
+          </a>          <a href="https://www.linkedin.com/company/playcred-sport-fze/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
               <rect x="2" y="9" width="4" height="12"></rect>
               <circle cx="4" cy="4" r="2"></circle>
@@ -976,6 +1026,7 @@
       </div>
     </div>
   </footer>
+
   <script src="../js/main.js"></script>
 </body>
 
