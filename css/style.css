@@ -151,8 +151,8 @@ html[data-theme="light"] .text-gradient {
 }
 
 html[data-theme="light"] .btn--secondary {
-  background: rgba(15, 26, 20, 0.04);
-  color: var(--pc-text-main);
+background: rgb(15 26 20);
+    color: #fff;
 }
 
 html[data-theme="light"] .btn--secondary:hover {

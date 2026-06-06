@@ -4,11 +4,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About PlayCred | Our Mission & Story</title>
+  <title>About PlayCred | Sports Booking Platform Powered by Rewards</title>
+  <meta name="description"
+    content="PlayCred is a sports booking platform that allows users to watch rewarded ads, earn PlayCred credits, and book real sports sessions while helping advertisers reach active sports communities.">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&family=Inter:wght@400;500;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@400;500;700&display=swap"
     rel="stylesheet">
   <script>
     (function () {
@@ -35,48 +38,368 @@
   </script>
   <link rel="stylesheet" href="../css/style.css">
   <style>
-    .about-story {
-      max-width: 800px;
-      margin: 4rem auto;
+    .about-page {
+      position: relative;
+      overflow: hidden;
     }
 
-    .about-story h2 {
-      font-size: 2.5rem;
-      margin-bottom: 2rem;
+    .about-page > * {
+      position: relative;
+      z-index: 1;
     }
 
-    .about-story p {
-      font-size: 1.25rem;
-      color: var(--pc-text-muted);
-      line-height: 1.8;
-      margin-bottom: 2rem;
+    .about-hero {
+      padding: clamp(9rem, 12vw, 11rem) 0 4rem;
     }
 
-    .stats-row {
+    .about-hero__grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
       gap: 2rem;
-      margin-top: 6rem;
-      border-top: 1px solid var(--pc-border-light);
-      padding-top: 4rem;
+      align-items: start;
     }
 
-    .stat-item h3 {
-      font-size: 3rem;
-      color: var(--pc-primary);
-      font-weight: 700;
-    }
-
-    .stat-item p {
+    .about-hero__lede {
+      max-width: 760px;
       color: var(--pc-text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      font-size: 0.8rem;
-      font-weight: 700;
+      font-size: 1.12rem;
+      line-height: 1.8;
+      margin-top: 1.25rem;
     }
 
-    @media (max-width: 600px) {
-      .stats-row {
+    .about-hero h1 {
+      font-size: clamp(3rem, 7vw, 4rem);
+      margin-top: 0.75rem;
+      max-width: 15ch;
+    }
+
+    .about-hero__actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .about-hero__panel {
+      border: 1px solid var(--pc-border-light);
+      border-radius: var(--pc-radius-lg);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.015));
+      box-shadow: var(--pc-shadow);
+      padding: 1.5rem;
+    }
+
+    .about-hero__panel h2 {
+      font-size: 1.35rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .about-hero__panel p {
+      color: var(--pc-text-muted);
+      line-height: 1.7;
+    }
+
+    .about-pill-grid {
+      display: grid;
+      gap: 0.9rem;
+      margin-top: 1.25rem;
+    }
+
+    .about-pill {
+      padding: 1rem;
+      border: 1px solid var(--pc-border-light);
+      border-radius: 1rem;
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .about-pill strong {
+      display: block;
+      margin-bottom: 0.35rem;
+      font-size: 1rem;
+    }
+
+    .about-pill span {
+      color: var(--pc-text-muted);
+      line-height: 1.6;
+      font-size: 0.95rem;
+    }
+
+    .about-section {
+      padding: 4.5rem 0;
+    }
+
+    .about-section__heading {
+      max-width: 760px;
+      margin-bottom: 1.8rem;
+    }
+
+    .about-section__heading h2 {
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      margin-top: 0.5rem;
+    }
+
+    .about-section__heading p {
+      color: var(--pc-text-muted);
+      line-height: 1.75;
+      margin-top: 1rem;
+      max-width: 720px;
+    }
+
+    .about-copy-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.25rem;
+    }
+
+    .about-card {
+      border: 1px solid var(--pc-border-light);
+      border-radius: var(--pc-radius-lg);
+      background: var(--pc-bg-card);
+      box-shadow: var(--pc-shadow);
+      padding: 1.5rem;
+    }
+
+    .about-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .about-card p,
+    .about-card li {
+      color: var(--pc-text-muted);
+      line-height: 1.75;
+    }
+
+    .about-card p + p {
+      margin-top: 0.95rem;
+    }
+
+    .about-card ul {
+      list-style: none;
+      margin-top: 1rem;
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    .about-card li {
+      display: flex;
+      gap: 0.7rem;
+      align-items: flex-start;
+    }
+
+    .about-card li svg {
+      flex: 0 0 auto;
+      margin-top: 0.2rem;
+    }
+
+    .cards-3,
+    .cards-4 {
+      display: grid;
+      gap: 1.25rem;
+    }
+
+    .cards-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .cards-4 {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .card-tile {
+      border: 1px solid var(--pc-border-light);
+      border-radius: var(--pc-radius-lg);
+      background: var(--pc-bg-card);
+      box-shadow: var(--pc-shadow);
+      padding: 1.4rem;
+      min-height: 100%;
+    }
+
+    .card-tile__badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.5rem 0.75rem;
+      border-radius: 999px;
+      border: 1px solid var(--pc-border-light);
+      color: var(--pc-primary);
+      background: rgba(34, 197, 94, 0.06);
+      font-size: 0.82rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .card-tile h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .card-tile p {
+      color: var(--pc-text-muted);
+      line-height: 1.75;
+    }
+
+    .step-list {
+      list-style: none;
+      display: grid;
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+
+    .step-list li {
+      display: flex;
+      gap: 0.75rem;
+      align-items: flex-start;
+      color: var(--pc-text-muted);
+      line-height: 1.7;
+    }
+
+    .step-list svg {
+      flex: 0 0 auto;
+      margin-top: 0.15rem;
+    }
+
+    .promise-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.25rem;
+    }
+
+    .cta-panel {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      padding: 2rem;
+      border: 1px solid var(--pc-border-light);
+      border-radius: calc(var(--pc-radius-lg) + 0.25rem);
+      background:
+        linear-gradient(135deg, rgba(34, 197, 94, 0.12), rgba(245, 158, 11, 0.04)),
+        var(--pc-bg-card);
+      box-shadow: var(--pc-shadow);
+    }
+
+    .cta-panel h2 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      margin-top: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .cta-panel p {
+      color: var(--pc-text-muted);
+      max-width: 640px;
+      line-height: 1.75;
+    }
+
+    .cta-panel__actions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+      min-width: 260px;
+    }
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.25rem;
+    }
+
+    .faq-group {
+      border: 1px solid var(--pc-border-light);
+      border-radius: var(--pc-radius-lg);
+      background: var(--pc-bg-card);
+      box-shadow: var(--pc-shadow);
+      padding: 1.5rem;
+    }
+
+    .faq-group h3 {
+      font-size: 1.45rem;
+      margin-bottom: 1rem;
+    }
+
+    .faq-list {
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    .faq-item {
+      border: 1px solid var(--pc-border-light);
+      border-radius: 1rem;
+      background: rgba(255, 255, 255, 0.02);
+      overflow: hidden;
+    }
+
+    .faq-item summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 1rem 1rem 1rem 1.1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      font-weight: 600;
+      line-height: 1.5;
+    }
+
+    .faq-item summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq-item summary::after {
+      content: '+';
+      color: var(--pc-primary);
+      font-size: 1.25rem;
+      flex: 0 0 auto;
+    }
+
+    .faq-item[open] summary::after {
+      content: '-';
+    }
+
+    .faq-answer {
+      color: var(--pc-text-muted);
+      line-height: 1.75;
+      padding: 0 1.1rem 1rem;
+    }
+
+    @media (max-width: 1080px) {
+      .about-hero__grid,
+      .about-copy-grid,
+      .faq-grid,
+      .promise-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cards-4 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .cards-3 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .cta-panel {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .about-hero {
+        padding-top: 8.75rem;
+      }
+
+      .about-hero__actions,
+      .cta-panel__actions {
+        width: 100%;
+      }
+
+      .about-hero__actions .btn,
+      .cta-panel__actions .btn {
+        width: 100%;
+      }
+
+      .cards-3,
+      .cards-4 {
         grid-template-columns: 1fr;
       }
     }
@@ -129,37 +452,481 @@
     </div>
   </header>
 
-  <main class="container" style="padding-top: 10rem; padding-bottom: 6rem;">
-    <div style="text-align: center; max-width: 700px; margin: 0 auto;" class="reveal">
-      <span class="section-label">Our Mission</span>
-      <h1>Making sports accessible to <span class="text-primary">everyone, everywhere.</span></h1>
-    </div>
+  <main class="about-page">
+    <section class="about-hero">
+      <div class="container">
+        <div class="about-hero__grid reveal">
+          <div>
+            <span class="section-label">About PlayCred</span>
+            <h1>Making sports more accessible through advertising-powered rewards.</h1>
+            <p class="about-hero__lede">
+              PlayCred is a sports booking platform built to make playing easier, more affordable, and more accessible.
+              We connect players who want to book games, brands that want meaningful attention, and venues that want
+              more active bookings.
+            </p>
+            <p class="about-hero__lede">
+              Instead of asking players to pay every time they want to play, PlayCred allows users to watch rewarded
+              ads, earn PlayCred credits, and use those credits to book real sports sessions through the platform.
+            </p>
+            <div class="about-hero__actions">
+              <a href="../players/" class="btn btn--primary btn--xl">Start Playing</a>
+              <a href="../advertisers/" class="btn btn--secondary btn--xl">Advertise with PlayCred</a>
+              <a href="mailto:info@playcred.ae?subject=Venue%20Partnership%20with%20PlayCred" class="btn btn--outline btn--xl">Partner as a Venue</a>
+            </div>
+          </div>
 
-    <div class="about-story reveal">
-      <h2>The PlayCred Story</h2>
-      <p>We believe that financial barriers should never stand between a player and their passion. In many cities,
-        premium sports facilities are becoming harder to afford for local communities.</p>
-      <p>PlayCred was born from a simple question: <em>What if we could turn the value of attention into the value of
-          action?</em></p>
-      <p>By advertisering with brands that value active lifestyles, we've created a sustainable ecosystem where advertisers
-        get high-intent engagement, and players get the field time they deserve. It's a win-win for the entire sports
-        community.</p>
-
-      <div class="stats-row">
-        <div class="stat-item">
-          <h3>10K+</h3>
-          <p>Active Players</p>
-        </div>
-        <div class="stat-item">
-          <h3>250+</h3>
-          <p>Advertiser Venues</p>
-        </div>
-        <div class="stat-item">
-          <h3>500K+</h3>
-          <p>Matches Booked</p>
+          <aside class="about-hero__panel">
+            <h2>Built for three audiences</h2>
+            <p>PlayCred is designed to create value for users, advertisers, and venues at the same time.</p>
+            <div class="about-pill-grid">
+              <div class="about-pill">
+                <strong>Players</strong>
+                <span>Earn credits, unlock sessions, and turn attention into access.</span>
+              </div>
+              <div class="about-pill">
+                <strong>Advertisers</strong>
+                <span>Reach active sports communities in a more focused environment.</span>
+              </div>
+              <div class="about-pill">
+                <strong>Venues</strong>
+                <span>Increase bookings and connect available slots with real demand.</span>
+              </div>
+            </div>
+          </aside>
         </div>
       </div>
-    </div>
+    </section>
+
+    <section class="about-section">
+      <div class="container">
+        <div class="about-section__heading reveal">
+          <span class="section-label">Our Mission</span>
+          <h2>Our mission is simple: turn advertising value into real playing opportunities.</h2>
+          <p>
+            We believe sports should not be limited only to people who can afford regular field bookings. Many players
+            want to stay active, play with friends, and join games, but the cost of booking venues can become a
+            barrier. PlayCred is designed to reduce that barrier.
+          </p>
+        </div>
+
+        <div class="about-copy-grid reveal">
+          <article class="about-card">
+            <h3>Why PlayCred exists</h3>
+            <p>
+              In many cities, sports facilities are available, but they are not always affordable or easy to book
+              regularly. At the same time, brands are spending money on digital advertising but often struggle to reach
+              the right audience in a meaningful way.
+            </p>
+            <p>
+              PlayCred was created to solve both problems. Users give their attention to relevant advertising.
+              Advertisers receive visibility from active users. That value is then converted into PlayCred credits that
+              help users book sports sessions.
+            </p>
+          </article>
+
+          <article class="about-card">
+            <h3>How the model works</h3>
+            <ul>
+              <li>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                  stroke="var(--pc-primary)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                Users watch rewarded ads and earn PlayCred credits.
+              </li>
+              <li>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                  stroke="var(--pc-primary)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                Brands reach an audience that is already engaged and sports-focused.
+              </li>
+              <li>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                  stroke="var(--pc-primary)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                Venues receive more visibility and more chances to fill available time slots.
+              </li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-section">
+      <div class="container">
+        <div class="about-section__heading reveal">
+          <span class="section-label">How It Works</span>
+          <h2>Three simple paths, one shared ecosystem.</h2>
+          <p>
+            PlayCred is set up so each audience gets a clear experience. Players earn. Advertisers reach. Venues fill
+            slots.
+          </p>
+        </div>
+
+        <div class="cards-3 reveal">
+          <article class="card-tile">
+            <div class="card-tile__badge">For Players</div>
+            <h3>Watch, earn, and book.</h3>
+            <p>Players can use PlayCred to earn credits by watching rewarded ads inside the platform. Those credits can
+              then be used to book available sports sessions.</p>
+            <ul class="step-list">
+              <li>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                  stroke="var(--pc-primary)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                Watch rewarded ads.
+              </li>
+              <li>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                  stroke="var(--pc-primary)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                Earn PlayCred credits.
+              </li>
+              <li>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                  stroke="var(--pc-primary)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                Choose a game or venue and book.
+              </li>
+            </ul>
+          </article>
+
+          <article class="card-tile">
+            <div class="card-tile__badge">For Advertisers</div>
+            <h3>Reach an active audience.</h3>
+            <p>PlayCred gives brands access to users in a focused sports environment through rewarded video ads, banners,
+              pop-ups, and other approved in-app placements.</p>
+            <ul class="step-list">
+              <li>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                  stroke="var(--pc-primary)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                High-intent user engagement.
+              </li>
+              <li>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                  stroke="var(--pc-primary)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                Performance tracking and reporting.
+              </li>
+              <li>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                  stroke="var(--pc-primary)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                A more useful ad experience than passive placements.
+              </li>
+            </ul>
+          </article>
+
+          <article class="card-tile">
+            <div class="card-tile__badge">For Venues</div>
+            <h3>Turn interest into bookings.</h3>
+            <p>PlayCred helps sports venues increase usage by bringing more players to available time slots and building a
+              stronger connection between demand and bookings.</p>
+            <ul class="step-list">
+              <li>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                  stroke="var(--pc-primary)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                More active booking opportunities.
+              </li>
+              <li>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                  stroke="var(--pc-primary)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                Better field utilization.
+              </li>
+              <li>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                  stroke="var(--pc-primary)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                A growing sports community around your venue.
+              </li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-section">
+      <div class="container">
+        <div class="about-section__heading reveal">
+          <span class="section-label">What Makes PlayCred Different</span>
+          <h2>It is not just a booking platform. It is a reward-based sports ecosystem.</h2>
+          <p>
+            Users do not only browse and pay. They participate, earn, and play. Advertisers do not only place ads.
+            They support real sports activity and connect with users in a more engaging environment. Venues do not only
+            rent fields. They become part of a platform that encourages more people to stay active.
+          </p>
+        </div>
+
+        <div class="about-copy-grid reveal">
+          <article class="about-card">
+            <h3>Built around real value</h3>
+            <p>
+              PlayCred turns attention into access. The value created by advertiser engagement is converted into credits
+              that help users book sports sessions.
+            </p>
+          </article>
+
+          <article class="about-card">
+            <h3>Designed for community impact</h3>
+            <p>
+              The model creates a win-win for the entire sports community, bringing together players, brands, venues,
+              and local sports partners in one system.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-section">
+      <div class="container">
+        <div class="about-section__heading reveal">
+          <span class="section-label">Our Ecosystem</span>
+          <h2>Four groups, one shared platform.</h2>
+          <p>PlayCred is built for people who want to play more, brands that want meaningful reach, and venues that
+            want stronger utilization.</p>
+        </div>
+
+        <div class="cards-4 reveal">
+          <article class="card-tile">
+            <h3>Players</h3>
+            <p>A platform built for people who want to play more often.</p>
+          </article>
+          <article class="card-tile">
+            <h3>Advertisers</h3>
+            <p>A new way for brands to reach active sports communities.</p>
+          </article>
+          <article class="card-tile">
+            <h3>Venues</h3>
+            <p>A booking channel designed to bring more players to the field.</p>
+          </article>
+          <article class="card-tile">
+            <h3>Community</h3>
+            <p>A reward-based model that makes sports more accessible.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-section">
+      <div class="container">
+        <div class="about-section__heading reveal">
+          <span class="section-label">Our Vision</span>
+          <h2>We are building toward a leading sports rewards and booking platform in the UAE and beyond.</h2>
+          <p>
+            The long-term goal is to make sports easier to access, help venues stay active, and give brands a smarter
+            way to support communities in a measurable and meaningful way.
+          </p>
+        </div>
+
+        <div class="promise-grid reveal">
+          <article class="about-card">
+            <h3>Our vision</h3>
+            <p>To build a future where more people can access sports, more venues can stay active, and more brands can
+              support communities in a measurable and meaningful way.</p>
+          </article>
+          <article class="about-card">
+            <h3>Our promise</h3>
+            <p>We promise a simple way to earn credits and book sports sessions, a focused platform for active users,
+              and a new channel for venues to attract players and increase booking opportunities.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-section">
+      <div class="container">
+        <div class="cta-panel reveal">
+          <div>
+            <span class="section-label">Ready to join?</span>
+            <h2>Ready to be part of PlayCred?</h2>
+            <p>Join a platform built for players, advertisers, venues, and active communities.</p>
+          </div>
+          <div class="cta-panel__actions">
+            <a href="../players/" class="btn btn--primary">Start Playing</a>
+            <a href="../advertisers/" class="btn btn--secondary">Advertise with Us</a>
+            <a href="mailto:info@playcred.ae?subject=Venue%20Partnership%20with%20PlayCred" class="btn btn--outline">Partner as a Venue</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-section" id="faq">
+      <div class="container">
+        <div class="about-section__heading reveal">
+          <span class="section-label">FAQ</span>
+          <h2>Questions from users and advertisers.</h2>
+          <p>The answers below use the FAQ copy you provided and are grouped for easier scanning.</p>
+        </div>
+
+        <div class="faq-grid reveal">
+          <article class="faq-group">
+            <h3>For Users</h3>
+            <div class="faq-list">
+              <details class="faq-item">
+                <summary>What is PlayCred?</summary>
+                <div class="faq-answer">PlayCred is a sports booking platform that allows users to earn PlayCred credits by watching rewarded ads and use those credits to book sports sessions.</div>
+              </details>
+              <details class="faq-item">
+                <summary>How does PlayCred work?</summary>
+                <div class="faq-answer">The process is simple: watch ads, earn PlayCred credits, and use those credits to book available games or sports sessions through the PlayCred app.</div>
+              </details>
+              <details class="faq-item">
+                <summary>Is PlayCred free to use?</summary>
+                <div class="faq-answer">Yes. Users can earn credits by watching rewarded ads and use those credits to book available sessions, subject to availability and platform rules.</div>
+              </details>
+              <details class="faq-item">
+                <summary>What are PlayCred credits?</summary>
+                <div class="faq-answer">PlayCred credits are in-app credits used only within the PlayCred platform to book eligible sports sessions. They are not money, cash, cashback, or a financial wallet.</div>
+              </details>
+              <details class="faq-item">
+                <summary>How do I earn PlayCred credits?</summary>
+                <div class="faq-answer">You can earn credits by watching completed rewarded video ads inside the PlayCred app. Once the ad is completed, credits are added to your account.</div>
+              </details>
+              <details class="faq-item">
+                <summary>How many credits do I need to book a game?</summary>
+                <div class="faq-answer">The number of credits required may depend on the session type, location, and availability. The required credits will be clearly shown before you confirm your booking.</div>
+              </details>
+              <details class="faq-item">
+                <summary>Can I buy PlayCred credits?</summary>
+                <div class="faq-answer">Currently, PlayCred is focused on allowing users to earn credits through ads. If credit purchase options become available in the future, they will be shown clearly in the app.</div>
+              </details>
+              <details class="faq-item">
+                <summary>Do PlayCred credits expire?</summary>
+                <div class="faq-answer">Yes. PlayCred credits may have an expiry period. The expiry details will be shown in the app, and users are encouraged to use their credits before they expire.</div>
+              </details>
+              <details class="faq-item">
+                <summary>Can I cancel my booking?</summary>
+                <div class="faq-answer">Cancellation rules depend on the platform policy shown at the time of booking. If your booking is eligible for a credit refund, the refundable amount will be displayed before you confirm cancellation.</div>
+              </details>
+              <details class="faq-item">
+                <summary>What happens if a session is full?</summary>
+                <div class="faq-answer">If a session is full, you may not be able to book that slot. Where available, PlayCred may provide a waiting list or show alternative available sessions.</div>
+              </details>
+              <details class="faq-item">
+                <summary>Can I transfer my credits to another user?</summary>
+                <div class="faq-answer">No. PlayCred credits are linked to your account and cannot be transferred, sold, exchanged, or redeemed for cash.</div>
+              </details>
+              <details class="faq-item">
+                <summary>Are the ads skippable?</summary>
+                <div class="faq-answer">Rewarded ads may need to be watched fully in order to earn credits. If the ad is not completed, credits may not be issued.</div>
+              </details>
+              <details class="faq-item">
+                <summary>What sports can I book on PlayCred?</summary>
+                <div class="faq-answer">PlayCred may offer access to football, basketball, and other sports sessions depending on availability, location, and partner venues.</div>
+              </details>
+              <details class="faq-item">
+                <summary>Where is PlayCred available?</summary>
+                <div class="faq-answer">PlayCred is launching in selected locations first. Available sessions, venues, and cities will be shown inside the app.</div>
+              </details>
+              <details class="faq-item">
+                <summary>Who can use PlayCred?</summary>
+                <div class="faq-answer">PlayCred is intended for users who meet the minimum age requirement and agree to the platform's Terms and Conditions.</div>
+              </details>
+            </div>
+          </article>
+
+          <article class="faq-group">
+            <h3>For Advertisers</h3>
+            <div class="faq-list">
+              <details class="faq-item">
+                <summary>What is PlayCred for advertisers?</summary>
+                <div class="faq-answer">PlayCred gives brands the opportunity to reach an active sports-focused audience through rewarded video ads, banners, pop-ups, and other in-app advertising placements.</div>
+              </details>
+              <details class="faq-item">
+                <summary>Why should advertisers use PlayCred?</summary>
+                <div class="faq-answer">PlayCred connects advertisers with users who are actively engaging with the platform to earn credits and book sports sessions. This creates a more focused and interactive advertising environment compared with standard passive ad placements.</div>
+              </details>
+              <details class="faq-item">
+                <summary>What ad formats are available?</summary>
+                <div class="faq-answer">PlayCred may offer several advertising formats, including rewarded video ads, home screen banners, pop-up or interstitial ads, confirmation page banners, and other sponsored placements depending on the selected package.</div>
+              </details>
+              <details class="faq-item">
+                <summary>What is a rewarded video ad?</summary>
+                <div class="faq-answer">A rewarded video ad is an ad that users watch in order to earn PlayCred credits. This format is designed to generate higher attention because users voluntarily watch the ad to receive credits.</div>
+              </details>
+              <details class="faq-item">
+                <summary>Can advertisers choose where their ads appear?</summary>
+                <div class="faq-answer">Yes. Ad placement depends on the selected advertising package and available inventory. Placement options may include rewarded video, banner, pop-up, and confirmation screen positions.</div>
+              </details>
+              <details class="faq-item">
+                <summary>How does campaign pricing work?</summary>
+                <div class="faq-answer">Campaign pricing may depend on the selected package, ad format, campaign duration, impressions, completed views, clicks, or other platform-based pricing shown at the time of purchase.</div>
+              </details>
+              <details class="faq-item">
+                <summary>Are prices fixed?</summary>
+                <div class="faq-answer">Prices, packages, and campaign options may change from time to time. The latest available pricing will be shown on the PlayCred platform or in the advertiser dashboard.</div>
+              </details>
+              <details class="faq-item">
+                <summary>Can I set a campaign budget?</summary>
+                <div class="faq-answer">Yes. Advertisers may be able to select or top up a campaign budget depending on the available campaign setup and package options.</div>
+              </details>
+              <details class="faq-item">
+                <summary>What statistics can advertisers see?</summary>
+                <div class="faq-answer">Advertisers may be able to track key campaign metrics such as impressions, clicks, click-through rate, completed views, campaign status, and other performance data available in the advertiser dashboard.</div>
+              </details>
+              <details class="faq-item">
+                <summary>Can I pause or edit my campaign?</summary>
+                <div class="faq-answer">Yes. Depending on the campaign settings, advertisers may be able to edit, pause, update dates, or adjust campaign details from the advertiser dashboard.</div>
+              </details>
+              <details class="faq-item">
+                <summary>Does PlayCred approve ads before they go live?</summary>
+                <div class="faq-answer">Yes. Ads may be reviewed by PlayCred before going live to ensure they meet platform standards, technical requirements, and advertising guidelines.</div>
+              </details>
+              <details class="faq-item">
+                <summary>What happens if my ad is rejected?</summary>
+                <div class="faq-answer">If an ad is rejected, the reason may be shown in the advertiser dashboard. Advertisers can then update the creative and resubmit it for review.</div>
+              </details>
+              <details class="faq-item">
+                <summary>What type of businesses can advertise on PlayCred?</summary>
+                <div class="faq-answer">PlayCred is suitable for brands that want to reach active, young, social, and sports-interested users. This may include sports brands, fitness businesses, food and beverage companies, lifestyle brands, local services, events, and other relevant advertisers.</div>
+              </details>
+              <details class="faq-item">
+                <summary>Can ads link to my website or landing page?</summary>
+                <div class="faq-answer">Yes. Clickable ads may direct users to the advertiser's website, landing page, app, or other approved destination.</div>
+              </details>
+              <details class="faq-item">
+                <summary>Is PlayCred suitable for small businesses?</summary>
+                <div class="faq-answer">Yes. PlayCred can be suitable for both local businesses and larger brands that want to reach a targeted sports audience through digital advertising.</div>
+              </details>
+              <details class="faq-item">
+                <summary>Can I run a short test campaign?</summary>
+                <div class="faq-answer">Yes. Subject to available packages, advertisers may be able to run a short campaign or pilot campaign before committing to a longer-term advertising plan.</div>
+              </details>
+              <details class="faq-item">
+                <summary>Does PlayCred guarantee results?</summary>
+                <div class="faq-answer">PlayCred may provide campaign delivery estimates or performance reporting, but actual results may vary depending on the campaign, creative quality, audience engagement, targeting, and available inventory.</div>
+              </details>
+              <details class="faq-item">
+                <summary>How can advertisers get started?</summary>
+                <div class="faq-answer">Advertisers can register on the PlayCred advertiser platform, select an available package, upload campaign creatives, and submit ads for review before launch.</div>
+              </details>
+              <details class="faq-item">
+                <summary>What creative materials do I need?</summary>
+                <div class="faq-answer">Advertisers may need to provide videos, banners, images, campaign links, brand information, and any required text depending on the selected ad format.</div>
+              </details>
+              <details class="faq-item">
+                <summary>Who can I contact for advertising support?</summary>
+                <div class="faq-answer">For advertising inquiries, campaign setup, or support, advertisers can contact PlayCred through the official contact form or support email shown on the website.</div>
+              </details>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer class="site-footer">
@@ -185,14 +952,14 @@
           <ul
             style="list-style: none; display: flex; flex-direction: column; gap: 0.75rem; color: var(--pc-text-muted);">
             <li><a href="../about/">About Us</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="mailto:info@playcred.ae">Contact</a></li>
             <li><a href="../legal/">Legal</a></li>
             <li><a href="../legal/privacy/">Privacy</a></li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
-        <span>Š 2026 PlayCred. All rights reserved.</span>
+        <span>&copy; 2026 PlayCred. All rights reserved.</span>
         <div class="footer-social">
           <a href="https://www.instagram.com/play_cred" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -216,5 +983,3 @@
 </body>
 
 </html>
-
-
