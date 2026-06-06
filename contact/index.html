@@ -409,10 +409,10 @@
     .checkbox-row {
       display: flex;
       gap: 0.75rem;
-      align-items: flex-start;
+      align-items: center;
+      justify-content: flex-start;
       color: var(--pc-text-muted);
       line-height: 1.65;
-      max-width: 410px;
     }
 
     .checkbox-row input {
@@ -422,15 +422,12 @@
 
     .contact-form__footer {
       display: flex;
-      flex-wrap: wrap;
+      flex-direction: column;
       gap: 1rem;
-      align-items: center;
-      justify-content: space-between;
       margin-top: 1.5rem;
     }
 
     .contact-form__status {
-      flex: 1 1 260px;
       min-height: 1.5em;
       color: var(--pc-text-muted);
       line-height: 1.5;
@@ -449,6 +446,7 @@
       flex-wrap: wrap;
       gap: 1rem;
       align-items: center;
+      margin-left: auto;
     }
 
     .contact-cta {
@@ -489,7 +487,6 @@
       display: flex;
       flex-direction: column;
       gap: 0.9rem;
-      min-width: 290px;
     }
 
     .contact-page .btn {
@@ -582,7 +579,6 @@
       .contact-card,
       .contact-form,
       .contact-cta {
-        max-width: calc(100vw - 4.5rem);
         width: 100%;
       }
 
@@ -629,7 +625,6 @@
       }
 
       .contact-form__footer {
-        flex-direction: column-reverse;
         align-items: flex-start;
       }
     }
@@ -913,6 +908,10 @@
             </div>
 
             <div class="contact-form__footer">
+              <label class="checkbox-row" for="privacy-consent">
+                <input id="privacy-consent" name="Privacy Consent" type="checkbox" checked required>
+                <span>I agree that PlayCred may contact me regarding my inquiry. View <a href="../legal/privacy/">Privacy Policy</a>.</span>
+              </label>
               <p class="contact-form__status" data-contact-status role="status" aria-live="polite"></p>
               <div class="contact-form__actions">
                 <button type="submit" class="btn btn--primary btn--xl">
@@ -932,10 +931,6 @@
                   Chat on WhatsApp
                 </a>
               </div>
-              <label class="checkbox-row" for="privacy-consent">
-                <input id="privacy-consent" name="Privacy Consent" type="checkbox" checked required>
-                <span>I agree that PlayCred may contact me regarding my inquiry. View <a href="../legal/privacy/">Privacy Policy</a>.</span>
-              </label>
             </div>
           </form>
         </div>

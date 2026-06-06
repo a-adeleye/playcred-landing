@@ -2,10 +2,24 @@ const fs = require('node:fs');
 const path = require('node:path');
 
 const firebaseDefaults = {
-  apiKey: 'AIzaSyBqD9T84q9bRWvzrLE1P5nZiwMsezyT2eI',
-  authDomain: 'playcred-1a24f.firebaseapp.com',
-  projectId: 'playcred-1a24f',
-  appId: '1:777843113601:web:5b66623e1fa0a620b55780',
+  local: {
+    apiKey: 'AIzaSyAH5IlpAIYlrYfXbWtEESSAUXIWH3kgRhU',
+    authDomain: 'playcred-6e57b.firebaseapp.com',
+    projectId: 'playcred-6e57b',
+    appId: '1:370615590881:web:7db09cc3b621de73617ca0',
+  },
+  staging: {
+    apiKey: 'AIzaSyAH5IlpAIYlrYfXbWtEESSAUXIWH3kgRhU',
+    authDomain: 'playcred-6e57b.firebaseapp.com',
+    projectId: 'playcred-6e57b',
+    appId: '1:370615590881:web:7db09cc3b621de73617ca0',
+  },
+  production: {
+    apiKey: 'AIzaSyBqD9T84q9bRWvzrLE1P5nZiwMsezyT2eI',
+    authDomain: 'playcred-1a24f.firebaseapp.com',
+    projectId: 'playcred-1a24f',
+    appId: '1:777843113601:web:5b66623e1fa0a620b55780',
+  },
 };
 
 const appCheckSiteKeyDefaults = {
@@ -70,10 +84,10 @@ function getContactConfig(environment) {
   return {
     contactApiUrl,
     firebase: {
-      apiKey: pickEnvValue('FIREBASE_API_KEY', firebaseDefaults.apiKey),
-      authDomain: pickEnvValue('FIREBASE_AUTH_DOMAIN', firebaseDefaults.authDomain),
-      projectId: pickEnvValue('FIREBASE_PROJECT_ID', firebaseDefaults.projectId),
-      appId: pickEnvValue('FIREBASE_APP_ID', firebaseDefaults.appId),
+      apiKey: pickEnvValue('FIREBASE_API_KEY', firebaseDefaults[requestedEnvironment].apiKey),
+      authDomain: pickEnvValue('FIREBASE_AUTH_DOMAIN', firebaseDefaults[requestedEnvironment].authDomain),
+      projectId: pickEnvValue('FIREBASE_PROJECT_ID', firebaseDefaults[requestedEnvironment].projectId),
+      appId: pickEnvValue('FIREBASE_APP_ID', firebaseDefaults[requestedEnvironment].appId),
     },
     appCheckSiteKey: pickEnvValue(
       'FIREBASE_APP_CHECK_SITE_KEY',
