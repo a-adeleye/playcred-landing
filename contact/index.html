@@ -366,10 +366,25 @@
       transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
     }
 
+    .field select,
+    .field option {
+      color-scheme: inherit;
+    }
+
+    .field option {
+      background: var(--pc-bg-card);
+      color: var(--pc-text-main);
+    }
+
     html[data-theme="light"] .field input,
     html[data-theme="light"] .field select,
     html[data-theme="light"] .field textarea {
       background: rgba(255, 255, 255, 0.82);
+    }
+
+    html[data-theme="light"] .field option {
+      background: #ffffff;
+      color: var(--pc-text-main);
     }
 
     .field input:focus,
