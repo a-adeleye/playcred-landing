@@ -82,6 +82,49 @@ function applyActiveNavLink() {
 
 let contactConfigCache = undefined;
 
+const CONTACT_CONFIG_DEFAULTS = {
+  local: {
+    contactApiUrl: 'http://localhost:8081/api/v1/contact',
+    firebase: {
+      apiKey: 'AIzaSyAH5IlpAIYlrYfXbWtEESSAUXIWH3kgRhU',
+      authDomain: 'playcred-6e57b.firebaseapp.com',
+      projectId: 'playcred-6e57b',
+      appId: '1:370615590881:web:7db09cc3b621de73617ca0',
+    },
+    appCheckSiteKey: '6LcOOqYsAAAAABEKzNsx_ZGYMibPgbpLbRfEeRql',
+  },
+  production: {
+    contactApiUrl: 'https://api.playcred.ae/api/v1/contact',
+    firebase: {
+      apiKey: 'AIzaSyBqD9T84q9bRWvzrLE1P5nZiwMsezyT2eI',
+      authDomain: 'playcred-1a24f.firebaseapp.com',
+      projectId: 'playcred-1a24f',
+      appId: '1:777843113601:web:5b66623e1fa0a620b55780',
+    },
+    appCheckSiteKey: '6LeROxAtAAAAAO9E3Ce-4-Xl1chH5_CI1sTvSnIQ',
+  },
+};
+
+function getRuntimeEnvironment() {
+  const hostname = window.location.hostname.toLowerCase();
+
+  if (
+    hostname === 'localhost' ||
+    hostname === '127.0.0.1' ||
+    hostname === '::1' ||
+    window.location.protocol === 'file:'
+  ) {
+    return 'local';
+  }
+
+  return 'production';
+}
+
+function getFallbackContactConfig() {
+  const environment = getRuntimeEnvironment();
+  return CONTACT_CONFIG_DEFAULTS[environment];
+}
+
 function getContactConfig() {
   if (contactConfigCache !== undefined) {
     return contactConfigCache;
@@ -91,14 +134,15 @@ function getContactConfig() {
   if (configScript) {
     try {
       contactConfigCache = JSON.parse(configScript.textContent || 'null');
-      return contactConfigCache;
+      if (contactConfigCache && contactConfigCache.contactApiUrl && contactConfigCache.firebase && contactConfigCache.appCheckSiteKey) {
+        return contactConfigCache;
+      }
     } catch (error) {
-      contactConfigCache = null;
-      return contactConfigCache;
+      // Fall through to the runtime defaults below.
     }
   }
 
-  contactConfigCache = window.__PLAYCRED_CONTACT_CONFIG__ || null;
+  contactConfigCache = window.__PLAYCRED_CONTACT_CONFIG__ || getFallbackContactConfig();
   return contactConfigCache;
 }
 
