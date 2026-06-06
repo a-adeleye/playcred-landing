@@ -80,6 +80,50 @@ function applyActiveNavLink() {
   });
 }
 
+function getContactConfig() {
+  return window.__PLAYCRED_CONTACT_CONFIG__ || null;
+}
+
+function getContactSubmissionUrl() {
+  const config = getContactConfig();
+
+  if (!config || !config.contactApiUrl) {
+    throw new Error('Missing contact API configuration.');
+  }
+
+  return config.contactApiUrl;
+}
+
+let contactFirebaseSdkPromise = null;
+
+async function getContactFirebaseSdk() {
+  const config = getContactConfig();
+
+  if (!config || !config.firebase || !config.appCheckSiteKey) {
+    throw new Error('Missing Firebase App Check configuration.');
+  }
+
+  if (!contactFirebaseSdkPromise) {
+    contactFirebaseSdkPromise = Promise.all([
+      import('https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js'),
+      import('https://www.gstatic.com/firebasejs/10.12.5/firebase-app-check.js'),
+    ]).then(([appModule, appCheckModule]) => {
+      const app = appModule.initializeApp(config.firebase);
+      const appCheck = appCheckModule.initializeAppCheck(app, {
+        provider: new appCheckModule.ReCaptchaV3Provider(config.appCheckSiteKey),
+        isTokenAutoRefreshEnabled: true,
+      });
+
+      return {
+        appCheck,
+        getToken: appCheckModule.getToken,
+      };
+    });
+  }
+
+  return contactFirebaseSdkPromise;
+}
+
 function collectContactFormPayload(form) {
   const getValue = (selector) => {
     const field = form.querySelector(selector);
@@ -136,17 +180,25 @@ function wireContactForm() {
     }
 
     try {
-      const response = await fetch(form.action, {
+      const { appCheck, getToken } = await getContactFirebaseSdk();
+      const appCheckTokenResponse = await getToken(appCheck, false);
+      const response = await fetch(getContactSubmissionUrl(), {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           Accept: 'application/json',
+          'X-Firebase-AppCheck': appCheckTokenResponse.token,
         },
         body: JSON.stringify(collectContactFormPayload(form)),
       });
 
       if (!response.ok) {
         throw new Error(`Request failed with status ${response.status}`);
+      }
+
+      const responseBody = await response.json().catch(() => null);
+      if (!responseBody || responseBody.success !== true) {
+        throw new Error('Unexpected response body.');
       }
 
       form.reset();

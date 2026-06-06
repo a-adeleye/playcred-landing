@@ -1,6 +1,19 @@
 const fs = require('node:fs');
 const path = require('node:path');
 
+const firebaseDefaults = {
+  apiKey: 'AIzaSyAH5IlpAIYlrYfXbWtEESSAUXIWH3kgRhU',
+  authDomain: 'playcred-6e57b.firebaseapp.com',
+  projectId: 'playcred-6e57b',
+  appId: '1:370615590881:web:7db09cc3b621de73617ca0',
+};
+
+const appCheckSiteKeyDefaults = {
+  local: '6LcOOqYsAAAAABEKzNsx_ZGYMibPgbpLbRfEeRql',
+  staging: '6LcOOqYsAAAAABEKzNsx_ZGYMibPgbpLbRfEeRql',
+  production: '6LcOOqYsAAAAABEKzNsx_ZGYMibPgbpLbRfEeRql',
+};
+
 const environments = {
   local: {
     playerBaseUrl: 'http://localhost:4300',
@@ -26,6 +39,10 @@ const knownAdvertiserBaseUrls = Object.values(environments).map(
 const knownContactApiBaseUrls = Object.values(environments).map(
   (environment) => environment.contactApiBaseUrl,
 );
+const placeholders = {
+  CONTACT_API_URL: '__CONTACT_API_URL__',
+  PLAYCRED_CONTACT_CONFIG_JSON: '__PLAYCRED_CONTACT_CONFIG_JSON__',
+};
 
 const requestedEnvironment = process.argv[2];
 const targetRoot = path.resolve(process.argv[3] || process.cwd());
@@ -40,6 +57,29 @@ function replaceAll(content, fromValues, toValue) {
   return fromValues.reduce((updatedContent, fromValue) => {
     return updatedContent.split(fromValue).join(toValue);
   }, content);
+}
+
+function pickEnvValue(name, fallback) {
+  const value = process.env[name];
+  return value && value.trim() ? value.trim() : fallback;
+}
+
+function getContactConfig(environment) {
+  const contactApiUrl = pickEnvValue('CONTACT_API_URL', `${environment.contactApiBaseUrl}/api/v1/contact`);
+
+  return {
+    contactApiUrl,
+    firebase: {
+      apiKey: pickEnvValue('FIREBASE_API_KEY', firebaseDefaults.apiKey),
+      authDomain: pickEnvValue('FIREBASE_AUTH_DOMAIN', firebaseDefaults.authDomain),
+      projectId: pickEnvValue('FIREBASE_PROJECT_ID', firebaseDefaults.projectId),
+      appId: pickEnvValue('FIREBASE_APP_ID', firebaseDefaults.appId),
+    },
+    appCheckSiteKey: pickEnvValue(
+      'FIREBASE_APP_CHECK_SITE_KEY',
+      appCheckSiteKeyDefaults[requestedEnvironment] || appCheckSiteKeyDefaults.production,
+    ),
+  };
 }
 
 function listHtmlFiles(dirPath) {
@@ -59,6 +99,8 @@ function listHtmlFiles(dirPath) {
 }
 
 const htmlFiles = listHtmlFiles(targetRoot);
+const contactConfig = getContactConfig(targetEnvironment);
+const contactConfigJson = JSON.stringify(contactConfig);
 
 for (const filePath of htmlFiles) {
   const originalContent = fs.readFileSync(filePath, 'utf8');
@@ -72,12 +114,22 @@ for (const filePath of htmlFiles) {
     knownContactApiBaseUrls,
     targetEnvironment.contactApiBaseUrl,
   );
+  const nextContentWithContactConfigUrl = replaceAll(
+    nextContentWithContactApi,
+    [placeholders.CONTACT_API_URL],
+    contactConfig.contactApiUrl,
+  );
+  const nextContentWithContactConfigJson = replaceAll(
+    nextContentWithContactConfigUrl,
+    [placeholders.PLAYCRED_CONTACT_CONFIG_JSON],
+    contactConfigJson,
+  );
 
-  if (nextContentWithContactApi !== originalContent) {
-    fs.writeFileSync(filePath, nextContentWithContactApi);
+  if (nextContentWithContactConfigJson !== originalContent) {
+    fs.writeFileSync(filePath, nextContentWithContactConfigJson);
   }
 }
 
 console.log(
-  `Configured public app links for ${requestedEnvironment}: ${targetEnvironment.playerBaseUrl}, ${targetEnvironment.advertiserBaseUrl}, ${targetEnvironment.contactApiBaseUrl}`,
+  `Configured public app links for ${requestedEnvironment}: ${targetEnvironment.playerBaseUrl}, ${targetEnvironment.advertiserBaseUrl}, ${contactConfig.contactApiUrl}`,
 );
