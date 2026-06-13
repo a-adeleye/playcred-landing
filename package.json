@@ -4,7 +4,11 @@
   "private": true,
   "scripts": {
     "build": "node scripts/build-landing.cjs production",
-    "deploy": "node scripts/build-landing.cjs production && firebase deploy --only hosting:playcred"
+    "build:production": "node scripts/build-landing.cjs production",
+    "build:staging": "node scripts/build-landing.cjs staging",
+    "deploy": "node scripts/build-landing.cjs production && firebase deploy --only hosting:playcred",
+    "deploy:production": "node scripts/build-landing.cjs production && firebase deploy --only hosting:playcred",
+    "deploy:staging": "node scripts/build-landing.cjs staging && firebase deploy --only hosting:playcred"
   },
   "devDependencies": {
     "firebase-tools": "^14.0.0"
